@@ -257,59 +257,6 @@ Func EtatGriser()
 
 EndFunc;==>EtatGriser
 
-Func ListFichier($CheminDuDossier,$i)
-
-	Switch $i
-		Case 1
-			GUICtrlSetData($ListStats,"")
-			GUICtrlSetData($labelDateStats,"--")
-			GUICtrlSetData($EditStats,"")
-		Case 2
-			GUICtrlSetData($ListBuilds,"")
-		Case 3
-			GUICtrlSetData($ListsBuildsProfils,"")
-	EndSwitch
-
-	Local $array = DirGetSize($CheminDuDossier, 1)
-	Local $listeFichiers = _FileListToArray($CheminDuDossier,"*",1)
-
-	If IsArray($array) Then
-		Switch $i
-			Case 1
-				If $array[1] > 0 Then
-					For $i=1 to $listeFichiers[0]
-						GUICtrlSetData($ListStats,$listeFichiers[$i])
-					Next
-					AjoutLog("Stats chargées dans la ListBox")
-				Else
-					GUICtrlSetData($ListStats,"Aucune stat")
-					AjoutLog("Aucune stat")
-				EndIf
-			Case 2
-				If $array[1] > 0 Then
-					For $i=1 to $listeFichiers[0]
-						GUICtrlSetData($ListBuilds,$listeFichiers[$i])
-					Next
-					AjoutLog("Builds chargés dans la ListBox")
-				Else
-					GUICtrlSetData($ListBuilds,"Aucun Build")
-					AjoutLog("Aucun Build")
-				EndIf
-			Case 3
-				If $array[1] > 0 Then
-					For $i=1 to $listeFichiers[0]
-						GUICtrlSetData($ListsBuildsProfils,$listeFichiers[$i])
-					Next
-					AjoutLog("Profils chargés dans la ListBox")
-				Else
-					GUICtrlSetData($ListsBuildsProfils,"Aucun Profil")
-					AjoutLog("Aucun profil")
-				EndIf
-		EndSwitch
-	EndIf
-
-EndFunc;==>ListFichier
-
 Func AfficheStats($FichierStats)
 
 	$ContenuStats = FileRead($FichierStats)
@@ -378,24 +325,6 @@ Func IsChecked($control)
 
 EndFunc;==>IsChecked
 
-;;Test clé registre
-Func IsRegExists($mainkey, $key)
-
-    If $mainkey == "HKEY_LOCAL_MACHINE" Then $mainkey =0x80000002
-    If $mainkey == "HKEY_CLASSES_ROOT" Then $mainkey = 0x80000000
-    If $mainkey == "HKEY_CURRENT_USER" Then $mainkey = 0x80000001
-    If $mainkey == "HKEY_USERS" Then $mainkey = 0x80000003
-
-    Local $openkey = DllCall("advapi32.dll", "long", "RegOpenKeyExW", "ulong_ptr", $mainkey, "wstr", $key, "dword", 0, "dword", 0x0001, "ulong_ptr*", 0)
-
-    If $openkey[0] == "0" Then
-        Return(1)
-    Else
-        Return(0)
-    EndIf
-
-EndFunc ;==>IsRegExists
-
 ;;Exportation du fichier log
 Func CreerFichierLogs ()
 
@@ -416,7 +345,6 @@ Func AjoutLog($InfoLog)
 	$Logs = "[" & @HOUR & ":" & @MIN & ":" & @SEC & "]" & " - " & $InfoLog & @CRLF & $Logs
 
 EndFunc;==>AjoutLog
-
 
 ;===============================================================================
 ;

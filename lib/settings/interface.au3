@@ -227,50 +227,6 @@ Func Apropos()
 
 EndFunc;==>Apropos
 
-Func CreerBuild()
-
-	Global $CreerBuild = GUICreate("Nom du build",260,80,-1,-1,-1,$WS_EX_TOPMOST)
-	GUISetIcon(@ScriptDir & "\lib\ico\icon.ico")
-	GUICtrlCreateLabel("Nom du build :",15,15,74,15,-1,-1)
-	GUICtrlSetBkColor(-1,"-2")
-	Global $InputCreerBuild = GUICtrlCreateInput("",95,10,150,20,-1,512)
-	Global $ButtonCreerBuild = GUICtrlCreateButton("Créer",145,40,100,30,-1,-1)
-	Global $ButtonAnnulerCreerBuild = GUICtrlCreateButton("Annuler",15,40,100,30,-1,-1)
-	GUISetState(@SW_SHOW,$CreerBuild)
-
-	AjoutLog("Ouverture de la fenêtre 'Créer un build'")
-
-	While 1
-		$nMsg = GUIGetMsg()
-		Switch $nMsg
-			Case $GUI_EVENT_CLOSE
-				GUIDelete($CreerBuild)
-				AjoutLog("Fermeture de la fenêtre 'Créer un build'")
-				ExitLoop
-
-			Case $ButtonCreerBuild
-				$NomBuild = GUICtrlRead($InputCreerBuild) & ".ini"
-				If FileExists($DossierBuilds & $NomBuild) Then
-					MsgBox( 48 + 262144, "", "Build déjà éxistant", 3)
-					ContinueLoop
-				Else
-					FileCopy($FichierSettingsHeroDefaut, $DossierBuilds & $NomBuild)
-					AjoutLog("Création d'un nouveau build :" & $NomBuild)
-				EndIf
-				GUIDelete($CreerBuild)
-				AjoutLog("Fermeture de la fenêtre 'Créer un build'")
-				ExitLoop
-
-			Case $ButtonAnnulerCreerBuild
-				GUIDelete($CreerBuild)
-				AjoutLog("Annulation de la création d'un build")
-				ExitLoop
-
-		EndSwitch
-	WEnd
-
-EndFunc;==>CreerBuild
-
 Func Logs()
 
  	Global $MainLogs = GUICreate("Logs",536,535,-1,-1,-1,-1)
@@ -886,11 +842,10 @@ EtatGriser()
 				MsgBox( 0, "", "Valeurs par défaut chargées !", 3)
 
 			Case $ButtonEnregistrerSettings
-				MsgBox(0,"",$ProfilSel)
 				RecupDonneesSettings()
 				EnregistProfil($ProfilSel)
 				GUIDelete($settings)
-				AjoutLog("Fermeture de la fenêtre 'Edition de profil'")
+				AjoutLog("Fermeture de la fenêtre 'Modification des fichiers settings.ini'")
 				MsgBox( 0, "", "Profil modifié !", 3)
 				ExitLoop
 
