@@ -1,0 +1,250 @@
+; -- Created with ISN Form Studio 2 for ISN AutoIt Studio -- ;
+
+$Apropos = GUICreate("A Propos",350,166,-1,-1,-1,$WS_EX_TOPMOST)
+$ButtonFermerApropos = GUICtrlCreateButton("Quitter",266,140,79,20,-1,-1)
+$ImageApropos = GUICtrlCreatePic(@scriptdir&"\"&"",5,5,156,156,-1,-1)
+GUICtrlCreateLabel("Settings Arreat Core",185,10,143,15,-1,-1)
+GUICtrlSetFont(-1,10,700,0,"MS Sans Serif")
+GUICtrlSetBkColor(-1,"-2")
+GUICtrlCreateLabel("Version 1.3d",225,30,67,15,-1,-1)
+GUICtrlSetBkColor(-1,"-2")
+GUICtrlCreateLabel("Pour plus d'information :",170,100,144,15,-1,-1)
+GUICtrlSetFont(-1,8,700,4,"MS Sans Serif")
+GUICtrlSetBkColor(-1,"-2")
+$LabelLienForum = GUICtrlCreateLabel("http://forum.gmstemple.com/",175,120,166,15,-1,-1)
+GUICtrlSetBkColor(-1,"-2")
+GUICtrlCreateLabel("Développer par Sebo",175,56,127,15,-1,-1)
+GUICtrlSetColor(-1,"0x008000")
+GUICtrlSetBkColor(-1,"-2")
+GUICtrlCreateLabel("Remerciement",175,75,153,15,-1,-1)
+GUICtrlSetColor(-1,"0x008000")
+GUICtrlSetBkColor(-1,"-2")
+
+
+
+#cs
+[gui]
+Handle_deklaration=
+title=A Propos
+breite=350
+hoehe=166
+style=-1
+exstyle=$WS_EX_TOPMOST
+bgcolour=0xF0F0F0
+bgimage=none
+handle=Apropos
+parent=
+code=
+xpos=-1
+ypos=-1
+center_gui=true
+title_textmode=normal
+[0x0123054E]
+handle=414
+locked=0
+code=
+type=button
+x=266
+y=140
+width=79
+height=20
+text=Quitter
+tooltip=
+state=$GUI_SHOW+$GUI_ENABLE
+style=
+exstyle=
+textcolour=0x000000
+bgcolour=0xF0F0F0
+font=MS Sans Serif
+fontsize=8
+fontstyle=400
+fontattribute=0
+id=ButtonFermerApropos
+func=
+bgimage=
+order=0
+tabpage=-1
+textmode=text
+[0x00130620]
+handle=423
+locked=0
+code=
+type=image
+x=5
+y=5
+width=156
+height=156
+tooltip=
+text=
+state=$GUI_SHOW+$GUI_ENABLE
+style=
+exstyle=
+textcolour=0x000000
+bgcolour=0xF0F0F0
+font=MS Sans Serif
+fontsize=8
+fontstyle=400
+fontattribute=0
+id=ImageApropos
+func=
+bgimage=
+order=2
+tabpage=-1
+textmode=text
+[0x0012034A]
+handle=424
+locked=0
+code=
+type=label
+x=185
+y=10
+width=143
+height=15
+text=Settings Arreat Core
+tooltip=
+state=$GUI_SHOW+$GUI_ENABLE
+style=
+exstyle=
+textcolour=0x000000
+bgcolour=-2
+font=MS Sans Serif
+fontsize=10
+fontstyle=700
+fontattribute=0
+id=
+func=
+bgimage=
+order=3
+tabpage=-1
+textmode=text
+[0x0016065C]
+handle=425
+locked=0
+code=
+type=label
+x=225
+y=30
+width=67
+height=15
+text=Version 1.3d
+tooltip=
+state=$GUI_SHOW+$GUI_ENABLE
+style=
+exstyle=
+textcolour=0x000000
+bgcolour=-2
+font=MS Sans Serif
+fontsize=8
+fontstyle=400
+fontattribute=0
+id=
+func=
+bgimage=LabelVersionApropos
+order=4
+tabpage=-1
+textmode=text
+[0x002705C0]
+handle=426
+locked=0
+code=
+type=label
+x=170
+y=100
+width=144
+height=15
+text=Pour plus d'information :
+tooltip=
+state=$GUI_SHOW+$GUI_ENABLE
+style=
+exstyle=
+textcolour=0x000000
+bgcolour=-2
+font=MS Sans Serif
+fontsize=8
+fontstyle=700
+fontattribute=4
+id=
+func=
+bgimage=
+order=5
+tabpage=-1
+textmode=text
+[0x002005EC]
+handle=427
+locked=0
+code=
+type=label
+x=175
+y=120
+width=166
+height=15
+text=http://forum.gmstemple.com/
+tooltip=
+state=$GUI_SHOW+$GUI_ENABLE
+style=
+exstyle=
+textcolour=0x000000
+bgcolour=-2
+font=MS Sans Serif
+fontsize=8
+fontstyle=400
+fontattribute=0
+id=LabelLienForum
+func=
+bgimage=
+order=6
+tabpage=-1
+textmode=text
+[0x001C057A]
+handle=428
+locked=0
+code=
+type=label
+x=175
+y=56
+width=127
+height=15
+text=Développer par Sebo
+tooltip=
+state=$GUI_SHOW+$GUI_ENABLE
+style=
+exstyle=
+textcolour=0x008000
+bgcolour=-2
+font=MS Sans Serif
+fontsize=8
+fontstyle=400
+fontattribute=0
+id=
+func=
+bgimage=
+order=7
+tabpage=-1
+textmode=text
+[0x001913A8]
+handle=429
+locked=0
+code=
+type=label
+x=175
+y=75
+width=153
+height=15
+text=Remerciement
+tooltip=
+state=$GUI_SHOW+$GUI_ENABLE
+style=
+exstyle=
+textcolour=0x008000
+bgcolour=-2
+font=MS Sans Serif
+fontsize=8
+fontstyle=400
+fontattribute=0
+id=
+func=
+bgimage=
+order=8
+tabpage=-1
+textmode=text
+#ce
