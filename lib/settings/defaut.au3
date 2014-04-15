@@ -3,7 +3,7 @@ Func ValeurDefaut()
 	;;Settings
 	$PassD3 = ""
 
-	$CloseWindows= "{SPACE}"
+	$CloseWindows = "{SPACE}"
 	$Inventory = "i"
 	$Potions = "q"
 	$Portal = "t"
@@ -13,8 +13,8 @@ Func ValeurDefaut()
 	$key4 = "'"
 	$MouseMove = "middle"
 
-	$PartieSolo = True
-	$TakeABreak = True
+	$PartieSolo = "True"
+	$TakeABreak = "True"
 	$Breakafterxxgames = 15
 	$BreakTime = 360
 
@@ -22,17 +22,17 @@ Func ValeurDefaut()
 	$QualiteItemSalvage = "1|2|3|4|5"
 	$QualiteItemSell = "6|7|8"
 	$UnknownItemAction = "Salvage"
-	$Unidentified = True
+	$Unidentified = "True"
 
 	$TypeDeBot = 2
-	$Follower = False
+	$Follower = "False"
 	$Heros = 1
 	$difficulte = 5
 	$PuisMonstre = 1
 	$TypeDeGrabList = 1
 
 	$Choix_Act_Run = 1
-	$Sequence_Aleatoire = False
+	$Sequence_Aleatoire = "False"
 	$NbreRunChangSeqAlea = 0
 	$Nombre_de_Run = 0
 	$NombreMiniAct1 = 3
@@ -67,12 +67,12 @@ Func ValeurDefaut()
 
 	$SequenceFileAdventure = "act3_ADV-core_start_[1-5]|act3_ADV-tower_[1-5]|act3_ADV-field_[1-4]|[CMD]TakeWPAdv=26"
 	$BountyAct = "1|2|3"
-	$NoBountyFailbackToAdventure = True
+	$NoBountyFailbackToAdventure = "True"
 
 	$SequenceFile = "act3_ADV-core_start_[1-5]|act3_ADV-tower_[1-5]|act3_ADV-field_[1-4]|[CMD]TakeWPAdv=26"
 
-	$ChaseElite = True
-	$WaitForLoot = True
+	$ChaseElite = "True"
+	$WaitForLoot = "True"
 
 	;;SettingsHero.ini
 	$LifeForPotion = 60
@@ -80,25 +80,25 @@ Func ValeurDefaut()
 	$LifeForHealth = 70
 	$NbPotionBuy = 0
 
-	$TakeShrines = True
+	$TakeShrines = "True"
 	$repairafterxxgames = 4
 	$maxgamelength = 1800000
 	$attackRange = 50
 	$grabRange = 130
 
-	$MonsterTri = True
-	$MonsterRefresh = True
-	$ItemRefresh = True
-	$MonsterPriority = False
-	$InventoryCheck = True
+	$MonsterTri = "True"
+	$MonsterRefresh = "True"
+	$ItemRefresh = "True"
+	$MonsterPriority = "False"
+	$InventoryCheck = "True"
 
 	$attacktimeout = 15000
 	$grabtimeout = 10000
 
-	$Gestionaffixe = True
-	$Gestionaffixeloot = True
+	$Gestionaffixe = "True"
+	$Gestionaffixeloot = "True"
 	$BanAffixList = ""
-	$GestaffixeByClass = False
+	$GestaffixeByClass = "False"
 
 	$LifeArcane = 100
 	$LifeProj = 100
@@ -113,21 +113,21 @@ Func ValeurDefaut()
 	$LifeSpore = 100
 	$LifeLightning = 100
 
-	$UsePath = True
-	$ResActivated = True
+	$UsePath = "True"
+	$ResActivated = "True"
 	$ResLife = 3
-	$HCSecurity = False
+	$HCSecurity = "False"
 	$MinHCLife = 80
 
 	;;Souris
-	$SpellOnLeft = True
+	$SpellOnLeft = "True"
 	$SpellDelayLeft = ""
 	$SpellTypeLeft = ""
 	$SpellEnergyNeedsLeft = ""
 	$SpellLifeLeft = ""
 	$SpellDistanceLeft = ""
 
-	$SpellOnRight = True
+	$SpellOnRight = "True"
 	$SpellDelayRight = ""
 	$SpellTypeRight = ""
 	$SpellEnergyNeedsRight = ""
@@ -135,36 +135,36 @@ Func ValeurDefaut()
 	$SpellDistanceRight = ""
 
 	;;Touche 1 à 4
-	$SpellOn1 = True
-	$PreBuff1 = False
-	$delaiBuff1 = ""
+	$SpellOn1 = "True"
+	$SpellPreBuff1 = "False"
+	$SpellPreBuffDelay1 = ""
 	$SpellDelay1 = ""
 	$SpellType1 = ""
 	$SpellEnergyNeeds1 = ""
 	$SpellLife1 = ""
 	$SpellDistance1 = ""
 
-	$SpellOn2 = True
-	$PreBuff2 = False
-	$delaiBuff2 = ""
+	$SpellOn2 = "True"
+	$SpellPreBuff2 = "False"
+	$SpellPreBuffDelay2 = ""
 	$SpellDelay2 = ""
 	$SpellType2 = ""
 	$SpellEnergyNeeds2 = ""
 	$SpellLife2 = ""
 	$SpellDistance2 = ""
 
-	$SpellOn3 = True
-	$PreBuff3 = False
-	$delaiBuff3 = ""
+	$SpellOn3 = "True"
+	$SpellPreBuff3 = "False"
+	$SpellPreBuffDelay3 = ""
 	$SpellDelay3 = ""
 	$SpellType3 = ""
 	$SpellEnergyNeeds3 = ""
 	$SpellLife3 = ""
 	$SpellDistance3 = ""
 
-	$SpellOn4 = True
-	$PreBuff4 = False
-	$delaiBuff4 = ""
+	$SpellOn4 = "True"
+	$SpellPreBuff4 = "False"
+	$SpellPreBuffDelay4 = ""
 	$SpellDelay4 = ""
 	$SpellType4 = ""
 	$SpellEnergyNeeds4 = ""

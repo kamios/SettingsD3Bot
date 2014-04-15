@@ -814,6 +814,9 @@ Func EditSettings($ProfilSel)
 
 AjoutLog("Ouverture de la fenêtre 'Edition de profil'")
 
+;;On sélectionne le radio Premier Spell au démarrage
+GUICtrlSetState($RadioTouche1 ,$GUI_CHECKED)
+
 RemplirSettings()
 EtatGriser()
 
@@ -828,6 +831,14 @@ EtatGriser()
 				GUIDelete($settings)
 				AjoutLog("Fermeture de la fenêtre 'Edition de profil'")
 				ExitLoop
+
+			Case $RadioBotSeul
+
+				GUICtrlSetState($RadioBotTeam ,$GUI_UNCHECKED)
+
+			Case $RadioBotTeam
+
+				GUICtrlSetState($RadioBotSeul ,$GUI_UNCHECKED)
 
 			Case $CheckboxPause
 
@@ -875,7 +886,7 @@ EtatGriser()
 				MsgBox( 0, "", "Valeurs par défaut chargées !", 3)
 
 			Case $ButtonEnregistrerSettings
-
+				MsgBox(0,"",$ProfilSel)
 				RecupDonneesSettings()
 				EnregistProfil($ProfilSel)
 				GUIDelete($settings)
@@ -883,37 +894,65 @@ EtatGriser()
 				MsgBox( 0, "", "Profil modifié !", 3)
 				ExitLoop
 
+			Case $RadioTouche1
+
+				GestionTouches(1)
+
+			Case $RadioTouche2
+
+				GestionTouches(2)
+
+			Case $RadioTouche3
+
+				GestionTouches(3)
+
+			Case $RadioTouche4
+
+				GestionTouches(4)
+
 ;########################################################
 ;#Boutons Reset
 ;########################################################
 
 			Case $ButtonResetPrioMonstre
 
-
+				$priorityMonsterList = "Goblin|Uber"
+				GUICtrlSetData($InputPriorityMonsterList,$priorityMonsterList)
+				AjoutLog("Liste des Monstres Prioritaires par défaut")
 
 			Case $ButtonResetListeMonstres
 
-
+				$monsterList = ""
+				GUICtrlSetData($InputMonsterList,$monsterList)
+				AjoutLog("Liste des Monstres par défaut")
 
 			Case $ButtonResetListeMonstreSpe
 
-
+				$specialmonsterList = "Goblin|brickhouse_|WoodWraith_|Siege_wallMonster|DuneDervish_|Ghost_|Lamprey_|SkeletonSummoner_|Uber|x1_SpeedKill_Gluttony"
+				GUICtrlSetData($InputSpecialmonterList,$specialmonsterList)
+				AjoutLog("Liste des Monstres Spéciaux par défaut")
 
 			Case $ButtonResetListeDecor
 
-
+				$decorList = "Bone|RockPile|DemonCage|Barrel|crate|barricade|_Barricade_|Rock|Log|BonePile"
+				GUICtrlSetData($InputDecorList,$decorList)
+				AjoutLog("Liste des Décors par défaut")
 
 			Case $ButtonResetListeCoffre
 
-
+				$chestList = "Props_Demonic_Container|Crater_Chest|Chest_Snowy|Chest_Frosty|TrOut_Fields_Chest|TrOut_Highlands_Chest|trOut_wilderness_chest|Cath_chest|Chest_Rare|caOut_StingingWinds_Chest|CaOut_Oasis_Chest|x1_Global_Chest_SpeedKill|x1_Global_Chest_CursedChest|a3dun_Crater_ST_Chest"
+				GUICtrlSetData($InputChestList,$chestList)
+				AjoutLog("Liste des Coffres par défaut")
 
 			Case $ButtonResetListeRack
 
-
+				$rackList = "WeaponRack|ArmorRack|Weapon_Rack_trOut_Highlands"
+				GUICtrlSetData($InputRackList,$rackList)
+				AjoutLog("Liste des Racks par défaut")
 
 			Case $ButtonResetAct1
 
-				$SequenceFileAct1 = "act1-manoir_[1-8]|act1-Val_[1-8]|act1-putride_[1-6]|act1-champs_[1-8]"
+				$SequenceFileAct1 = "act1-manoir_[1-8]|act1-Val_[1-8]|act1-champs_[1-8]"
 				GUICtrlSetData($InputSequenceAct1,$SequenceFileAct1)
 				AjoutLog("Séquence Act1 par défaut")
 
@@ -925,13 +964,13 @@ EtatGriser()
 
 			Case $ButtonResetAct3
 
-				$SequenceFileAct3 = "[CMD]safeportstart()|act3_core_start_[1-5]|act3_tower_[1-5]|act3_field_[1-2]|[CMD]TakeWP=0,0,3,4"
+				$SequenceFileAct3 = "act3_pt_save_le_coeur_darreat_[1-5]|act3_tower_[1-5]|act3_field_[1-4]|[CMD]TakeWP=0"
 				GUICtrlSetData($InputSequenceAct3,$SequenceFileAct3)
 				AjoutLog("Séquence Act3 par défaut")
 
 			Case $ButtonResetAct3PT
 
-				$SequenceFileAct3PtSauve = "act3_pt_save_le_coeur_darreat_[1-5]|act3_tower_[1-5]|act3_field_[1-2]|[CMD]TakeWP=0,0,3,4"
+				$SequenceFileAct3PtSauve = "[CMD]safeportstart()|act3_core_start_[1-5]|act3_tower_[1-5]|act3_field_[1-4]|[CMD]TakeWP=0"
 				GUICtrlSetData($InputSequenceAct3Pt,$SequenceFileAct3PtSauve)
 				AjoutLog("Séquence Act3PT par défaut")
 

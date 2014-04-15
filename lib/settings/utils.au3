@@ -43,6 +43,98 @@ Func ListerProfils($CheminDuDossier)
 
 EndFunc;==>ListerProfils
 
+;;Fonction perttant de gérer les radio pour les touches 1 à 4
+Func GestionTouches($NumTouche)
+
+	Switch $NumTouche
+		Case 1
+			If $SpellOn1 = "True" Then
+				GUICtrlSetState($CheckboxTouche ,$GUI_CHECKED)
+			Else
+				GUICtrlSetState($CheckboxTouche ,$GUI_UNCHECKED)
+			EndIf
+			If $SpellPreBuff1 = "True" Then
+				GUICtrlSetState($CheckboxPrebuff ,$GUI_CHECKED)
+			Else
+				GUICtrlSetState($CheckboxPrebuff ,$GUI_UNCHECKED)
+			EndIf
+			GUICtrlSetData($InputPrebuffDelay,$SpellPreBuffDelay1)
+			GUICtrlSetData($InputSpellDelay,$SpellDelay1)
+			GUICtrlSetData($InputSpellType,$SpellType1)
+			GUICtrlSetData($InputSpellEnergyNeeds,$SpellEnergyNeeds1)
+			GUICtrlSetData($InputSpellLife,$SpellLife1)
+			GUICtrlSetData($InputSpellDistance,$SpellDistance1)
+		Case 2
+			If $SpellOn2 = "True" Then
+				GUICtrlSetState($CheckboxTouche ,$GUI_CHECKED)
+			Else
+				GUICtrlSetState($CheckboxTouche ,$GUI_UNCHECKED)
+			EndIf
+			If $SpellPreBuff2 = "True" Then
+				GUICtrlSetState($CheckboxPrebuff ,$GUI_CHECKED)
+			Else
+				GUICtrlSetState($CheckboxPrebuff ,$GUI_UNCHECKED)
+			EndIf
+			GUICtrlSetData($InputPrebuffDelay,$SpellPreBuffDelay2)
+			GUICtrlSetData($InputSpellDelay,$SpellDelay2)
+			GUICtrlSetData($InputSpellType,$SpellType2)
+			GUICtrlSetData($InputSpellEnergyNeeds,$SpellEnergyNeeds2)
+			GUICtrlSetData($InputSpellLife,$SpellLife2)
+			GUICtrlSetData($InputSpellDistance,$SpellDistance2)
+		Case 3
+			If $SpellOn3 = "True" Then
+				GUICtrlSetState($CheckboxTouche ,$GUI_CHECKED)
+			Else
+				GUICtrlSetState($CheckboxTouche ,$GUI_UNCHECKED)
+			EndIf
+			If $SpellPreBuff3 = "True" Then
+				GUICtrlSetState($CheckboxPrebuff ,$GUI_CHECKED)
+			Else
+				GUICtrlSetState($CheckboxPrebuff ,$GUI_UNCHECKED)
+			EndIf
+			GUICtrlSetData($InputPrebuffDelay,$SpellPreBuffDelay3)
+			GUICtrlSetData($InputSpellDelay,$SpellDelay3)
+			GUICtrlSetData($InputSpellType,$SpellType3)
+			GUICtrlSetData($InputSpellEnergyNeeds,$SpellEnergyNeeds3)
+			GUICtrlSetData($InputSpellLife,$SpellLife3)
+			GUICtrlSetData($InputSpellDistance,$SpellDistance3)
+		Case 4
+			If $SpellOn4 = "True" Then
+				GUICtrlSetState($CheckboxTouche ,$GUI_CHECKED)
+			Else
+				GUICtrlSetState($CheckboxTouche ,$GUI_UNCHECKED)
+			EndIf
+			If $SpellPreBuff4 = "True" Then
+				GUICtrlSetState($CheckboxPrebuff ,$GUI_CHECKED)
+			Else
+				GUICtrlSetState($CheckboxPrebuff ,$GUI_UNCHECKED)
+			EndIf
+			GUICtrlSetData($InputPrebuffDelay,$SpellPreBuffDelay4)
+			GUICtrlSetData($InputSpellDelay,$SpellDelay4)
+			GUICtrlSetData($InputSpellType,$SpellType4)
+			GUICtrlSetData($InputSpellEnergyNeeds,$SpellEnergyNeeds4)
+			GUICtrlSetData($InputSpellLife,$SpellLife4)
+			GUICtrlSetData($InputSpellDistance,$SpellDistance4)
+	EndSwitch
+
+	If IsChecked($RadioTouche1) Then
+
+	EndIf
+
+	If IsChecked($RadioTouche2) Then
+
+	EndIf
+
+	If IsChecked($RadioTouche3) Then
+
+	EndIf
+
+	If IsChecked($RadioTouche4) Then
+
+	EndIf
+
+EndFunc;==>GestionTouches
+
 ;;Fonction permettant de suprimer un profil
 Func SupprimerProfil($CheminDuDossier)
 
@@ -86,8 +178,8 @@ EndFunc;==>EditProfil
 
 Func EnregistProfil($Profil)
 
-	Local $SettingsLu = $DossierProfilsSettings & "settings_" & $Profil
-	Local $SettingsHeroLu = $DossierProfilsSettings & "settingshero_" & $Profil
+	Local $SettingsLu = $DossierProfilsModif & "settings\settings_" & $Profil
+	Local $SettingsHeroLu = $DossierProfilsModif & "settings\settingshero_" & $Profil
 	SaveConfigs($SettingsLu)
 	SaveConfigsHero($SettingsHeroLu)
 

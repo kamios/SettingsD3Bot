@@ -295,6 +295,22 @@ Func RemplirSettings()
 	GUICtrlSetData($InputSpellLifeRight,$SpellLifeRight)
 	GUICtrlSetData($InputSpellDistanceRight,$SpellDistanceRight)
 
+	If $SpellOn1 = "True" Then
+		GUICtrlSetState($CheckboxTouche ,$GUI_CHECKED)
+	Else
+		GUICtrlSetState($CheckboxTouche ,$GUI_UNCHECKED)
+	EndIf
+	If $SpellPreBuff1 = "True" Then
+		GUICtrlSetState($CheckboxPrebuff ,$GUI_CHECKED)
+	Else
+		GUICtrlSetState($CheckboxPrebuff ,$GUI_UNCHECKED)
+	EndIf
+	GUICtrlSetData($InputPrebuffDelay,$SpellPreBuffDelay1)
+	GUICtrlSetData($InputSpellDelay,$SpellDelay1)
+	GUICtrlSetData($InputSpellType,$SpellType1)
+	GUICtrlSetData($InputSpellEnergyNeeds,$SpellEnergyNeeds1)
+	GUICtrlSetData($InputSpellLife,$SpellLife1)
+	GUICtrlSetData($InputSpellDistance,$SpellDistance1)
 
 ;###########################################
 ;Onglet Séquences
@@ -333,7 +349,18 @@ Func RecupDonneesSettings()
 ;Onglet Settings
 ;###########################################
 
-	$PassD3=GUICtrlRead($InputPassD3)
+	$PassD3 = GUICtrlRead($InputPassD3)
+
+	$CloseWindows= GUICtrlRead($InputCloseWindows)
+	$Inventory = GUICtrlRead($InputInventory)
+	$Potions = GUICtrlRead($InputPotions)
+	$Portal = GUICtrlRead($InputPortal)
+	$key1 = GUICtrlRead($Inputkey1)
+	$key2 = GUICtrlRead($Inputkey2)
+	$key3 = GUICtrlRead($Inputkey3)
+	$key4 = GUICtrlRead($Inputkey4)
+	$MouseMove = GUICtrlRead($InputMouseMove)
+
 	If IsChecked($RadioBotSeul) Then
 		$PartieSolo = "True"
 	Else
@@ -347,6 +374,22 @@ Func RecupDonneesSettings()
 	$Breakafterxxgames = GUICtrlRead($InputApresXparties)
 	$BreakTime = GUICtrlRead($InputTempsPause)
 
+	If IsChecked($CheckboxFollower) Then
+		$Follower = "True"
+	Else
+		$Follower = "False"
+	EndIf
+
+	$QualiteItemKeep = GUICtrlRead($InputQualiteItemKeep)
+	$QualiteItemSalvage = GUICtrlRead($InputQualiteItemSalvage)
+	$QualiteItemSell = GUICtrlRead($InputQualiteItemSell)
+	Local $ValComboUnknownItemAction = GUICtrlRead($ComboUnknownItemAction)
+	Switch $ValComboUnknownItemAction
+		Case "Vendre"
+			$UnknownItemAction = "Sell"
+		Case "Recycler"
+			$UnknownItemAction = "Salvage"
+	EndSwitch
 	If IsChecked($CheckboxFiltreNoID) Then
 		$Unidentified = "True"
 	Else
@@ -397,6 +440,18 @@ Func RecupDonneesSettings()
 			$TypeDeGrabList = 2
 	EndSwitch
 
+	If IsChecked($CheckboxChaseElite) Then
+		$ChaseElite = "True"
+	Else
+		$ChaseElite = "False"
+	EndIf
+
+	If IsChecked($CheckboxWaitForLoot) Then
+		$WaitForLoot= "True"
+	Else
+		$WaitForLoot = "False"
+	EndIf
+
 ;###########################################
 ;Onglet Run
 ;##########################################
@@ -439,6 +494,12 @@ Func RecupDonneesSettings()
 			$ChoixActRun = 442
 	EndSwitch
 
+	If IsChecked($CheckboxNoAdventure) Then
+		$NoBountyFailbackToAdventure = "True"
+	Else
+		$NoBountyFailbackToAdventure = "False"
+	EndIf
+
 	If IsChecked($CheckboxSequencesAlea) Then
 		$SequenceAleatoire = "True"
 	Else
@@ -454,10 +515,12 @@ Func RecupDonneesSettings()
 	$NombreMiniAct3 = GUICtrlRead($InputAct3min)
 	$NombreMaxiAct3 = GUICtrlRead($InputAct3max)
 
-
-
+	$priorityMonsterList = GUICtrlRead($InputPriorityMonsterList)
 	$monsterList = GUICtrlRead($InputMonsterList)
 	$specialmonsterList = GUICtrlRead($InputSpecialmonterList)
+	$decorList = GUICtrlRead($InputDecorList)
+	$chestList = GUICtrlRead($InputChestList)
+	$rackList = GUICtrlRead($InputRackList)
 
 ;###########################################
 ;Onglet Spell
@@ -473,6 +536,7 @@ Func RecupDonneesSettings()
 	$SpellEnergyNeedsLeft = GUICtrlRead($InputSpellEnergyNeedsLeft)
 	$SpellLifeLeft = GUICtrlRead($InputSpellLifeLeft)
 	$SpellDistanceLeft = GUICtrlRead($InputSpellDistanceLeft)
+	
 	If IsChecked($CheckboxSpellOnRight) Then
 		$SpellOnRight = "True"
 	Else
@@ -493,13 +557,23 @@ Func RecupDonneesSettings()
 	$SequenceFileAct3PtSauve = GUICtrlRead($InputSequenceAct3Pt)
 	$SequenceFileAct3 = GUICtrlRead($InputSequenceAct3)
 
+	$SequenceFile = GUICtrlRead($InputSequenceTest)
+	$SequenceFileAdventure = GUICtrlRead($InputSequenceAventure)
+
 ;###########################################
 ;Onglet Séquences Boss
 ;###########################################
 
+	$SequenceFileAct222 = GUICtrlRead($InputSequenceAct222)
+	$SequenceFileAct232 = GUICtrlRead($InputSequenceAct232)
+	$SequenceFileAct283 = GUICtrlRead($InputSequenceAct283)
+	$SequenceFileAct299 = GUICtrlRead($InputSequenceAct299)
 	$SequenceFileAct333 = GUICtrlRead($InputSequenceAct333)
 	$SequenceFileAct362 = GUICtrlRead($InputSequenceAct362)
 	$SequenceFileAct373 = GUICtrlRead($InputSequenceAct373)
+	$SequenceFileAct374 = GUICtrlRead($InputSequenceAct374)
+	$SequenceFileAct411 = GUICtrlRead($InputSequenceAct411)
+	$SequenceFileAct442 = GUICtrlRead($InputSequenceAct442)
 
 ;###########################################
 ;Onglet Routines
@@ -508,6 +582,7 @@ Func RecupDonneesSettings()
 	$LifeForPotion = GUICtrlRead($InputLifeForPotion)
 	$PotionStock = GUICtrlRead($InputPotionStock)
 	$NbPotionBuy = GUICtrlRead($InputNbPotionBuy)
+	$LifeForHealth = GUICtrlRead($InputVieGlobes)
 	If IsChecked($CheckboxTakeShrines) Then
 		$TakeShrines = "True"
 	Else
@@ -571,6 +646,7 @@ Func RecupDonneesSettings()
 	$LifeArm = GUICtrlRead($InputLifeArm)
 	$LifeSpore = GUICtrlRead($InputLifeSpore)
 	$LifeMine = GUICtrlRead($InputLifeMine)
+	$LifeLightning = GUICtrlRead($InputLifeLightning)
 
 	If IsChecked($CheckboxResActivated) Then
 		$ResActivated = "True"
