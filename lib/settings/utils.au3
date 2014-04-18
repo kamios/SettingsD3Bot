@@ -8,7 +8,6 @@ Func DossierAcreer()
 	If FileExists($DossierProfilsOriginale) = 0 then DirCreate($DossierProfilsOriginale)
 	If FileExists($DossierProfilsModif & "settings\") = 0 then DirCreate($DossierProfilsModif & "settings\")
 	If FileExists($DossierProfilsOriginale & "settings\") = 0 then DirCreate($DossierProfilsOriginale & "settings\")
-	If FileExists($DossierBuilds) = 0 then DirCreate($DossierBuilds)
 	If FileExists($DossierLogs) = 0 then DirCreate($DossierLogs)
 	AjoutLog("Création des dossiers profils, builds et logs")
 
@@ -42,6 +41,44 @@ Func ListerProfils($CheminDuDossier)
 	EndIf
 
 EndFunc;==>ListerProfils
+
+Func ListFichier($CheminDuDossier,$i)
+
+	Switch $i
+		Case 1
+			GUICtrlSetData($ListStats,"")
+			GUICtrlSetData($labelDateStats,"--")
+			GUICtrlSetData($EditStats,"")
+		Case 2
+
+		Case 3
+
+	EndSwitch
+
+	Local $array = DirGetSize($CheminDuDossier, 1)
+	Local $listeFichiers = _FileListToArray($CheminDuDossier,"*",1)
+
+	If IsArray($array) Then
+		Switch $i
+			Case 1
+				If $array[1] > 0 Then
+					For $i=1 to $listeFichiers[0]
+						GUICtrlSetData($ListStats,$listeFichiers[$i])
+					Next
+					AjoutLog("Stats chargées dans la ListBox")
+				Else
+					GUICtrlSetData($ListStats,"Aucune stat")
+					AjoutLog("Aucune stat")
+				EndIf
+			Case 2
+
+			Case 3
+
+		EndSwitch
+	EndIf
+
+EndFunc;==>ListFichier
+
 
 ;;Fonction perttant de gérer les radio pour les touches 1 à 4
 Func GestionTouches($NumTouche)
@@ -116,22 +153,6 @@ Func GestionTouches($NumTouche)
 			GUICtrlSetData($InputSpellLife,$SpellLife4)
 			GUICtrlSetData($InputSpellDistance,$SpellDistance4)
 	EndSwitch
-
-	If IsChecked($RadioTouche1) Then
-
-	EndIf
-
-	If IsChecked($RadioTouche2) Then
-
-	EndIf
-
-	If IsChecked($RadioTouche3) Then
-
-	EndIf
-
-	If IsChecked($RadioTouche4) Then
-
-	EndIf
 
 EndFunc;==>GestionTouches
 

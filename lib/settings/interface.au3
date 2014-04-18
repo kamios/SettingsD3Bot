@@ -13,7 +13,6 @@ $OutilsMenu = GUICtrlCreateMenu("Outils")
 $LogsItem = GUICtrlCreateMenuItem("Afficher les logs", $OutilsMenu)
 $StatsItem = GUICtrlCreateMenuItem("Afficher les stats", $OutilsMenu)
 $GrablistsItem = GUICtrlCreateMenuItem("Afficher les grablists", $OutilsMenu)
-$BuildsItem = GUICtrlCreateMenuItem("Afficher les builds", $OutilsMenu)
 $OptionsMenu = GUICtrlCreateMenu("Options")
 $VersionItem = GUICtrlCreateMenuItem("Version modifiée", $OptionsMenu)
 GUICtrlCreateMenuitem("", $OptionsMenu)
@@ -110,74 +109,6 @@ Func ChoixVersion()
 		EndSwitch
 	WEnd
 EndFunc;==>ChoixVersion
-
-Func Builds()
-
-	Global $Builds = GUICreate("Builds",377,302,-1,-1,-1,$WS_EX_TOPMOST)
-	GUISetIcon(@scriptdir & "\lib\ico\icon.ico", -1)
-	Global $ListBuilds = GUICtrlCreatelist("",15,25,144,227,-1,512)
-	Global $ListsBuildsProfils = GUICtrlCreatelist("",215,25,144,227,-1,512)
-	GUICtrlCreateGroup("Builds",10,5,157,258,-1,-1)
-	GUICtrlSetBkColor(-1,"0xF0F0F0")
-	GUICtrlCreateGroup("Profils",210,5,156,258,-1,-1)
-	GUICtrlSetBkColor(-1,"0xF0F0F0")
-	Global $ButtonBuildsImporter = GUICtrlCreateButton("Importer",5,270,80,25,-1,-1)
-	Global $ButtonBuildsSupprimer = GUICtrlCreateButton("Supprimer",90,270,80,25,-1,-1)
-	Global $ButtonBuildsCharger = GUICtrlCreateButton("Charger",285,270,80,25,-1,-1)
-	GUICtrlCreateLabel(">>",175,120,20,23,-1,-1)
-	GUICtrlSetFont(-1,12,700,0,"MS Sans Serif")
-	GUICtrlSetBkColor(-1,"-2")
-	Global $ButtonBuildsFermer = GUICtrlCreateButton("Fermer",200,270,80,25,-1,-1)
-	GUISetState(@SW_SHOW,$Builds)
-
-	AjoutLog("Ouverture de la fenêtre Builds")
-	ListFichier($DossierBuilds,2) ; on list les builds
-	ListFichier($DossierProfils,3) ; On list les profils
-
-	While 1
-		$nMsg = GUIGetMsg()
-		Switch $nMsg
-
-			Case $GUI_EVENT_CLOSE
-				GUIDelete($Builds)
-				AjoutLog("Fermeture de la fenêtre Builds")
-				ExitLoop
-
-			Case $ButtonBuildsFermer
-				GUIDelete($Builds)
-				AjoutLog("Fermeture de la fenêtre Builds")
-				ExitLoop
-
-			Case $ButtonBuildsCharger
-				$BuildSel = $DossierBuilds & GUICtrlRead($ListBuilds)
-				$ProfilBuildSel = $DossierProfilsSettings & "settingshero_" & GUICtrlRead($ListsBuildsProfils)
-				FileCopy($BuildSel, $ProfilBuildSel, 9)
-				AjoutLog("Chargement du build : " & $BuildSel & "dans le profil : " & $ProfilBuildSel)
-
-			Case $ButtonBuildsSupprimer
-				$SuppBuild = GUICtrlRead($ListBuilds)
-				If $SuppBuild = "" Then
-					MsgBox( 48 + 262144, "", "Aucun build sélectionné !!", 3)
-				Else
-					FileDelete($DossierBuilds & $SuppBuild)
-					AjoutLog("Suppression du build : " & $SuppBuild)
-					ListFichier($DossierBuilds,2)
-				EndIf
-
-			Case $ButtonBuildsImporter
-				Local Const $sMessage = "Sélectionner le build à importer."
-				Local $sFile = FileOpenDialog($sMessage, @WindowsDir & "\", "Settings (*.ini;)")
-				If @error Then
-					MsgBox( 48 + 262144, "", "Aucun fichier sélectionné !!", 3)
-				Else
-					$fName = StringRegExpReplace($sFile, "^.*\\", "")
-					FileCopy($sFile, $DossierBuilds & $fName)
-					AjoutLog("Importation Build : " & $fName)
-					ListFichier($DossierBuilds,2)
-				EndIf
-		EndSwitch
-	WEnd
-EndFunc;==>Builds
 
 Func Apropos()
 

@@ -19,7 +19,6 @@ Global $FichierSettingsOriginaleDefaut = $DossierProfilsSettingsDefaut & "settin
 Global $FichierSettingsDefaut = $DossierProfilsSettingsDefaut & "settings_defaut.ini"
 Global $FichierSettingsHeroDefaut = $DossierProfilsSettingsDefaut & "settingshero_Defaut.ini"
 
-Global $DossierBuilds = @ScriptDir & "\settings\builds\"
 Global $DossierLogs = @ScriptDir & "\settings\logs\"
 Global $DossierStats = @ScriptDir & "\stats\"
 Global $DossierSettingsIni = @ScriptDir & "\settings\"

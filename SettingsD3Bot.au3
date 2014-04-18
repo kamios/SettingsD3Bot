@@ -38,7 +38,7 @@ If FileExists($OptionsIni) = 0 Then ;on test si le fichier de config existe
 EndIf
 
 ;;Test pour savoir si les dossiers profils,builds et logs existent
-If FileExists($DossierProfils) = 0 or FileExists($DossierBuilds) = 0 or FileExists($DossierLogs) = 0 _
+If FileExists($DossierProfils) = 0 or FileExists($DossierLogs) = 0 _
 	or FileExists($DossierProfilsModif) = 0 or FileExists($DossierProfilsOriginale) = 0 _
 	or FileExists($DossierProfilsOriginale & "settings\") = 0 or FileExists($DossierProfilsOriginale & "settings\") = 0 Then
 	DossierAcreer()
@@ -95,7 +95,7 @@ $nMsg = GUIGetMsg()
 			If $selection <> 0 Then ;On vérifie qu'il ait bien sélection
 				Local $index = ControlListView("Settings Arreat Core", "", $ListviewProfils, "GetSelected")
 				Local $ProfilEdit = ControlListView("Settings Arreat Core", "", $ListviewProfils, "GetText", $index) ;On récupère le nom du profil dans la listview
-				
+
 				EditProfil($ProfilEdit)
 			Else
 				MsgBox( 48, "", "Aucun profil de sélectionné", 3)
@@ -141,10 +141,6 @@ $nMsg = GUIGetMsg()
 		Case $StatsItem
 
 			Stats();on ouvre la fenêtre Stats
-
-		Case $BuildsItem
-
-			Builds();on ouvre la fenêtre Builds
 
 		Case $AproposItem
 			Apropos()
