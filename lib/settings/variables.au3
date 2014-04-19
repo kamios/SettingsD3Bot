@@ -165,6 +165,7 @@ Global $LifeForPotion = ""
 Global $PotionStock = ""
 Global $LifeForHealth = ""
 Global $NbPotionBuy = ""
+Global $TakeGlobeInFight = ""
 
 Global $TakeShrines = ""
 Global $repairafterxxgames = ""

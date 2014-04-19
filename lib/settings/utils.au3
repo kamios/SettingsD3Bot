@@ -162,8 +162,8 @@ Func SupprimerProfil($CheminDuDossier)
 	Local $selection = GUICtrlRead($ListviewProfils) ;On lit l'item sélectionné
 
 	If $selection <> 0 Then ;On vérifie qu'il ait bien sélection
-		Local $index = ControlListView("Settings Arreat Core", "", $ListviewProfils, "GetSelected")
-		Local $ProfilSupp = ControlListView("Settings Arreat Core", "", $ListviewProfils, "GetText", $index)
+		Local $index = ControlListView("Settings D3BOT", "", $ListviewProfils, "GetSelected")
+		Local $ProfilSupp = ControlListView("Settings D3BOT", "", $ListviewProfils, "GetText", $index)
 		Local $Confirm = MsgBox( 20, "Suppression de " & $ProfilSupp, "Etes-vous sûr ?");ajout d'un prompt de confirmation de la suppression
 
 		If $Confirm = 6 Then ;test la réponse du MsgBox

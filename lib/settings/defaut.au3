@@ -79,6 +79,7 @@ Func ValeurDefaut()
 	$PotionStock = 100
 	$LifeForHealth = 70
 	$NbPotionBuy = 0
+	$TakeGlobeInFight = "True"
 
 	$TakeShrines = "True"
 	$repairafterxxgames = 4

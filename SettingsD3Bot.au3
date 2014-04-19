@@ -38,8 +38,7 @@ If FileExists($OptionsIni) = 0 Then ;on test si le fichier de config existe
 EndIf
 
 ;;Test pour savoir si les dossiers profils,builds et logs existent
-If FileExists($DossierProfils) = 0 or FileExists($DossierLogs) = 0 _
-	or FileExists($DossierProfilsModif) = 0 or FileExists($DossierProfilsOriginale) = 0 _
+If FileExists($DossierProfils) = 0 or FileExists($DossierLogs) = 0 or FileExists($DossierProfilsModif) = 0 or FileExists($DossierProfilsOriginale) = 0 _
 	or FileExists($DossierProfilsOriginale & "settings\") = 0 or FileExists($DossierProfilsOriginale & "settings\") = 0 Then
 	DossierAcreer()
 Else
@@ -93,15 +92,15 @@ $nMsg = GUIGetMsg()
 			Local $selection = GUICtrlRead($ListviewProfils) ;On lit l'item sélectionné
 
 			If $selection <> 0 Then ;On vérifie qu'il ait bien sélection
-				Local $index = ControlListView("Settings Arreat Core", "", $ListviewProfils, "GetSelected")
-				Local $ProfilEdit = ControlListView("Settings Arreat Core", "", $ListviewProfils, "GetText", $index) ;On récupère le nom du profil dans la listview
+				Local $index = ControlListView("Settings D3BOT", "", $ListviewProfils, "GetSelected")
+				Local $ProfilEdit = ControlListView("Settings D3BOT", "", $ListviewProfils, "GetText", $index) ;On récupère le nom du profil dans la listview
 
 				EditProfil($ProfilEdit)
 			Else
 				MsgBox( 48, "", "Aucun profil de sélectionné", 3)
 			EndIf
 
-			ControlListView ("Settings Arreat Core", "", $ListviewProfils, "DeSelect", -1) ;Annule la sélection de la listview
+			ControlListView ("Settings D3BOT", "", $ListviewProfils, "DeSelect", -1) ;Annule la sélection de la listview
 			$selection = "" ;On vide la variable pour le prochian chargement
 
 		Case $DeleteProfil
@@ -120,14 +119,14 @@ $nMsg = GUIGetMsg()
 			Local $selection = GUICtrlRead($ListviewProfils) ;On lit l'item sélectionné
 
 			If $selection <> 0 Then ;On vérifie qu'il ait bien sélection
-				Local $index = ControlListView("Settings Arreat Core", "", $ListviewProfils, "GetSelected")
-				Local $ProfilCharge = ControlListView("Settings Arreat Core", "", $ListviewProfils, "GetText", $index) ;On récupère le nom du profil dans la listview
+				Local $index = ControlListView("Settings D3BOT", "", $ListviewProfils, "GetSelected")
+				Local $ProfilCharge = ControlListView("Settings D3BOT", "", $ListviewProfils, "GetText", $index) ;On récupère le nom du profil dans la listview
 				ChargeProfil($ProfilCharge)
 			Else
 				MsgBox( 48, "", "Aucun profil de sélectionné", 3)
 			EndIf
 
-			ControlListView ("Settings Arreat Core", "", $ListviewProfils, "DeSelect", -1) ;Annule la selection de la listview
+			ControlListView ("Settings D3BOT", "", $ListviewProfils, "DeSelect", -1) ;Annule la selection de la listview
 			$selection = "" ;On vide la variable pour le prochian chargement
 
 		Case $LogsItem
@@ -208,14 +207,12 @@ $nMsg = GUIGetMsg()
                 GUICtrlSetState($VersionItem, $GUI_UNCHECKED)
 				$VersionUtilisee = "Originale"
 				AjoutLog("Version utilisée : Origianle")
-				GUICtrlSetState($BuildsItem, $GUI_DISABLE)
 				GUICtrlSetState($DebugItem, $GUI_DISABLE)
 				ListerProfils($DossierProfilsOriginale)
 			Else
 				GUICtrlSetState($VersionItem, $GUI_CHECKED)
 				$VersionUtilisee = "Modif"
 				AjoutLog("Version utilisée : Modifiée")
-				GUICtrlSetState($BuildsItem, $GUI_ENABLE)
 				GUICtrlSetState($DebugItem, $GUI_ENABLE)
 				ListerProfils($DossierProfilsModif)
 			EndIf

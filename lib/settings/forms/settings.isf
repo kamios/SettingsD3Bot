@@ -94,9 +94,7 @@ GUICtrlSetData(-1,"Tourment|TourmentXp")
 Global $CheckboxFollower = GUICtrlCreateCheckbox("Follower",400,185,150,20,-1,-1)
 GUICtrlCreateTabItem("")
 Global $ButtonEnregistrerSettings = GUICtrlCreateButton("Enregistrer les modifications",562,330,161,30,-1,-1)
-GUICtrlSetImage(-1,@scriptdir&"\"&"ButtonEnregistrerSettings")
 Global $ButtonParDefautSettings = GUICtrlCreateButton("Valeurs par défaut",447,330,111,30,-1,-1)
-GUICtrlSetImage(-1,@scriptdir&"\"&"ButtonParDefautSettings")
 GUISwitch($settings,_GUICtrlTab_SetCurFocus($tab,0)&GUICtrlRead ($tab, 1))
 Global $CheckboxChaseElite = GUICtrlCreateCheckbox("ChaseElite",597,82,89,21,-1,-1)
 Global $CheckboxWaitForLoot = GUICtrlCreateCheckbox("WaitForLoot",597,108,89,20,-1,-1)
@@ -221,7 +219,7 @@ GUICtrlSetBkColor(-1,"-2")
 GUICtrlCreateLabel("Diablo :",15,244,107,14,-1,-1)
 GUICtrlSetBkColor(-1,"-2")
 GUISwitch($settings,_GUICtrlTab_SetCurFocus($tab,4)&GUICtrlRead ($tab, 1))
-GUICtrlCreateGroup("Gestion Vie",17,36,259,70,-1,-1)
+GUICtrlCreateGroup("Gestion Vie",18,36,259,92,-1,-1)
 GUICtrlSetBkColor(-1,"-2")
 Global $InputPotionStock = GUICtrlCreateInput("",117,51,29,20,1,512)
 Global $InputLifeForPotion = GUICtrlCreateInput("",238,51,29,20,1,512)
@@ -247,44 +245,44 @@ GUICtrlCreateLabel("Vie pour Potions :",153,56,88,15,-1,-1)
 GUICtrlSetBkColor(-1,"-2")
 GUICtrlCreateLabel("Vie pour Globes :",153,83,88,15,-1,-1)
 GUICtrlSetBkColor(-1,"-2")
-GUICtrlCreateGroup("Gestion Affixes",18,109,259,196,-1,-1)
+GUICtrlCreateGroup("Gestion Affixes",18,132,259,180,-1,-1)
 GUICtrlSetBkColor(-1,"-2")
-Global $CheckboxUsePath = GUICtrlCreateCheckbox("UsePath",621,187,63,23,-1,-1)
-Global $InputLifeArcane = GUICtrlCreateInput("",116,127,29,20,1,512)
-Global $InputLifePeste = GUICtrlCreateInput("",239,127,29,20,1,512)
-Global $InputLifeProj = GUICtrlCreateInput("",116,155,29,20,1,512)
-Global $InputLifeLave = GUICtrlCreateInput("",116,183,29,20,1,512)
-Global $InputLifeMine = GUICtrlCreateInput("",116,211,29,20,1,512)
-Global $InputLifeSpore = GUICtrlCreateInput("",116,240,29,20,1,512)
-Global $InputLifeArm = GUICtrlCreateInput("",116,269,29,20,-1,512)
-Global $InputLifeProfa = GUICtrlCreateInput("",239,155,29,20,1,512)
-Global $InputLifeIce = GUICtrlCreateInput("",239,183,29,20,1,512)
-Global $InputLifePoison = GUICtrlCreateInput("",239,211,29,20,1,512)
-Global $InputLifeExplo = GUICtrlCreateInput("",239,240,29,20,1,512)
-Global $InputLifeLightning = GUICtrlCreateInput("",239,269,29,20,1,512)
-GUICtrlCreateLabel("Arcane (%vie) :",27,131,79,16,-1,-1)
+Global $CheckboxUsePath = GUICtrlCreateCheckbox("UsePath",618,185,63,23,-1,-1)
+Global $InputLifeArcane = GUICtrlCreateInput("",114,142,29,20,1,512)
+Global $InputLifePeste = GUICtrlCreateInput("",237,142,29,20,1,512)
+Global $InputLifeProj = GUICtrlCreateInput("",114,170,29,20,1,512)
+Global $InputLifeLave = GUICtrlCreateInput("",114,198,29,20,1,512)
+Global $InputLifeMine = GUICtrlCreateInput("",114,226,29,20,1,512)
+Global $InputLifeSpore = GUICtrlCreateInput("",114,255,29,20,1,512)
+Global $InputLifeArm = GUICtrlCreateInput("",114,284,29,20,-1,512)
+Global $InputLifeProfa = GUICtrlCreateInput("",237,170,29,20,1,512)
+Global $InputLifeIce = GUICtrlCreateInput("",237,198,29,20,1,512)
+Global $InputLifePoison = GUICtrlCreateInput("",237,226,29,20,1,512)
+Global $InputLifeExplo = GUICtrlCreateInput("",237,255,29,20,1,512)
+Global $InputLifeLightning = GUICtrlCreateInput("",237,284,29,20,1,512)
+GUICtrlCreateLabel("Arcane (%vie) :",25,146,79,16,-1,-1)
 GUICtrlSetBkColor(-1,"-2")
-GUICtrlCreateLabel("Proj (%vie) :",27,159,79,16,-1,-1)
+GUICtrlCreateLabel("Proj (%vie) :",25,174,79,16,-1,-1)
 GUICtrlSetBkColor(-1,"-2")
-GUICtrlCreateLabel("Lave (%vie) :",27,187,79,16,-1,-1)
+GUICtrlCreateLabel("Lave (%vie) :",25,202,79,16,-1,-1)
 GUICtrlSetBkColor(-1,"-2")
-GUICtrlCreateLabel("Mine (%vie) :",27,215,79,16,-1,-1)
+GUICtrlCreateLabel("Mine (%vie) :",25,230,79,16,-1,-1)
 GUICtrlSetBkColor(-1,"-2")
-GUICtrlCreateLabel("Arm (%vie) :",27,273,79,16,-1,-1)
+GUICtrlCreateLabel("Arm (%vie) :",25,288,79,16,-1,-1)
 GUICtrlSetBkColor(-1,"-2")
-GUICtrlCreateLabel("Spore (%vie) :",27,244,79,16,-1,-1)
+GUICtrlCreateLabel("Spore (%vie) :",25,259,79,16,-1,-1)
 GUICtrlSetBkColor(-1,"-2")
-GUICtrlCreateLabel("Profa (%vie) :",154,159,79,16,-1,-1)
+GUICtrlCreateLabel("Profa (%vie) :",152,174,79,16,-1,-1)
 GUICtrlSetBkColor(-1,"-2")
-GUICtrlCreateLabel("Peste (%vie) :",154,129,79,16,-1,-1)
+GUICtrlCreateLabel("Peste (%vie) :",152,144,79,16,-1,-1)
 GUICtrlSetBkColor(-1,"-2")
-GUICtrlCreateLabel("Glace (%vie) :",154,187,79,16,-1,-1)
+GUICtrlCreateLabel("Glace (%vie) :",152,202,79,16,-1,-1)
 GUICtrlSetBkColor(-1,"-2")
-GUICtrlCreateLabel("Poison (%vie) :",154,214,79,16,-1,-1)
+GUICtrlCreateLabel("Poison (%vie) :",152,229,79,16,-1,-1)
 GUICtrlSetBkColor(-1,"-2")
-GUICtrlCreateLabel("Explo (%vie) :",154,242,79,16,-1,-1)
+GUICtrlCreateLabel("Explo (%vie) :",152,257,79,16,-1,-1)
 GUICtrlSetBkColor(-1,"-2")
-GUICtrlCreateLabel("Elec (%vie) :",154,273,79,16,-1,-1)
+GUICtrlCreateLabel("Elec (%vie) :",152,288,79,16,-1,-1)
 GUICtrlSetBkColor(-1,"-2")
 GUICtrlCreateGroup("",282,36,160,130,-1,-1)
 GUICtrlSetBkColor(-1,"0xF0F0F0")
@@ -314,7 +312,7 @@ Global $CheckboxMonsterRefresh = GUICtrlCreateCheckbox("Vérif. si Monstres",479,
 Global $CheckboxGestionaffixe = GUICtrlCreateCheckbox("Gestion des Affixes",291,180,150,20,-1,-1)
 Global $CheckboxGestionaffixeloot = GUICtrlCreateCheckbox("Gestion Affixes Loot",291,205,150,20,-1,-1)
 Global $CheckboxGestaffixeByClass = GUICtrlCreateCheckbox("Gestion Affixes Classe",291,230,150,20,-1,-1)
-Global $InputBanAffixList = GUICtrlCreateInput("",289,281,169,19,-1,512)
+Global $InputBanAffixList = GUICtrlCreateInput("",289,278,169,19,-1,512)
 GUICtrlCreateLabel("Bannir Affixes :",291,258,163,15,-1,-1)
 GUICtrlSetBkColor(-1,"-2")
 GUICtrlCreateLabel("Temps Max / Parties :",461,51,115,15,-1,-1)
@@ -391,6 +389,8 @@ GUICtrlCreateLabel("Distance :",548,196,50,15,-1,-1)
 GUICtrlSetBkColor(-1,"-2")
 GUISwitch($settings,_GUICtrlTab_SetCurFocus($tab,1)&GUICtrlRead ($tab, 1))
 Global $CheckboxNoAdventure = GUICtrlCreateCheckbox("Pas de Prime : Séquence Aventure",22,95,201,20,-1,-1)
+GUISwitch($settings,_GUICtrlTab_SetCurFocus($tab,4)&GUICtrlRead ($tab, 1))
+Global $CheckboxTakeGlobeInFight = GUICtrlCreateCheckbox("Prendre les Globes en Combat",27,102,173,20,-1,-1)
 _GUICtrlTab_SetCurFocus($tab,0)
 
 
@@ -424,7 +424,7 @@ resize=
 textmode=text
 order=0
 locked=1
-[0x000319F0]
+[0x00030E24]
 order=0
 [TABPAGE6]
 page=6
@@ -466,7 +466,7 @@ xpos=-1
 ypos=-1
 center_gui=true
 title_textmode=normal
-[0x000319D8]
+[0x00031102]
 handle=450
 locked=1
 resize=
@@ -493,7 +493,7 @@ bgimage=
 order=2
 tabpage=0
 textmode=text
-[0x000319C0]
+[0x00031100]
 handle=451
 locked=1
 resize=
@@ -520,7 +520,7 @@ bgimage=
 order=3
 tabpage=0
 textmode=text
-[0x000319AE]
+[0x000310EA]
 handle=452
 locked=1
 resize=
@@ -547,7 +547,7 @@ bgimage=
 order=4
 tabpage=0
 textmode=text
-[0x000319BA]
+[0x000310F2]
 handle=453
 locked=1
 resize=
@@ -574,7 +574,7 @@ bgimage=
 order=5
 tabpage=0
 textmode=text
-[0x000319CA]
+[0x000310FA]
 handle=454
 locked=1
 resize=
@@ -601,7 +601,7 @@ bgimage=
 order=6
 tabpage=0
 textmode=text
-[0x000319DA]
+[0x00031292]
 handle=455
 locked=0
 resize=
@@ -628,7 +628,7 @@ bgimage=
 order=7
 tabpage=0
 textmode=text
-[0x000319EA]
+[0x0003129A]
 handle=456
 locked=0
 resize=
@@ -655,7 +655,7 @@ bgimage=
 order=8
 tabpage=0
 textmode=text
-[0x000319FA]
+[0x00031290]
 handle=457
 locked=0
 resize=
@@ -682,7 +682,7 @@ bgimage=
 order=9
 tabpage=0
 textmode=text
-[0x00031A0A]
+[0x00030CD0]
 handle=458
 locked=0
 resize=
@@ -709,7 +709,7 @@ bgimage=
 order=10
 tabpage=0
 textmode=text
-[0x00031A1A]
+[0x00030C84]
 handle=459
 locked=0
 resize=
@@ -736,7 +736,7 @@ bgimage=
 order=11
 tabpage=0
 textmode=text
-[0x00031A2A]
+[0x0003083A]
 handle=460
 locked=0
 resize=
@@ -763,7 +763,7 @@ bgimage=
 order=12
 tabpage=0
 textmode=text
-[0x00031A3A]
+[0x00030842]
 handle=461
 locked=0
 resize=
@@ -790,7 +790,7 @@ bgimage=
 order=13
 tabpage=0
 textmode=text
-[0x00031A48]
+[0x0003084A]
 handle=462
 locked=0
 resize=
@@ -817,7 +817,7 @@ bgimage=
 tabpage=0
 order=14
 textmode=text
-[0x00031A5A]
+[0x00030856]
 handle=463
 locked=0
 resize=
@@ -844,7 +844,7 @@ bgimage=
 order=15
 tabpage=0
 textmode=text
-[0x00031A66]
+[0x0003085E]
 handle=464
 locked=0
 resize=
@@ -871,7 +871,7 @@ bgimage=
 order=16
 tabpage=0
 textmode=text
-[0x00031A6C]
+[0x00030866]
 handle=465
 locked=0
 resize=
@@ -898,7 +898,7 @@ bgimage=
 tabpage=0
 textmode=text
 order=17
-[0x00031A7A]
+[0x0003086E]
 handle=466
 locked=0
 resize=
@@ -925,7 +925,7 @@ bgimage=
 tabpage=0
 textmode=text
 order=18
-[0x00031A86]
+[0x00030876]
 handle=467
 locked=0
 resize=
@@ -952,7 +952,7 @@ bgimage=
 tabpage=0
 textmode=text
 order=19
-[0x00051A98]
+[0x0003087E]
 handle=468
 locked=0
 resize=
@@ -979,7 +979,7 @@ bgimage=
 tabpage=0
 textmode=text
 order=20
-[0x00031AA2]
+[0x00030888]
 handle=469
 locked=0
 resize=
@@ -1006,7 +1006,7 @@ bgimage=
 order=21
 tabpage=0
 textmode=text
-[0x00031AB2]
+[0x00030890]
 handle=470
 locked=0
 resize=
@@ -1033,7 +1033,7 @@ bgimage=
 order=22
 tabpage=0
 textmode=text
-[0x00031AC2]
+[0x000308A4]
 handle=471
 locked=0
 resize=
@@ -1060,7 +1060,7 @@ bgimage=
 order=23
 tabpage=0
 textmode=text
-[0x00031AD2]
+[0x000308AE]
 handle=472
 locked=0
 resize=
@@ -1087,7 +1087,7 @@ bgimage=
 order=24
 tabpage=0
 textmode=text
-[0x00031AE2]
+[0x000308B6]
 handle=473
 locked=1
 resize=
@@ -1114,7 +1114,7 @@ bgimage=
 order=25
 tabpage=0
 textmode=text
-[0x00031AF2]
+[0x000308BE]
 handle=474
 locked=1
 resize=
@@ -1141,7 +1141,7 @@ bgimage=
 order=26
 tabpage=0
 textmode=text
-[0x00031B02]
+[0x000308C6]
 handle=475
 locked=0
 resize=
@@ -1168,7 +1168,7 @@ bgimage=
 order=27
 tabpage=0
 textmode=text
-[0x00031B12]
+[0x000308CE]
 handle=476
 locked=0
 resize=
@@ -1195,7 +1195,7 @@ bgimage=
 order=28
 tabpage=0
 textmode=text
-[0x00031B22]
+[0x000308D6]
 handle=477
 locked=0
 resize=
@@ -1222,7 +1222,7 @@ bgimage=
 order=29
 tabpage=0
 textmode=text
-[0x00031B32]
+[0x000308DE]
 handle=478
 locked=0
 resize=
@@ -1249,7 +1249,7 @@ bgimage=
 order=30
 tabpage=0
 textmode=text
-[0x00031B42]
+[0x000308E6]
 handle=479
 locked=0
 resize=
@@ -1276,7 +1276,7 @@ bgimage=
 order=31
 tabpage=0
 textmode=text
-[0x00031B52]
+[0x000308EE]
 handle=480
 locked=0
 resize=
@@ -1303,7 +1303,7 @@ bgimage=
 order=32
 tabpage=0
 textmode=text
-[0x00031B62]
+[0x000308F6]
 handle=481
 locked=0
 resize=
@@ -1330,7 +1330,7 @@ bgimage=
 order=33
 tabpage=0
 textmode=text
-[0x00031B72]
+[0x000308FE]
 handle=482
 locked=0
 resize=
@@ -1357,7 +1357,7 @@ bgimage=
 order=34
 tabpage=0
 textmode=text
-[0x00031B82]
+[0x00030906]
 handle=483
 locked=0
 resize=
@@ -1384,7 +1384,7 @@ bgimage=
 order=35
 tabpage=0
 textmode=text
-[0x00031B92]
+[0x0003090E]
 handle=484
 locked=0
 resize=
@@ -1411,7 +1411,7 @@ bgimage=
 tabpage=0
 order=36
 textmode=text
-[0x00031BA2]
+[0x00030916]
 handle=485
 locked=0
 resize=
@@ -1438,7 +1438,7 @@ bgimage=
 tabpage=0
 order=37
 textmode=text
-[0x00031BAE]
+[0x0003091E]
 handle=486
 locked=0
 resize=
@@ -1465,7 +1465,7 @@ bgimage=
 order=38
 tabpage=0
 textmode=text
-[0x00031BBE]
+[0x00030926]
 handle=487
 locked=0
 resize=
@@ -1492,7 +1492,7 @@ bgimage=
 order=39
 tabpage=0
 textmode=text
-[0x00031BDE]
+[0x00030936]
 handle=488
 locked=0
 resize=
@@ -1519,7 +1519,7 @@ bgimage=
 order=40
 tabpage=0
 textmode=text
-[0x00031BEE]
+[0x00030946]
 handle=489
 locked=1
 resize=
@@ -1546,7 +1546,7 @@ bgimage=
 order=41
 tabpage=0
 textmode=text
-[0x00031BFE]
+[0x00030956]
 handle=490
 locked=0
 resize=
@@ -1573,7 +1573,7 @@ bgimage=
 order=42
 tabpage=0
 textmode=text
-[0x00031C1E]
+[0x00030968]
 handle=491
 locked=0
 resize=
@@ -1600,7 +1600,7 @@ bgimage=
 order=43
 tabpage=0
 textmode=text
-[0x00031C2E]
+[0x00030970]
 handle=492
 locked=0
 resize=
@@ -1627,7 +1627,7 @@ bgimage=
 order=44
 tabpage=0
 textmode=text
-[0x00031C4E]
+[0x00030980]
 handle=493
 locked=0
 resize=
@@ -1654,7 +1654,7 @@ bgimage=
 tabpage=0
 textmode=text
 order=45
-[0x00031C6E]
+[0x00030990]
 handle=494
 locked=0
 resize=
@@ -1681,7 +1681,7 @@ bgimage=
 order=46
 tabpage=0
 textmode=text
-[0x00031C7E]
+[0x00030998]
 handle=495
 locked=0
 resize=
@@ -1708,7 +1708,7 @@ bgimage=
 order=47
 tabpage=0
 textmode=text
-[0x00031C8E]
+[0x000309A0]
 handle=496
 locked=0
 resize=
@@ -1735,7 +1735,7 @@ bgimage=
 order=48
 tabpage=0
 textmode=text
-[0x00031C9E]
+[0x000309A8]
 handle=497
 locked=0
 resize=
@@ -1762,7 +1762,7 @@ bgimage=
 tabpage=0
 textmode=text
 order=49
-[0x00031CBE]
+[0x000309B8]
 handle=498
 locked=0
 resize=
@@ -1789,7 +1789,7 @@ bgimage=
 order=50
 tabpage=0
 textmode=text
-[0x00031CCE]
+[0x000309C0]
 handle=499
 locked=0
 resize=
@@ -1812,11 +1812,11 @@ fontstyle=400
 fontattribute=0
 id=ButtonEnregistrerSettings
 func=
-bgimage=ButtonEnregistrerSettings
+bgimage=
 order=51
 tabpage=-1
 textmode=text
-[0x00041CEE]
+[0x000309C6]
 handle=500
 locked=0
 resize=
@@ -1839,11 +1839,11 @@ fontstyle=400
 fontattribute=0
 id=ButtonParDefautSettings
 func=
-bgimage=ButtonParDefautSettings
+bgimage=
 order=52
 tabpage=-1
 textmode=text
-[0x00051CFE]
+[0x000309CE]
 handle=501
 locked=1
 resize=
@@ -1870,7 +1870,7 @@ bgimage=
 order=53
 tabpage=0
 textmode=text
-[0x00051CDE]
+[0x000309D6]
 handle=502
 locked=1
 resize=
@@ -1897,7 +1897,7 @@ bgimage=
 order=54
 tabpage=0
 textmode=text
-[0x00031D16]
+[0x000309DE]
 handle=503
 locked=0
 resize=
@@ -1924,7 +1924,7 @@ bgimage=
 order=55
 tabpage=1
 textmode=text
-[0x00031D36]
+[0x000309E6]
 handle=504
 locked=1
 resize=
@@ -1951,7 +1951,7 @@ bgimage=
 order=56
 tabpage=1
 textmode=text
-[0x00031D46]
+[0x000409F0]
 handle=505
 locked=0
 resize=
@@ -1978,7 +1978,7 @@ bgimage=
 order=57
 tabpage=1
 textmode=text
-[0x00051DB2]
+[0x000309FC]
 handle=506
 locked=0
 resize=
@@ -2005,7 +2005,7 @@ bgimage=
 order=58
 tabpage=1
 textmode=text
-[0x00031D62]
+[0x00030A0A]
 handle=507
 locked=0
 resize=
@@ -2032,7 +2032,7 @@ bgimage=
 order=59
 tabpage=1
 textmode=text
-[0x00031D72]
+[0x00030A06]
 handle=508
 locked=0
 resize=
@@ -2059,7 +2059,7 @@ bgimage=
 order=60
 tabpage=1
 textmode=text
-[0x00031D82]
+[0x00030A12]
 handle=509
 locked=0
 resize=
@@ -2086,7 +2086,7 @@ bgimage=
 order=61
 tabpage=1
 textmode=text
-[0x00031D92]
+[0x00030A1E]
 handle=510
 locked=0
 resize=
@@ -2113,7 +2113,7 @@ bgimage=
 tabpage=1
 textmode=text
 order=62
-[0x00031DAA]
+[0x00030A1A]
 handle=511
 locked=0
 resize=
@@ -2140,7 +2140,7 @@ bgimage=
 order=63
 tabpage=1
 textmode=text
-[0x00031DA2]
+[0x00030A24]
 handle=512
 locked=0
 resize=
@@ -2167,7 +2167,7 @@ bgimage=
 tabpage=1
 textmode=text
 order=64
-[0x00051DB6]
+[0x00030A2A]
 handle=513
 locked=0
 resize=
@@ -2194,7 +2194,7 @@ bgimage=
 tabpage=1
 textmode=text
 order=65
-[0x00051D06]
+[0x00030A30]
 handle=514
 locked=0
 resize=
@@ -2221,7 +2221,7 @@ bgimage=
 tabpage=1
 textmode=text
 order=66
-[0x004D161C]
+[0x00030A36]
 handle=515
 locked=0
 resize=
@@ -2248,7 +2248,7 @@ bgimage=
 tabpage=1
 textmode=text
 order=67
-[0x000318C6]
+[0x00030A42]
 handle=516
 locked=0
 resize=
@@ -2275,7 +2275,7 @@ bgimage=
 tabpage=1
 textmode=text
 order=68
-[0x000318CC]
+[0x00030A3E]
 handle=517
 locked=0
 resize=
@@ -2302,7 +2302,7 @@ bgimage=
 tabpage=1
 textmode=text
 order=69
-[0x000318D6]
+[0x00030A4A]
 handle=518
 locked=0
 resize=
@@ -2329,7 +2329,7 @@ bgimage=
 tabpage=1
 textmode=text
 order=70
-[0x000318DC]
+[0x00030A52]
 handle=519
 locked=0
 resize=
@@ -2356,7 +2356,7 @@ bgimage=
 tabpage=1
 textmode=text
 order=71
-[0x000318E6]
+[0x00030A5A]
 handle=520
 locked=1
 resize=
@@ -2383,7 +2383,7 @@ bgimage=
 order=72
 tabpage=1
 textmode=text
-[0x000318E2]
+[0x00040A62]
 handle=521
 locked=0
 resize=
@@ -2410,7 +2410,7 @@ bgimage=
 order=73
 tabpage=1
 textmode=text
-[0x000318F2]
+[0x00030A6A]
 handle=522
 locked=1
 resize=
@@ -2437,7 +2437,7 @@ bgimage=
 order=74
 tabpage=1
 textmode=text
-[0x000318EE]
+[0x00030A72]
 handle=523
 locked=1
 resize=
@@ -2464,7 +2464,7 @@ bgimage=
 order=75
 tabpage=1
 textmode=text
-[0x000318FA]
+[0x00030A7A]
 handle=524
 locked=1
 resize=
@@ -2491,7 +2491,7 @@ bgimage=
 order=76
 tabpage=1
 textmode=text
-[0x00031900]
+[0x00030A82]
 handle=525
 locked=1
 resize=
@@ -2518,7 +2518,7 @@ bgimage=
 order=77
 tabpage=1
 textmode=text
-[0x00031906]
+[0x00030A8A]
 handle=526
 locked=1
 resize=
@@ -2545,7 +2545,7 @@ bgimage=
 tabpage=1
 order=78
 textmode=text
-[0x0003190E]
+[0x00030A92]
 handle=527
 locked=1
 resize=
@@ -2572,7 +2572,7 @@ bgimage=
 tabpage=1
 order=79
 textmode=text
-[0x00031916]
+[0x00030A9A]
 handle=528
 locked=1
 resize=
@@ -2599,7 +2599,7 @@ bgimage=
 order=80
 tabpage=1
 textmode=text
-[0x0003191E]
+[0x00030AA2]
 handle=529
 locked=1
 resize=
@@ -2626,7 +2626,7 @@ bgimage=
 order=81
 tabpage=1
 textmode=text
-[0x00031926]
+[0x00030AAA]
 handle=530
 locked=1
 resize=
@@ -2653,7 +2653,7 @@ bgimage=
 order=82
 tabpage=1
 textmode=text
-[0x0003192E]
+[0x00030AB2]
 handle=531
 locked=1
 resize=
@@ -2680,7 +2680,7 @@ bgimage=
 tabpage=1
 textmode=text
 order=83
-[0x00031936]
+[0x00030ABA]
 handle=532
 locked=1
 resize=
@@ -2707,7 +2707,7 @@ bgimage=
 tabpage=1
 textmode=text
 order=84
-[0x0003193E]
+[0x00030AC2]
 handle=533
 locked=1
 resize=
@@ -2734,7 +2734,7 @@ bgimage=
 tabpage=1
 textmode=text
 order=85
-[0x00031946]
+[0x00030ACA]
 handle=534
 locked=0
 resize=
@@ -2761,7 +2761,7 @@ bgimage=
 tabpage=2
 textmode=text
 order=86
-[0x0003194E]
+[0x00030AD2]
 handle=535
 locked=0
 resize=
@@ -2788,7 +2788,7 @@ bgimage=
 tabpage=2
 textmode=text
 order=87
-[0x00031956]
+[0x00030ADC]
 handle=536
 locked=0
 resize=
@@ -2815,7 +2815,7 @@ bgimage=
 tabpage=2
 textmode=text
 order=88
-[0x0003195E]
+[0x00030AD4]
 handle=537
 locked=0
 resize=
@@ -2842,7 +2842,7 @@ bgimage=
 tabpage=2
 textmode=text
 order=89
-[0x00031966]
+[0x00030ACC]
 handle=538
 locked=0
 resize=
@@ -2869,7 +2869,7 @@ bgimage=
 tabpage=2
 textmode=text
 order=90
-[0x0003196E]
+[0x00030AC4]
 handle=539
 locked=0
 resize=
@@ -2896,7 +2896,7 @@ bgimage=
 tabpage=2
 textmode=text
 order=91
-[0x00031976]
+[0x00030ABC]
 handle=540
 locked=1
 resize=
@@ -2923,7 +2923,7 @@ bgimage=
 order=92
 tabpage=2
 textmode=text
-[0x0003197E]
+[0x00030AB4]
 handle=541
 locked=1
 resize=
@@ -2950,7 +2950,7 @@ bgimage=
 tabpage=2
 textmode=text
 order=93
-[0x00031986]
+[0x00030AAC]
 handle=542
 locked=1
 resize=
@@ -2977,7 +2977,7 @@ bgimage=
 tabpage=2
 textmode=text
 order=94
-[0x0003198E]
+[0x00030AA4]
 handle=543
 locked=1
 resize=
@@ -3004,7 +3004,7 @@ bgimage=
 tabpage=2
 textmode=text
 order=95
-[0x00031996]
+[0x00030A9C]
 handle=544
 locked=1
 resize=
@@ -3031,7 +3031,7 @@ bgimage=
 tabpage=2
 textmode=text
 order=96
-[0x00031994]
+[0x00030A94]
 handle=545
 locked=1
 resize=
@@ -3058,7 +3058,7 @@ bgimage=
 tabpage=2
 textmode=text
 order=97
-[0x0003198C]
+[0x00030A8C]
 handle=546
 locked=0
 resize=
@@ -3085,7 +3085,7 @@ bgimage=
 order=98
 tabpage=2
 textmode=text
-[0x00031984]
+[0x00030A84]
 handle=547
 locked=0
 resize=
@@ -3112,7 +3112,7 @@ bgimage=
 tabpage=2
 textmode=text
 order=99
-[0x0003197C]
+[0x00030A7C]
 handle=548
 locked=0
 resize=
@@ -3139,7 +3139,7 @@ bgimage=
 tabpage=2
 textmode=text
 order=100
-[0x00031974]
+[0x00030A74]
 handle=549
 locked=0
 resize=
@@ -3166,7 +3166,7 @@ bgimage=
 tabpage=2
 textmode=text
 order=101
-[0x0003196C]
+[0x00030A6C]
 handle=550
 locked=0
 resize=
@@ -3193,7 +3193,7 @@ bgimage=
 tabpage=2
 textmode=text
 order=102
-[0x00031964]
+[0x00030A64]
 handle=551
 locked=0
 resize=
@@ -3220,7 +3220,7 @@ bgimage=
 tabpage=2
 textmode=text
 order=103
-[0x0003195C]
+[0x00030A5C]
 handle=552
 locked=0
 resize=
@@ -3247,7 +3247,7 @@ bgimage=
 tabpage=1
 textmode=text
 order=104
-[0x00031954]
+[0x00030A54]
 handle=553
 locked=0
 resize=
@@ -3274,7 +3274,7 @@ bgimage=
 tabpage=1
 textmode=text
 order=105
-[0x0003194C]
+[0x00030A4C]
 handle=554
 locked=0
 resize=
@@ -3301,7 +3301,7 @@ bgimage=
 tabpage=1
 textmode=text
 order=106
-[0x00031944]
+[0x00030A44]
 handle=555
 locked=0
 resize=
@@ -3328,7 +3328,7 @@ bgimage=
 tabpage=1
 textmode=text
 order=107
-[0x0003193C]
+[0x00030A38]
 handle=556
 locked=0
 resize=
@@ -3355,7 +3355,7 @@ bgimage=
 tabpage=1
 textmode=text
 order=108
-[0x00031934]
+[0x00030A2C]
 handle=557
 locked=0
 resize=
@@ -3382,7 +3382,7 @@ bgimage=
 tabpage=1
 textmode=text
 order=109
-[0x0003192C]
+[0x00030A20]
 handle=558
 locked=0
 resize=
@@ -3409,7 +3409,7 @@ bgimage=
 tabpage=3
 textmode=text
 order=110
-[0x00031924]
+[0x00030A14]
 handle=559
 locked=0
 resize=
@@ -3436,7 +3436,7 @@ bgimage=
 tabpage=3
 textmode=text
 order=111
-[0x0003191C]
+[0x00030A0C]
 handle=560
 locked=0
 resize=
@@ -3463,7 +3463,7 @@ bgimage=
 tabpage=3
 textmode=text
 order=112
-[0x00031914]
+[0x00030A00]
 handle=561
 locked=0
 resize=
@@ -3490,7 +3490,7 @@ bgimage=
 tabpage=3
 textmode=text
 order=113
-[0x0003190C]
+[0x000309EC]
 handle=562
 locked=0
 resize=
@@ -3517,7 +3517,7 @@ bgimage=
 tabpage=3
 textmode=text
 order=114
-[0x00031904]
+[0x000309E0]
 handle=563
 locked=0
 resize=
@@ -3544,7 +3544,7 @@ bgimage=
 tabpage=3
 textmode=text
 order=115
-[0x000318F8]
+[0x000309D8]
 handle=564
 locked=0
 resize=
@@ -3571,7 +3571,7 @@ bgimage=
 tabpage=3
 textmode=text
 order=116
-[0x000318EC]
+[0x000309D0]
 handle=565
 locked=0
 resize=
@@ -3598,7 +3598,7 @@ bgimage=
 tabpage=3
 textmode=text
 order=117
-[0x000318E0]
+[0x000309C8]
 handle=566
 locked=0
 resize=
@@ -3625,7 +3625,7 @@ bgimage=
 tabpage=3
 textmode=text
 order=118
-[0x000318D4]
+[0x000309C2]
 handle=567
 locked=0
 resize=
@@ -3652,7 +3652,7 @@ bgimage=
 tabpage=3
 textmode=text
 order=119
-[0x000318CA]
+[0x000309BA]
 handle=568
 locked=0
 resize=
@@ -3679,7 +3679,7 @@ bgimage=
 tabpage=3
 textmode=text
 order=120
-[0x004E15C0]
+[0x000309B2]
 handle=569
 locked=0
 resize=
@@ -3706,7 +3706,7 @@ bgimage=
 tabpage=3
 textmode=text
 order=121
-[0x00501DC0]
+[0x000309AA]
 handle=570
 locked=0
 resize=
@@ -3733,7 +3733,7 @@ bgimage=
 tabpage=3
 textmode=text
 order=122
-[0x00031DAE]
+[0x000309A2]
 handle=571
 locked=0
 resize=
@@ -3760,7 +3760,7 @@ bgimage=
 tabpage=3
 textmode=text
 order=123
-[0x00031D86]
+[0x0003099A]
 handle=572
 locked=0
 resize=
@@ -3787,7 +3787,7 @@ bgimage=
 tabpage=3
 textmode=text
 order=124
-[0x00031D6E]
+[0x00030992]
 handle=573
 locked=0
 resize=
@@ -3814,7 +3814,7 @@ bgimage=
 tabpage=3
 textmode=text
 order=125
-[0x00031D2A]
+[0x0003098A]
 handle=574
 locked=0
 resize=
@@ -3841,7 +3841,7 @@ bgimage=
 tabpage=3
 textmode=text
 order=126
-[0x00031D1A]
+[0x00030982]
 handle=575
 locked=0
 resize=
@@ -3868,7 +3868,7 @@ bgimage=
 tabpage=3
 textmode=text
 order=127
-[0x00031D02]
+[0x0003097A]
 handle=576
 locked=0
 resize=
@@ -3895,7 +3895,7 @@ bgimage=
 tabpage=3
 textmode=text
 order=128
-[0x00031CF2]
+[0x00030972]
 handle=577
 locked=0
 resize=
@@ -3922,7 +3922,7 @@ bgimage=
 tabpage=3
 textmode=text
 order=129
-[0x00031CE2]
+[0x0003096A]
 handle=578
 locked=1
 resize=
@@ -3949,7 +3949,7 @@ bgimage=
 order=130
 tabpage=3
 textmode=text
-[0x00031CD2]
+[0x00030962]
 handle=579
 locked=1
 resize=
@@ -3976,7 +3976,7 @@ bgimage=
 tabpage=3
 textmode=text
 order=131
-[0x00031CC2]
+[0x0003095A]
 handle=580
 locked=0
 resize=
@@ -4003,7 +4003,7 @@ bgimage=
 tabpage=3
 textmode=text
 order=132
-[0x00031CB2]
+[0x0003094A]
 handle=581
 locked=0
 resize=
@@ -4030,7 +4030,7 @@ bgimage=
 tabpage=3
 textmode=text
 order=133
-[0x00031CA2]
+[0x0003093A]
 handle=582
 locked=0
 resize=
@@ -4057,7 +4057,7 @@ bgimage=
 tabpage=3
 textmode=text
 order=134
-[0x00031C92]
+[0x00030930]
 handle=583
 locked=0
 resize=
@@ -4084,7 +4084,7 @@ bgimage=
 tabpage=3
 textmode=text
 order=135
-[0x00031C82]
+[0x00030928]
 handle=584
 locked=0
 resize=
@@ -4111,7 +4111,7 @@ bgimage=
 tabpage=3
 textmode=text
 order=136
-[0x00031C72]
+[0x00030920]
 handle=585
 locked=0
 resize=
@@ -4138,7 +4138,7 @@ bgimage=
 tabpage=3
 textmode=text
 order=137
-[0x00031C62]
+[0x00030918]
 handle=586
 locked=0
 resize=
@@ -4165,7 +4165,7 @@ bgimage=
 tabpage=3
 textmode=text
 order=138
-[0x00031C52]
+[0x00030910]
 handle=587
 locked=0
 resize=
@@ -4192,16 +4192,16 @@ bgimage=
 tabpage=3
 textmode=text
 order=139
-[0x00031C42]
+[0x00030908]
 handle=588
 locked=0
 resize=
 code=
 type=group
-x=17
+x=18
 y=36
 width=259
-height=70
+height=92
 text=Gestion Vie
 tooltip=
 state=$GUI_SHOW+$GUI_ENABLE
@@ -4219,7 +4219,7 @@ bgimage=
 order=140
 tabpage=4
 textmode=text
-[0x00031C32]
+[0x00030900]
 handle=589
 locked=0
 resize=
@@ -4246,7 +4246,7 @@ bgimage=
 order=141
 tabpage=4
 textmode=text
-[0x00031C22]
+[0x000308F8]
 handle=590
 locked=0
 resize=
@@ -4273,7 +4273,7 @@ bgimage=
 tabpage=4
 textmode=text
 order=142
-[0x00031C12]
+[0x000308F0]
 handle=591
 locked=0
 resize=
@@ -4300,7 +4300,7 @@ bgimage=
 tabpage=4
 textmode=text
 order=143
-[0x00031C02]
+[0x000308E8]
 handle=592
 locked=0
 resize=
@@ -4327,7 +4327,7 @@ bgimage=
 tabpage=4
 textmode=text
 order=144
-[0x00031BF2]
+[0x000308E0]
 handle=593
 locked=0
 resize=
@@ -4354,7 +4354,7 @@ bgimage=
 order=145
 tabpage=4
 textmode=text
-[0x00031BE2]
+[0x000308D8]
 handle=594
 locked=0
 resize=
@@ -4381,7 +4381,7 @@ bgimage=
 order=146
 tabpage=4
 textmode=text
-[0x00031BD2]
+[0x000308D0]
 handle=595
 locked=0
 resize=
@@ -4408,7 +4408,7 @@ bgimage=
 order=147
 tabpage=4
 textmode=text
-[0x00031BC2]
+[0x000308C8]
 handle=596
 locked=0
 resize=
@@ -4435,7 +4435,7 @@ bgimage=
 order=148
 tabpage=4
 textmode=text
-[0x00031BB2]
+[0x000308C0]
 handle=597
 locked=0
 resize=
@@ -4462,7 +4462,7 @@ bgimage=
 order=149
 tabpage=4
 textmode=text
-[0x00041DBA]
+[0x000308B8]
 handle=598
 locked=0
 resize=
@@ -4489,7 +4489,7 @@ bgimage=
 tabpage=4
 textmode=text
 order=150
-[0x00031B96]
+[0x000308B0]
 handle=599
 locked=0
 resize=
@@ -4516,7 +4516,7 @@ bgimage=
 tabpage=4
 textmode=text
 order=151
-[0x00031B86]
+[0x000308A8]
 handle=600
 locked=0
 resize=
@@ -4543,7 +4543,7 @@ bgimage=
 tabpage=4
 textmode=text
 order=152
-[0x00031B76]
+[0x00030894]
 handle=601
 locked=0
 resize=
@@ -4570,7 +4570,7 @@ bgimage=
 order=153
 tabpage=4
 textmode=text
-[0x00031B66]
+[0x0003088A]
 handle=602
 locked=0
 resize=
@@ -4597,7 +4597,7 @@ bgimage=
 tabpage=4
 textmode=text
 order=154
-[0x00031B56]
+[0x00030880]
 handle=603
 locked=0
 resize=
@@ -4624,7 +4624,7 @@ bgimage=
 tabpage=4
 textmode=text
 order=155
-[0x00031B46]
+[0x00030878]
 handle=604
 locked=0
 resize=
@@ -4651,16 +4651,16 @@ bgimage=
 tabpage=4
 textmode=text
 order=156
-[0x00031B36]
+[0x00030870]
 handle=605
 locked=0
 resize=
 code=
 type=group
 x=18
-y=109
+y=132
 width=259
-height=196
+height=180
 text=Gestion Affixes
 tooltip=
 state=$GUI_SHOW+$GUI_ENABLE
@@ -4678,14 +4678,14 @@ bgimage=
 order=157
 tabpage=4
 textmode=text
-[0x00031B26]
+[0x00030868]
 handle=606
 locked=0
 resize=
 code=
 type=checkbox
-x=621
-y=187
+x=618
+y=185
 width=63
 height=23
 text=UsePath
@@ -4705,14 +4705,14 @@ bgimage=
 order=158
 tabpage=4
 textmode=text
-[0x00031B16]
+[0x00030860]
 handle=607
 locked=0
 resize=
 code=
 type=input
-x=116
-y=127
+x=114
+y=142
 width=29
 height=20
 text=
@@ -4732,14 +4732,14 @@ bgimage=
 tabpage=4
 textmode=text
 order=159
-[0x00031B06]
+[0x00030858]
 handle=608
 locked=0
 resize=
 code=
 type=input
-x=239
-y=127
+x=237
+y=142
 width=29
 height=20
 text=
@@ -4759,14 +4759,14 @@ bgimage=
 tabpage=4
 textmode=text
 order=160
-[0x00031AF6]
+[0x0003084C]
 handle=609
 locked=0
 resize=
 code=
 type=input
-x=116
-y=155
+x=114
+y=170
 width=29
 height=20
 text=
@@ -4786,14 +4786,14 @@ bgimage=
 tabpage=4
 textmode=text
 order=161
-[0x00031AE6]
+[0x00030844]
 handle=610
 locked=0
 resize=
 code=
 type=input
-x=116
-y=183
+x=114
+y=198
 width=29
 height=20
 text=
@@ -4813,14 +4813,14 @@ bgimage=
 tabpage=4
 textmode=text
 order=162
-[0x00031AD6]
+[0x0003083C]
 handle=611
 locked=0
 resize=
 code=
 type=input
-x=116
-y=211
+x=114
+y=226
 width=29
 height=20
 text=
@@ -4840,14 +4840,14 @@ bgimage=
 tabpage=4
 textmode=text
 order=163
-[0x00031AC6]
+[0x00030BC6]
 handle=612
 locked=0
 resize=
 code=
 type=input
-x=116
-y=240
+x=114
+y=255
 width=29
 height=20
 text=
@@ -4867,14 +4867,14 @@ bgimage=
 tabpage=4
 textmode=text
 order=164
-[0x00031AB6]
+[0x00030C9A]
 handle=613
 locked=0
 resize=
 code=
 type=input
-x=116
-y=269
+x=114
+y=284
 width=29
 height=20
 text=
@@ -4894,14 +4894,14 @@ bgimage=
 tabpage=4
 textmode=text
 order=165
-[0x00031AA6]
+[0x00030CD8]
 handle=614
 locked=0
 resize=
 code=
 type=input
-x=239
-y=155
+x=237
+y=170
 width=29
 height=20
 text=
@@ -4921,14 +4921,14 @@ bgimage=
 tabpage=4
 textmode=text
 order=166
-[0x00031A9E]
+[0x0003129C]
 handle=615
 locked=0
 resize=
 code=
 type=input
-x=239
-y=183
+x=237
+y=198
 width=29
 height=20
 text=
@@ -4948,14 +4948,14 @@ bgimage=
 tabpage=4
 textmode=text
 order=167
-[0x00031A8A]
+[0x00031294]
 handle=616
 locked=0
 resize=
 code=
 type=input
-x=239
-y=211
+x=237
+y=226
 width=29
 height=20
 text=
@@ -4975,14 +4975,14 @@ bgimage=
 tabpage=4
 textmode=text
 order=168
-[0x00031A82]
+[0x000310FC]
 handle=617
 locked=0
 resize=
 code=
 type=input
-x=239
-y=240
+x=237
+y=255
 width=29
 height=20
 text=
@@ -5002,14 +5002,14 @@ bgimage=
 tabpage=4
 textmode=text
 order=169
-[0x00031A6A]
+[0x000310F4]
 handle=618
 locked=0
 resize=
 code=
 type=input
-x=239
-y=269
+x=237
+y=284
 width=29
 height=20
 text=
@@ -5029,14 +5029,14 @@ bgimage=
 tabpage=4
 textmode=text
 order=170
-[0x00031A64]
+[0x000310EC]
 handle=619
 locked=0
 resize=
 code=
 type=label
-x=27
-y=131
+x=25
+y=146
 width=79
 height=16
 text=Arcane (%vie) :
@@ -5056,14 +5056,14 @@ bgimage=
 order=171
 tabpage=4
 textmode=text
-[0x00031A58]
+[0x000310E4]
 handle=620
 locked=0
 resize=
 code=
 type=label
-x=27
-y=159
+x=25
+y=174
 width=79
 height=16
 text=Proj (%vie) :
@@ -5083,14 +5083,14 @@ bgimage=
 tabpage=4
 textmode=text
 order=172
-[0x00031A46]
+[0x00031104]
 handle=621
 locked=0
 resize=
 code=
 type=label
-x=27
-y=187
+x=25
+y=202
 width=79
 height=16
 text=Lave (%vie) :
@@ -5110,14 +5110,14 @@ bgimage=
 tabpage=4
 textmode=text
 order=173
-[0x00031A3E]
+[0x000310DE]
 handle=622
 locked=0
 resize=
 code=
 type=label
-x=27
-y=215
+x=25
+y=230
 width=79
 height=16
 text=Mine (%vie) :
@@ -5137,14 +5137,14 @@ bgimage=
 tabpage=4
 textmode=text
 order=174
-[0x00031A2E]
+[0x00030E32]
 handle=623
 locked=0
 resize=
 code=
 type=label
-x=27
-y=273
+x=25
+y=288
 width=79
 height=16
 text=Arm (%vie) :
@@ -5164,14 +5164,14 @@ bgimage=
 tabpage=4
 textmode=text
 order=175
-[0x00031A1E]
+[0x00030E2A]
 handle=624
 locked=0
 resize=
 code=
 type=label
-x=27
-y=244
+x=25
+y=259
 width=79
 height=16
 text=Spore (%vie) :
@@ -5191,14 +5191,14 @@ bgimage=
 tabpage=4
 textmode=text
 order=176
-[0x00031A0E]
+[0x00030D58]
 handle=625
 locked=0
 resize=
 code=
 type=label
-x=154
-y=159
+x=152
+y=174
 width=79
 height=16
 text=Profa (%vie) :
@@ -5218,14 +5218,14 @@ bgimage=
 tabpage=4
 textmode=text
 order=177
-[0x000319FE]
+[0x00030D4A]
 handle=626
 locked=0
 resize=
 code=
 type=label
-x=154
-y=129
+x=152
+y=144
 width=79
 height=16
 text=Peste (%vie) :
@@ -5245,14 +5245,14 @@ bgimage=
 tabpage=4
 textmode=text
 order=178
-[0x000319EE]
+[0x00030D40]
 handle=627
 locked=0
 resize=
 code=
 type=label
-x=154
-y=187
+x=152
+y=202
 width=79
 height=16
 text=Glace (%vie) :
@@ -5272,14 +5272,14 @@ bgimage=
 tabpage=4
 textmode=text
 order=179
-[0x000319DE]
+[0x00030804]
 handle=628
 locked=0
 resize=
 code=
 type=label
-x=154
-y=214
+x=152
+y=229
 width=79
 height=16
 text=Poison (%vie) :
@@ -5299,14 +5299,14 @@ bgimage=
 tabpage=4
 textmode=text
 order=180
-[0x000319CE]
+[0x0003082E]
 handle=629
 locked=0
 resize=
 code=
 type=label
-x=154
-y=242
+x=152
+y=257
 width=79
 height=16
 text=Explo (%vie) :
@@ -5326,14 +5326,14 @@ bgimage=
 tabpage=4
 textmode=text
 order=181
-[0x000319BE]
+[0x00030826]
 handle=630
 locked=0
 resize=
 code=
 type=label
-x=154
-y=273
+x=152
+y=288
 width=79
 height=16
 text=Elec (%vie) :
@@ -5353,7 +5353,7 @@ bgimage=
 tabpage=4
 textmode=text
 order=182
-[0x000319AC]
+[0x0003081E]
 handle=631
 locked=0
 resize=
@@ -5380,7 +5380,7 @@ bgimage=
 order=183
 tabpage=4
 textmode=text
-[0x000319BC]
+[0x00030810]
 handle=632
 locked=0
 resize=
@@ -5407,7 +5407,7 @@ bgimage=
 order=184
 tabpage=4
 textmode=text
-[0x000319D0]
+[0x0003080A]
 handle=633
 locked=0
 resize=
@@ -5434,7 +5434,7 @@ bgimage=
 order=185
 tabpage=4
 textmode=text
-[0x000319E4]
+[0x000307F2]
 handle=634
 locked=0
 resize=
@@ -5461,7 +5461,7 @@ bgimage=
 tabpage=4
 order=186
 textmode=text
-[0x000319F4]
+[0x000307EA]
 handle=635
 locked=0
 resize=
@@ -5488,7 +5488,7 @@ bgimage=
 order=187
 tabpage=4
 textmode=text
-[0x00031A04]
+[0x000307E2]
 handle=636
 locked=0
 resize=
@@ -5515,7 +5515,7 @@ bgimage=
 tabpage=4
 order=188
 textmode=text
-[0x00031A14]
+[0x000307DA]
 handle=637
 locked=0
 resize=
@@ -5542,7 +5542,7 @@ bgimage=
 tabpage=4
 order=189
 textmode=text
-[0x00031A28]
+[0x000307D0]
 handle=638
 locked=0
 resize=
@@ -5569,7 +5569,7 @@ bgimage=
 tabpage=4
 order=190
 textmode=text
-[0x00031A44]
+[0x000307C8]
 handle=639
 locked=0
 resize=
@@ -5596,7 +5596,7 @@ bgimage=
 tabpage=4
 order=191
 textmode=text
-[0x00031A5C]
+[0x000307C0]
 handle=640
 locked=0
 resize=
@@ -5623,7 +5623,7 @@ bgimage=
 tabpage=4
 order=192
 textmode=text
-[0x00031A74]
+[0x000307B8]
 handle=641
 locked=0
 resize=
@@ -5650,7 +5650,7 @@ bgimage=
 order=193
 tabpage=4
 textmode=text
-[0x00031A88]
+[0x00031240]
 handle=642
 locked=0
 resize=
@@ -5677,7 +5677,7 @@ bgimage=
 order=194
 tabpage=4
 textmode=text
-[0x00031AAC]
+[0x00031238]
 handle=643
 locked=0
 resize=
@@ -5704,7 +5704,7 @@ bgimage=
 order=195
 tabpage=4
 textmode=text
-[0x00031ABC]
+[0x00031230]
 handle=644
 locked=0
 resize=
@@ -5731,7 +5731,7 @@ bgimage=
 tabpage=4
 textmode=text
 order=196
-[0x00031ACC]
+[0x00031228]
 handle=645
 locked=0
 resize=
@@ -5758,7 +5758,7 @@ bgimage=
 tabpage=4
 textmode=text
 order=197
-[0x00031ADC]
+[0x00031220]
 handle=646
 locked=0
 resize=
@@ -5785,7 +5785,7 @@ bgimage=
 tabpage=4
 textmode=text
 order=198
-[0x00031AEC]
+[0x00031218]
 handle=647
 locked=0
 resize=
@@ -5812,7 +5812,7 @@ bgimage=
 tabpage=4
 textmode=text
 order=199
-[0x00031AFC]
+[0x00031210]
 handle=648
 locked=0
 resize=
@@ -5839,7 +5839,7 @@ bgimage=
 order=200
 tabpage=4
 textmode=text
-[0x00031B0C]
+[0x00031206]
 handle=649
 locked=0
 resize=
@@ -5866,7 +5866,7 @@ bgimage=
 order=201
 tabpage=4
 textmode=text
-[0x00031B1C]
+[0x00031246]
 handle=650
 locked=0
 resize=
@@ -5893,14 +5893,14 @@ bgimage=
 order=202
 tabpage=4
 textmode=text
-[0x00031B2C]
+[0x00031278]
 handle=651
 locked=0
 resize=
 code=
 type=input
 x=289
-y=281
+y=278
 width=169
 height=19
 text=
@@ -5920,7 +5920,7 @@ bgimage=
 order=203
 tabpage=4
 textmode=text
-[0x00031B3C]
+[0x0003126C]
 handle=652
 locked=0
 resize=
@@ -5947,7 +5947,7 @@ bgimage=
 order=204
 tabpage=4
 textmode=text
-[0x00031B4C]
+[0x00031264]
 handle=653
 locked=0
 resize=
@@ -5974,7 +5974,7 @@ bgimage=
 order=205
 tabpage=4
 textmode=text
-[0x00031B5C]
+[0x00031258]
 handle=654
 locked=0
 resize=
@@ -6001,7 +6001,7 @@ bgimage=
 order=206
 tabpage=4
 textmode=text
-[0x00031B88]
+[0x00031252]
 handle=655
 locked=0
 resize=
@@ -6028,7 +6028,7 @@ bgimage=
 order=207
 tabpage=4
 textmode=text
-[0x00031B98]
+[0x00031248]
 handle=656
 locked=0
 resize=
@@ -6055,7 +6055,7 @@ bgimage=
 order=208
 tabpage=4
 textmode=text
-[0x00031BCC]
+[0x0003128C]
 handle=657
 locked=0
 resize=
@@ -6082,7 +6082,7 @@ bgimage=
 tabpage=4
 textmode=text
 order=209
-[0x00031BDC]
+[0x00031284]
 handle=658
 locked=0
 resize=
@@ -6109,7 +6109,7 @@ bgimage=
 order=210
 tabpage=5
 textmode=text
-[0x00031BF0]
+[0x000311F8]
 handle=659
 locked=0
 resize=
@@ -6136,7 +6136,7 @@ bgimage=
 order=211
 tabpage=5
 textmode=text
-[0x00031C10]
+[0x000311F0]
 handle=660
 locked=0
 resize=
@@ -6163,7 +6163,7 @@ bgimage=
 order=212
 tabpage=5
 textmode=text
-[0x00031C28]
+[0x000311E8]
 handle=661
 locked=0
 resize=
@@ -6190,7 +6190,7 @@ bgimage=
 order=213
 tabpage=5
 textmode=text
-[0x00031C38]
+[0x000311E0]
 handle=662
 locked=0
 resize=
@@ -6217,7 +6217,7 @@ bgimage=
 order=214
 tabpage=5
 textmode=text
-[0x00031C74]
+[0x00040AD8]
 handle=663
 locked=0
 resize=
@@ -6244,7 +6244,7 @@ bgimage=
 order=215
 tabpage=5
 textmode=text
-[0x00031C84]
+[0x000609FA]
 handle=664
 locked=0
 resize=
@@ -6271,7 +6271,7 @@ bgimage=
 order=216
 tabpage=5
 textmode=text
-[0x00031C94]
+[0x00031008]
 handle=665
 locked=0
 resize=
@@ -6298,7 +6298,7 @@ bgimage=
 order=217
 tabpage=5
 textmode=text
-[0x00041998]
+[0x00041004]
 handle=666
 locked=0
 resize=
@@ -6325,7 +6325,7 @@ bgimage=
 order=218
 tabpage=5
 textmode=text
-[0x00051D76]
+[0x0003100E]
 handle=667
 locked=0
 resize=
@@ -6352,7 +6352,7 @@ bgimage=
 order=219
 tabpage=5
 textmode=text
-[0x00051D52]
+[0x00031012]
 handle=668
 locked=0
 resize=
@@ -6379,7 +6379,7 @@ bgimage=
 tabpage=5
 order=220
 textmode=text
-[0x00051D4A]
+[0x00031016]
 handle=669
 locked=0
 resize=
@@ -6406,7 +6406,7 @@ bgimage=
 order=221
 tabpage=5
 textmode=text
-[0x00051D42]
+[0x0003101A]
 handle=670
 locked=0
 resize=
@@ -6433,7 +6433,7 @@ bgimage=
 order=222
 tabpage=5
 textmode=text
-[0x0003199A]
+[0x0003101E]
 handle=671
 locked=0
 resize=
@@ -6460,7 +6460,7 @@ bgimage=
 tabpage=5
 textmode=text
 order=223
-[0x00051D9E]
+[0x00031022]
 handle=672
 locked=0
 resize=
@@ -6487,7 +6487,7 @@ bgimage=
 tabpage=5
 textmode=text
 order=224
-[0x00031416]
+[0x00031026]
 handle=673
 locked=0
 resize=
@@ -6514,7 +6514,7 @@ bgimage=
 tabpage=5
 textmode=text
 order=225
-[0x00041412]
+[0x0003102A]
 handle=674
 locked=0
 resize=
@@ -6541,7 +6541,7 @@ bgimage=
 tabpage=5
 textmode=text
 order=226
-[0x0003141C]
+[0x00041122]
 handle=675
 locked=0
 resize=
@@ -6568,7 +6568,7 @@ bgimage=
 tabpage=5
 textmode=text
 order=227
-[0x00031420]
+[0x000511A8]
 handle=676
 locked=0
 resize=
@@ -6595,7 +6595,7 @@ bgimage=
 tabpage=5
 textmode=text
 order=228
-[0x00031424]
+[0x000911D2]
 handle=677
 locked=0
 resize=
@@ -6622,7 +6622,7 @@ bgimage=
 tabpage=5
 textmode=text
 order=229
-[0x00031428]
+[0x00031148]
 handle=678
 locked=0
 resize=
@@ -6649,7 +6649,7 @@ bgimage=
 tabpage=5
 textmode=text
 order=230
-[0x0003142C]
+[0x000311A6]
 handle=679
 locked=0
 resize=
@@ -6676,7 +6676,7 @@ bgimage=
 tabpage=5
 textmode=text
 order=231
-[0x00031430]
+[0x0003118E]
 handle=680
 locked=0
 resize=
@@ -6703,7 +6703,7 @@ bgimage=
 tabpage=5
 textmode=text
 order=232
-[0x00031434]
+[0x00031134]
 handle=681
 locked=0
 resize=
@@ -6730,7 +6730,7 @@ bgimage=
 tabpage=5
 textmode=text
 order=233
-[0x00031438]
+[0x0003112E]
 handle=682
 locked=0
 resize=
@@ -6757,7 +6757,7 @@ bgimage=
 order=234
 tabpage=5
 textmode=text
-[0x00081E7C]
+[0x00031126]
 handle=683
 locked=0
 resize=
@@ -6784,7 +6784,7 @@ bgimage=
 order=235
 tabpage=5
 textmode=text
-[0x00081E78]
+[0x00031128]
 handle=684
 locked=0
 resize=
@@ -6811,7 +6811,7 @@ bgimage=
 tabpage=5
 textmode=text
 order=236
-[0x000615F2]
+[0x0004113E]
 handle=685
 locked=0
 resize=
@@ -6838,7 +6838,7 @@ bgimage=
 tabpage=5
 textmode=text
 order=237
-[0x00061E8C]
+[0x0003113A]
 handle=686
 locked=0
 resize=
@@ -6865,7 +6865,7 @@ bgimage=
 tabpage=5
 textmode=text
 order=238
-[0x00061E88]
+[0x0003116A]
 handle=687
 locked=0
 resize=
@@ -6892,7 +6892,7 @@ bgimage=
 tabpage=5
 textmode=text
 order=239
-[0x00051E90]
+[0x00041150]
 handle=688
 locked=0
 resize=
@@ -6919,7 +6919,7 @@ bgimage=
 tabpage=5
 textmode=text
 order=240
-[0x00051E94]
+[0x00031156]
 handle=689
 locked=0
 resize=
@@ -6946,7 +6946,7 @@ bgimage=
 tabpage=5
 textmode=text
 order=241
-[0x00041D38]
+[0x0003115A]
 handle=690
 locked=0
 resize=
@@ -6973,7 +6973,7 @@ bgimage=
 order=242
 tabpage=5
 textmode=text
-[0x00041CD8]
+[0x0003115E]
 handle=691
 locked=0
 resize=
@@ -7000,7 +7000,7 @@ bgimage=
 tabpage=5
 textmode=text
 order=243
-[0x00041CE4]
+[0x00031162]
 handle=692
 locked=0
 resize=
@@ -7027,7 +7027,7 @@ bgimage=
 tabpage=5
 textmode=text
 order=244
-[0x00041CEC]
+[0x00031166]
 handle=693
 locked=0
 resize=
@@ -7054,7 +7054,7 @@ bgimage=
 tabpage=5
 textmode=text
 order=245
-[0x00041CF8]
+[0x0003116C]
 handle=694
 locked=0
 resize=
@@ -7081,7 +7081,7 @@ bgimage=
 tabpage=5
 textmode=text
 order=246
-[0x00041D04]
+[0x00031170]
 handle=695
 locked=0
 resize=
@@ -7108,7 +7108,7 @@ bgimage=
 tabpage=5
 textmode=text
 order=247
-[0x00041D2C]
+[0x00031176]
 handle=696
 locked=0
 resize=
@@ -7135,7 +7135,7 @@ bgimage=
 tabpage=5
 textmode=text
 order=248
-[0x00051D14]
+[0x00031180]
 handle=697
 locked=0
 resize=
@@ -7162,7 +7162,7 @@ bgimage=
 tabpage=5
 textmode=text
 order=249
-[0x00041D0C]
+[0x00031186]
 handle=698
 locked=0
 resize=
@@ -7189,7 +7189,7 @@ bgimage=
 tabpage=5
 textmode=text
 order=250
-[0x00041D20]
+[0x00031188]
 handle=699
 locked=0
 resize=
@@ -7216,7 +7216,7 @@ bgimage=
 tabpage=5
 textmode=text
 order=251
-[0x001905FE]
+[0x000811D6]
 handle=700
 locked=0
 resize=
@@ -7243,7 +7243,7 @@ bgimage=
 tabpage=5
 textmode=text
 order=252
-[0x0015051E]
+[0x0004117A]
 handle=701
 locked=0
 resize=
@@ -7270,7 +7270,7 @@ bgimage=
 tabpage=5
 textmode=text
 order=253
-[0x000D1CC8]
+[0x00031168]
 handle=702
 locked=0
 resize=
@@ -7296,5 +7296,32 @@ func=
 bgimage=
 order=254
 tabpage=1
+textmode=text
+[0x00081D02]
+handle=703
+locked=0
+resize=
+code=
+type=checkbox
+x=27
+y=102
+width=173
+height=20
+text=Prendre les Globes en Combat
+tooltip=
+state=$GUI_SHOW+$GUI_ENABLE
+style=
+exstyle=
+textcolour=0x000000
+bgcolour=0xF0F0F0
+font=MS Sans Serif
+fontsize=8
+fontstyle=400
+fontattribute=0
+id=CheckboxTakeGlobeInFight
+func=
+bgimage=
+order=255
+tabpage=4
 textmode=text
 #ce

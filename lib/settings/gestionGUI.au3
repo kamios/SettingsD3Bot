@@ -188,6 +188,11 @@ Func RemplirSettings()
 	GUICtrlSetData($InputPotionStock,$PotionStock)
 	GUICtrlSetData($InputNbPotionBuy,$NbPotionBuy)
 	GUICtrlSetData($InputVieGlobes,$LifeForHealth)
+	If $TakeGlobeInFight = "True" Then
+		GUICtrlSetState($CheckboxTakeGlobeInFight ,$GUI_CHECKED)
+	Else
+		GUICtrlSetState($CheckboxTakeGlobeInFight ,$GUI_UNCHECKED)
+	EndIf
 	If $TakeShrines = "True" Then
 		GUICtrlSetState($CheckboxTakeShrines ,$GUI_CHECKED)
 	Else
@@ -536,7 +541,7 @@ Func RecupDonneesSettings()
 	$SpellEnergyNeedsLeft = GUICtrlRead($InputSpellEnergyNeedsLeft)
 	$SpellLifeLeft = GUICtrlRead($InputSpellLifeLeft)
 	$SpellDistanceLeft = GUICtrlRead($InputSpellDistanceLeft)
-	
+
 	If IsChecked($CheckboxSpellOnRight) Then
 		$SpellOnRight = "True"
 	Else
@@ -583,6 +588,11 @@ Func RecupDonneesSettings()
 	$PotionStock = GUICtrlRead($InputPotionStock)
 	$NbPotionBuy = GUICtrlRead($InputNbPotionBuy)
 	$LifeForHealth = GUICtrlRead($InputVieGlobes)
+	If IsChecked($CheckboxTakeGlobeInFight) Then
+		$TakeGlobeInFight = "True"
+	Else
+		$TakeGlobeInFight = "False"
+	EndIf
 	If IsChecked($CheckboxTakeShrines) Then
 		$TakeShrines = "True"
 	Else
