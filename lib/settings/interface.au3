@@ -695,6 +695,8 @@ Func EditSettings($ProfilSel)
 	Global $CheckboxNoAdventure = GUICtrlCreateCheckbox("Pas de Prime : Séquence Aventure",22,95,201,20,-1,-1)
 	GUISwitch($settings,_GUICtrlTab_SetCurFocus($tab,4)&GUICtrlRead ($tab, 1))
 	Global $CheckboxTakeGlobeInFight = GUICtrlCreateCheckbox("Prendre les Globes en Combat",27,102,173,20,-1,-1)
+	GUISwitch($settings,_GUICtrlTab_SetCurFocus($tab,5)&GUICtrlRead ($tab, 1))
+	Global $ButtonValiderTouche = GUICtrlCreateButton("Valider",638,268,73,22,-1,-1)
 	_GUICtrlTab_SetCurFocus($tab,0)
 	GUISetState(@SW_SHOW,$settings)
 
@@ -780,20 +782,23 @@ EtatGriser()
 				ExitLoop
 
 			Case $RadioTouche1
-
+				$RadioSelect = 1
 				GestionTouches(1)
 
 			Case $RadioTouche2
-
+				$RadioSelect = 2
 				GestionTouches(2)
 
 			Case $RadioTouche3
-
+				$RadioSelect = 3
 				GestionTouches(3)
 
 			Case $RadioTouche4
-
+				$RadioSelect = 4
 				GestionTouches(4)
+
+			Case $ButtonValiderTouche
+				EnregistTouches()
 
 ;########################################################
 ;#Boutons Reset

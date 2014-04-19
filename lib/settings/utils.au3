@@ -156,6 +156,65 @@ Func GestionTouches($NumTouche)
 
 EndFunc;==>GestionTouches
 
+Func EnregistTouches()
+	If IsChecked($CheckboxTouche) Then
+		$SpellOn = "True"
+	Else
+		$SpellOn = "False"
+	EndIf
+	If IsChecked($CheckboxPrebuff) Then
+		$SpellPreBuff = "True"
+	Else
+		$SpellPreBuff = "False"
+	EndIf
+	$SpellPreBuffDelay = GuiCtrlRead($InputPrebuffDelay)
+	$SpellDelay = GuiCtrlRead($InputSpellDelay)
+	$SpellType = GuiCtrlRead($InputSpellType)
+	$SpellEnergyNeeds = GuiCtrlRead($InputSpellEnergyNeeds)
+	$SpellLife = GuiCtrlRead($InputSpellLife)
+	$SpellDistance = GuiCtrlRead($InputSpellDistance)
+
+	Switch $NumTouche
+		Case 1
+			$SpellOn1 = $SpellOn
+			$SpellPreBuff1 = $SpellPreBuff
+			$SpellPreBuffDelay1 = $SpellPreBuffDelay
+			$SpellDelay1 = $SpellDelay
+			$SpellType1 = $SpellType
+			$SpellEnergyNeeds1 = $SpellEnergyNeeds
+			$SpellLife1 = $SpellLife
+			$SpellDistance1 = $SpellDistance
+		Case 2
+			$SpellOn2 = $SpellOn
+			$SpellPreBuff2 = $SpellPreBuff
+			$SpellPreBuffDelay2 = $SpellPreBuffDelay
+			$SpellDelay2 = $SpellDelay
+			$SpellType2 = $SpellType
+			$SpellEnergyNeeds2 = $SpellEnergyNeeds
+			$SpellLife2 = $SpellLife
+			$SpellDistance2 = $SpellDistance
+		Case 3
+			$SpellOn3 = $SpellOn
+			$SpellPreBuff3 = $SpellPreBuff
+			$SpellPreBuffDelay3 = $SpellPreBuffDelay
+			$SpellDelay3 = $SpellDelay
+			$SpellType3 = $SpellType
+			$SpellEnergyNeeds3 = $SpellEnergyNeeds
+			$SpellLife3 = $SpellLife
+			$SpellDistance3 = $SpellDistance
+		Case 4
+			$SpellOn4 = $SpellOn
+			$SpellPreBuff4 = $SpellPreBuff
+			$SpellPreBuffDelay4 = $SpellPreBuffDelay
+			$SpellDelay4 = $SpellDelay
+			$SpellType4 = $SpellType
+			$SpellEnergyNeeds4 = $SpellEnergyNeeds
+			$SpellLife4 = $SpellLife
+			$SpellDistance4 = $SpellDistance
+	EndSwitch
+
+EndFunc;==>EnregistTouches
+
 ;;Fonction permettant de suprimer un profil
 Func SupprimerProfil($CheminDuDossier)
 
