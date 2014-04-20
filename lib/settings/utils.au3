@@ -83,137 +83,183 @@ EndFunc;==>ListFichier
 ;;Fonction perttant de gérer les radio pour les touches 1 à 4
 Func GestionTouches()
 
-	Switch $RadioSelect
-		Case 1
-			If $SpellOn1 = "True" Then
-				GUICtrlSetState($CheckboxTouche ,$GUI_CHECKED)
-			Else
-				GUICtrlSetState($CheckboxTouche ,$GUI_UNCHECKED)
-			EndIf
-			If $SpellPreBuff1 = "True" Then
-				GUICtrlSetState($CheckboxPrebuff ,$GUI_CHECKED)
-			Else
-				GUICtrlSetState($CheckboxPrebuff ,$GUI_UNCHECKED)
-			EndIf
-			GUICtrlSetData($InputPrebuffDelay,$SpellPreBuffDelay1)
-			GUICtrlSetData($InputSpellDelay,$SpellDelay1)
-			GUICtrlSetData($InputSpellType,$SpellType1)
-			GUICtrlSetData($InputSpellEnergyNeeds,$SpellEnergyNeeds1)
-			GUICtrlSetData($InputSpellLife,$SpellLife1)
-			GUICtrlSetData($InputSpellDistance,$SpellDistance1)
-		Case 2
-			If $SpellOn2 = "True" Then
-				GUICtrlSetState($CheckboxTouche ,$GUI_CHECKED)
-			Else
-				GUICtrlSetState($CheckboxTouche ,$GUI_UNCHECKED)
-			EndIf
-			If $SpellPreBuff2 = "True" Then
-				GUICtrlSetState($CheckboxPrebuff ,$GUI_CHECKED)
-			Else
-				GUICtrlSetState($CheckboxPrebuff ,$GUI_UNCHECKED)
-			EndIf
-			GUICtrlSetData($InputPrebuffDelay,$SpellPreBuffDelay2)
-			GUICtrlSetData($InputSpellDelay,$SpellDelay2)
-			GUICtrlSetData($InputSpellType,$SpellType2)
-			GUICtrlSetData($InputSpellEnergyNeeds,$SpellEnergyNeeds2)
-			GUICtrlSetData($InputSpellLife,$SpellLife2)
-			GUICtrlSetData($InputSpellDistance,$SpellDistance2)
-		Case 3
-			If $SpellOn3 = "True" Then
-				GUICtrlSetState($CheckboxTouche ,$GUI_CHECKED)
-			Else
-				GUICtrlSetState($CheckboxTouche ,$GUI_UNCHECKED)
-			EndIf
-			If $SpellPreBuff3 = "True" Then
-				GUICtrlSetState($CheckboxPrebuff ,$GUI_CHECKED)
-			Else
-				GUICtrlSetState($CheckboxPrebuff ,$GUI_UNCHECKED)
-			EndIf
-			GUICtrlSetData($InputPrebuffDelay,$SpellPreBuffDelay3)
-			GUICtrlSetData($InputSpellDelay,$SpellDelay3)
-			GUICtrlSetData($InputSpellType,$SpellType3)
-			GUICtrlSetData($InputSpellEnergyNeeds,$SpellEnergyNeeds3)
-			GUICtrlSetData($InputSpellLife,$SpellLife3)
-			GUICtrlSetData($InputSpellDistance,$SpellDistance3)
-		Case 4
-			If $SpellOn4 = "True" Then
-				GUICtrlSetState($CheckboxTouche ,$GUI_CHECKED)
-			Else
-				GUICtrlSetState($CheckboxTouche ,$GUI_UNCHECKED)
-			EndIf
-			If $SpellPreBuff4 = "True" Then
-				GUICtrlSetState($CheckboxPrebuff ,$GUI_CHECKED)
-			Else
-				GUICtrlSetState($CheckboxPrebuff ,$GUI_UNCHECKED)
-			EndIf
-			GUICtrlSetData($InputPrebuffDelay,$SpellPreBuffDelay4)
-			GUICtrlSetData($InputSpellDelay,$SpellDelay4)
-			GUICtrlSetData($InputSpellType,$SpellType4)
-			GUICtrlSetData($InputSpellEnergyNeeds,$SpellEnergyNeeds4)
-			GUICtrlSetData($InputSpellLife,$SpellLife4)
-			GUICtrlSetData($InputSpellDistance,$SpellDistance4)
-	EndSwitch
+	If IsChecked($RadioTouche1) Then
+
+		GUICtrlSetState($CheckboxTouche1 ,$GUI_SHOW)
+		GUICtrlSetState($CheckboxTouche2 ,$GUI_HIDE)
+		GUICtrlSetState($CheckboxTouche3 ,$GUI_HIDE)
+		GUICtrlSetState($CheckboxTouche4 ,$GUI_HIDE)
+
+		GUICtrlSetState($InputSpellDelay1 ,$GUI_SHOW)
+		GUICtrlSetState($InputSpellDelay2 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellDelay3 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellDelay4 ,$GUI_HIDE)
+
+		GUICtrlSetState($CheckboxPrebuff1 ,$GUI_SHOW)
+		GUICtrlSetState($CheckboxPrebuff2 ,$GUI_HIDE)
+		GUICtrlSetState($CheckboxPrebuff3 ,$GUI_HIDE)
+		GUICtrlSetState($CheckboxPrebuff4 ,$GUI_HIDE)
+
+		GUICtrlSetState($InputPrebuffDelay1 ,$GUI_SHOW)
+		GUICtrlSetState($InputPrebuffDelay2 ,$GUI_HIDE)
+		GUICtrlSetState($InputPrebuffDelay3 ,$GUI_HIDE)
+		GUICtrlSetState($InputPrebuffDelay4 ,$GUI_HIDE)
+
+		GUICtrlSetState($InputSpellType1 ,$GUI_SHOW)
+		GUICtrlSetState($InputSpellType2 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellType3 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellType4 ,$GUI_HIDE)
+
+		GUICtrlSetState($InputSpellEnergyNeeds1 ,$GUI_SHOW)
+		GUICtrlSetState($InputSpellEnergyNeeds2 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellEnergyNeeds3 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellEnergyNeeds4 ,$GUI_HIDE)
+
+		GUICtrlSetState($InputSpellLife1 ,$GUI_SHOW)
+		GUICtrlSetState($InputSpellLife2 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellLife3 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellLife4 ,$GUI_HIDE)
+
+		GUICtrlSetState($InputSpellDistance1 ,$GUI_SHOW)
+		GUICtrlSetState($InputSpellDistance2 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellDistance3 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellDistance4 ,$GUI_HIDE)
+
+	EndIf
+
+	If IsChecked($RadioTouche2) Then
+
+		GUICtrlSetState($CheckboxTouche1 ,$GUI_HIDE)
+		GUICtrlSetState($CheckboxTouche2 ,$GUI_SHOW)
+		GUICtrlSetState($CheckboxTouche3 ,$GUI_HIDE)
+		GUICtrlSetState($CheckboxTouche4 ,$GUI_HIDE)
+
+		GUICtrlSetState($InputSpellDelay1 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellDelay2 ,$GUI_SHOW)
+		GUICtrlSetState($InputSpellDelay3 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellDelay4 ,$GUI_HIDE)
+
+		GUICtrlSetState($CheckboxPrebuff1 ,$GUI_HIDE)
+		GUICtrlSetState($CheckboxPrebuff2 ,$GUI_SHOW)
+		GUICtrlSetState($CheckboxPrebuff3 ,$GUI_HIDE)
+		GUICtrlSetState($CheckboxPrebuff4 ,$GUI_HIDE)
+
+		GUICtrlSetState($InputPrebuffDelay1 ,$GUI_HIDE)
+		GUICtrlSetState($InputPrebuffDelay2 ,$GUI_SHOW)
+		GUICtrlSetState($InputPrebuffDelay3 ,$GUI_HIDE)
+		GUICtrlSetState($InputPrebuffDelay4 ,$GUI_HIDE)
+
+		GUICtrlSetState($InputSpellType1 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellType2 ,$GUI_SHOW)
+		GUICtrlSetState($InputSpellType3 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellType4 ,$GUI_HIDE)
+
+		GUICtrlSetState($InputSpellEnergyNeeds1 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellEnergyNeeds2 ,$GUI_SHOW)
+		GUICtrlSetState($InputSpellEnergyNeeds3 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellEnergyNeeds4 ,$GUI_HIDE)
+
+		GUICtrlSetState($InputSpellLife1 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellLife2 ,$GUI_SHOW)
+		GUICtrlSetState($InputSpellLife3 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellLife4 ,$GUI_HIDE)
+
+		GUICtrlSetState($InputSpellDistance1 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellDistance2 ,$GUI_SHOW)
+		GUICtrlSetState($InputSpellDistance3 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellDistance4 ,$GUI_HIDE)
+
+	EndIf
+
+	If IsChecked($RadioTouche3) Then
+
+		GUICtrlSetState($CheckboxTouche1 ,$GUI_HIDE)
+		GUICtrlSetState($CheckboxTouche2 ,$GUI_HIDE)
+		GUICtrlSetState($CheckboxTouche3 ,$GUI_SHOW)
+		GUICtrlSetState($CheckboxTouche4 ,$GUI_HIDE)
+
+		GUICtrlSetState($InputSpellDelay1 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellDelay2 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellDelay3 ,$GUI_SHOW)
+		GUICtrlSetState($InputSpellDelay4 ,$GUI_HIDE)
+
+		GUICtrlSetState($CheckboxPrebuff1 ,$GUI_HIDE)
+		GUICtrlSetState($CheckboxPrebuff2 ,$GUI_HIDE)
+		GUICtrlSetState($CheckboxPrebuff3 ,$GUI_SHOW)
+		GUICtrlSetState($CheckboxPrebuff4 ,$GUI_HIDE)
+
+		GUICtrlSetState($InputPrebuffDelay1 ,$GUI_HIDE)
+		GUICtrlSetState($InputPrebuffDelay2 ,$GUI_HIDE)
+		GUICtrlSetState($InputPrebuffDelay3 ,$GUI_SHOW)
+		GUICtrlSetState($InputPrebuffDelay4 ,$GUI_HIDE)
+
+		GUICtrlSetState($InputSpellType1 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellType2 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellType3 ,$GUI_SHOW)
+		GUICtrlSetState($InputSpellType4 ,$GUI_HIDE)
+
+		GUICtrlSetState($InputSpellEnergyNeeds1 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellEnergyNeeds2 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellEnergyNeeds3 ,$GUI_SHOW)
+		GUICtrlSetState($InputSpellEnergyNeeds4 ,$GUI_HIDE)
+
+		GUICtrlSetState($InputSpellLife1 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellLife2 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellLife3 ,$GUI_SHOW)
+		GUICtrlSetState($InputSpellLife4 ,$GUI_HIDE)
+
+		GUICtrlSetState($InputSpellDistance1 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellDistance2 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellDistance3 ,$GUI_SHOW)
+		GUICtrlSetState($InputSpellDistance4 ,$GUI_HIDE)
+
+	EndIf
+
+	If IsChecked($RadioTouche4) Then
+
+		GUICtrlSetState($CheckboxTouche1 ,$GUI_HIDE)
+		GUICtrlSetState($CheckboxTouche2 ,$GUI_HIDE)
+		GUICtrlSetState($CheckboxTouche3 ,$GUI_HIDE)
+		GUICtrlSetState($CheckboxTouche4 ,$GUI_SHOW)
+
+		GUICtrlSetState($InputSpellDelay1 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellDelay2 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellDelay3 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellDelay4 ,$GUI_SHOW)
+
+		GUICtrlSetState($CheckboxPrebuff1 ,$GUI_HIDE)
+		GUICtrlSetState($CheckboxPrebuff2 ,$GUI_HIDE)
+		GUICtrlSetState($CheckboxPrebuff3 ,$GUI_HIDE)
+		GUICtrlSetState($CheckboxPrebuff4 ,$GUI_SHOW)
+
+		GUICtrlSetState($InputPrebuffDelay1 ,$GUI_HIDE)
+		GUICtrlSetState($InputPrebuffDelay2 ,$GUI_HIDE)
+		GUICtrlSetState($InputPrebuffDelay3 ,$GUI_HIDE)
+		GUICtrlSetState($InputPrebuffDelay4 ,$GUI_SHOW)
+
+		GUICtrlSetState($InputSpellType1 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellType2 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellType3 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellType4 ,$GUI_SHOW)
+
+		GUICtrlSetState($InputSpellEnergyNeeds1 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellEnergyNeeds2 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellEnergyNeeds3 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellEnergyNeeds4 ,$GUI_SHOW)
+
+		GUICtrlSetState($InputSpellLife1 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellLife2 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellLife3 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellLife4 ,$GUI_SHOW)
+
+		GUICtrlSetState($InputSpellDistance1 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellDistance2 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellDistance3 ,$GUI_HIDE)
+		GUICtrlSetState($InputSpellDistance4 ,$GUI_SHOW)
+
+	EndIf
 
 EndFunc;==>GestionTouches
-
-Func EnregistTouches()
-	If IsChecked($CheckboxTouche) Then
-		$SpellOn = "True"
-	Else
-		$SpellOn = "False"
-	EndIf
-	If IsChecked($CheckboxPrebuff) Then
-		$SpellPreBuff = "True"
-	Else
-		$SpellPreBuff = "False"
-	EndIf
-	$SpellPreBuffDelay = GuiCtrlRead($InputPrebuffDelay)
-	$SpellDelay = GuiCtrlRead($InputSpellDelay)
-	$SpellType = GuiCtrlRead($InputSpellType)
-	$SpellEnergyNeeds = GuiCtrlRead($InputSpellEnergyNeeds)
-	$SpellLife = GuiCtrlRead($InputSpellLife)
-	$SpellDistance = GuiCtrlRead($InputSpellDistance)
-
-	Switch $RadioSelect
-		Case 1
-			$SpellOn1 = $SpellOn
-			$SpellPreBuff1 = $SpellPreBuff
-			$SpellPreBuffDelay1 = $SpellPreBuffDelay
-			$SpellDelay1 = $SpellDelay
-			$SpellType1 = $SpellType
-			$SpellEnergyNeeds1 = $SpellEnergyNeeds
-			$SpellLife1 = $SpellLife
-			$SpellDistance1 = $SpellDistance
-		Case 2
-			$SpellOn2 = $SpellOn
-			$SpellPreBuff2 = $SpellPreBuff
-			$SpellPreBuffDelay2 = $SpellPreBuffDelay
-			$SpellDelay2 = $SpellDelay
-			$SpellType2 = $SpellType
-			$SpellEnergyNeeds2 = $SpellEnergyNeeds
-			$SpellLife2 = $SpellLife
-			$SpellDistance2 = $SpellDistance
-		Case 3
-			$SpellOn3 = $SpellOn
-			$SpellPreBuff3 = $SpellPreBuff
-			$SpellPreBuffDelay3 = $SpellPreBuffDelay
-			$SpellDelay3 = $SpellDelay
-			$SpellType3 = $SpellType
-			$SpellEnergyNeeds3 = $SpellEnergyNeeds
-			$SpellLife3 = $SpellLife
-			$SpellDistance3 = $SpellDistance
-		Case 4
-			$SpellOn4 = $SpellOn
-			$SpellPreBuff4 = $SpellPreBuff
-			$SpellPreBuffDelay4 = $SpellPreBuffDelay
-			$SpellDelay4 = $SpellDelay
-			$SpellType4 = $SpellType
-			$SpellEnergyNeeds4 = $SpellEnergyNeeds
-			$SpellLife4 = $SpellLife
-			$SpellDistance4 = $SpellDistance
-	EndSwitch
-
-EndFunc;==>EnregistTouches
 
 ;;Fonction permettant de suprimer un profil
 Func SupprimerProfil($CheminDuDossier)

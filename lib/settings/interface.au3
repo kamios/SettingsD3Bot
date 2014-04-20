@@ -670,24 +670,48 @@ Func EditSettings($ProfilSel)
 	Global $RadioTouche2 = GUICtrlCreateRadio("Deuxième Spell (2)",141,163,107,21,-1,-1)
 	Global $RadioTouche3 = GUICtrlCreateRadio("Troisième Spell (3)",265,163,116,21,-1,-1)
 	Global $RadioTouche4 = GUICtrlCreateRadio("Quatrième Spell (4)",391,163,109,21,-1,-1)
-	Global $CheckboxTouche = GUICtrlCreateCheckbox("Activée",27,190,55,21,-1,-1)
+	Global $CheckboxTouche1 = GUICtrlCreateCheckbox("Activée",27,190,55,21,-1,-1)
+	Global $CheckboxTouche2 = GUICtrlCreateCheckbox("Activée",27,190,55,21,-1,-1)
+	Global $CheckboxTouche3 = GUICtrlCreateCheckbox("Activée",27,190,55,21,-1,-1)
+	Global $CheckboxTouche4 = GUICtrlCreateCheckbox("Activée",27,190,55,21,-1,-1)
 	GUICtrlCreateLabel("Délai :",90,195,35,16,-1,-1)
 	GUICtrlSetBkColor(-1,"-2")
-	Global $InputSpellDelay = GUICtrlCreateInput("",127,192,47,19,1,512)
+	Global $InputSpellDelay1 = GUICtrlCreateInput("",127,192,47,19,1,512)
+	Global $InputSpellDelay2 = GUICtrlCreateInput("",127,192,47,19,1,512)
+	Global $InputSpellDelay3 = GUICtrlCreateInput("",127,192,47,19,1,512)
+	Global $InputSpellDelay4 = GUICtrlCreateInput("",127,192,47,19,1,512)
 	GUICtrlCreateGroup("Prébuff",27,222,178,53,-1,-1)
 	GUICtrlSetBkColor(-1,"0xF0F0F0")
-	Global $CheckboxPrebuff = GUICtrlCreateCheckbox("Activée",38,243,55,21,-1,-1)
+	Global $CheckboxPrebuff1 = GUICtrlCreateCheckbox("Activée",38,243,55,21,-1,-1)
+	Global $CheckboxPrebuff2 = GUICtrlCreateCheckbox("Activée",38,243,55,21,-1,-1)
+	Global $CheckboxPrebuff3 = GUICtrlCreateCheckbox("Activée",38,243,55,21,-1,-1)
+	Global $CheckboxPrebuff4 = GUICtrlCreateCheckbox("Activée",38,243,55,21,-1,-1)
 	GUICtrlCreateLabel("Délai :",106,248,35,16,-1,-1)
 	GUICtrlSetBkColor(-1,"-2")
-	Global $InputPrebuffDelay = GUICtrlCreateInput("",146,244,47,19,1,512)
+	Global $InputPrebuffDelay1 = GUICtrlCreateInput("",146,244,47,19,1,512)
+	Global $InputPrebuffDelay2 = GUICtrlCreateInput("",146,244,47,19,1,512)
+	Global $InputPrebuffDelay3 = GUICtrlCreateInput("",146,244,47,19,1,512)
+	Global $InputPrebuffDelay4 = GUICtrlCreateInput("",146,244,47,19,1,512)
 	GUICtrlCreateLabel("Type :",191,197,32,14,-1,-1)
 	GUICtrlSetBkColor(-1,"-2")
-	Global $InputSpellType = GUICtrlCreateInput("",230,192,112,20,-1,512)
+	Global $InputSpellType1 = GUICtrlCreateInput("",230,192,112,20,-1,512)
+	Global $InputSpellType2 = GUICtrlCreateInput("",230,192,112,20,-1,512)
+	Global $InputSpellType3 = GUICtrlCreateInput("",230,192,112,20,-1,512)
+	Global $InputSpellType4 = GUICtrlCreateInput("",230,192,112,20,-1,512)
 	GUICtrlCreateLabel("Energie :",360,197,50,15,-1,-1)
 	GUICtrlSetBkColor(-1,"-2")
-	Global $InputSpellEnergyNeeds = GUICtrlCreateInput("",411,192,37,20,1,512)
-	Global $InputSpellLife = GUICtrlCreateInput("",495,192,37,20,1,512)
-	Global $InputSpellDistance = GUICtrlCreateInput("",609,191,37,20,1,512)
+	Global $InputSpellEnergyNeeds1 = GUICtrlCreateInput("",411,192,37,20,1,512)
+	Global $InputSpellEnergyNeeds2 = GUICtrlCreateInput("",411,192,37,20,1,512)
+	Global $InputSpellEnergyNeeds3 = GUICtrlCreateInput("",411,192,37,20,1,512)
+	Global $InputSpellEnergyNeeds4 = GUICtrlCreateInput("",411,192,37,20,1,512)
+	Global $InputSpellLife1 = GUICtrlCreateInput("",495,192,37,20,1,512)
+	Global $InputSpellLife2 = GUICtrlCreateInput("",495,192,37,20,1,512)
+	Global $InputSpellLife3 = GUICtrlCreateInput("",495,192,37,20,1,512)
+	Global $InputSpellLife4 = GUICtrlCreateInput("",495,192,37,20,1,512)
+	Global $InputSpellDistance1 = GUICtrlCreateInput("",609,191,37,20,1,512)
+	Global $InputSpellDistance2 = GUICtrlCreateInput("",609,191,37,20,1,512)
+	Global $InputSpellDistance3 = GUICtrlCreateInput("",609,191,37,20,1,512)
+	Global $InputSpellDistance4 = GUICtrlCreateInput("",609,191,37,20,1,512)
 	GUICtrlCreateLabel("Vie :",465,197,28,15,-1,-1)
 	GUICtrlSetBkColor(-1,"-2")
 	GUICtrlCreateLabel("Distance :",548,196,50,15,-1,-1)
@@ -703,9 +727,7 @@ AjoutLog("Ouverture de la fenêtre 'Edition de profil'")
 
 ;;On sélectionne le radio Premier Spell au démarrage
 GUICtrlSetState($RadioTouche1 ,$GUI_CHECKED)
-$RadioSelect = 1
-
-AdlibRegister("EnregistTouches", 500)
+GestionTouches()
 
 RemplirSettings()
 EtatGriser()
@@ -781,19 +803,15 @@ EtatGriser()
 				ExitLoop
 
 			Case $RadioTouche1
-				$RadioSelect = 1
 				GestionTouches()
 
 			Case $RadioTouche2
-				$RadioSelect = 2
 				GestionTouches()
 
 			Case $RadioTouche3
-				$RadioSelect = 3
 				GestionTouches()
 
 			Case $RadioTouche4
-				$RadioSelect = 4
 				GestionTouches()
 
 ;########################################################

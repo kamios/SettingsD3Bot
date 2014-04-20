@@ -301,21 +301,72 @@ Func RemplirSettings()
 	GUICtrlSetData($InputSpellDistanceRight,$SpellDistanceRight)
 
 	If $SpellOn1 = "True" Then
-		GUICtrlSetState($CheckboxTouche ,$GUI_CHECKED)
+		GUICtrlSetState($CheckboxTouche1 ,$GUI_CHECKED)
 	Else
-		GUICtrlSetState($CheckboxTouche ,$GUI_UNCHECKED)
+		GUICtrlSetState($CheckboxTouche1 ,$GUI_UNCHECKED)
 	EndIf
 	If $SpellPreBuff1 = "True" Then
-		GUICtrlSetState($CheckboxPrebuff ,$GUI_CHECKED)
+		GUICtrlSetState($CheckboxPrebuff1 ,$GUI_CHECKED)
 	Else
-		GUICtrlSetState($CheckboxPrebuff ,$GUI_UNCHECKED)
+		GUICtrlSetState($CheckboxPrebuff1 ,$GUI_UNCHECKED)
 	EndIf
-	GUICtrlSetData($InputPrebuffDelay,$SpellPreBuffDelay1)
-	GUICtrlSetData($InputSpellDelay,$SpellDelay1)
-	GUICtrlSetData($InputSpellType,$SpellType1)
-	GUICtrlSetData($InputSpellEnergyNeeds,$SpellEnergyNeeds1)
-	GUICtrlSetData($InputSpellLife,$SpellLife1)
-	GUICtrlSetData($InputSpellDistance,$SpellDistance1)
+	GUICtrlSetData($InputPrebuffDelay1,$SpellPreBuffDelay1)
+	GUICtrlSetData($InputSpellDelay1,$SpellDelay1)
+	GUICtrlSetData($InputSpellType1,$SpellType1)
+	GUICtrlSetData($InputSpellEnergyNeeds1,$SpellEnergyNeeds1)
+	GUICtrlSetData($InputSpellLife1,$SpellLife1)
+	GUICtrlSetData($InputSpellDistance1,$SpellDistance1)
+
+	If $SpellOn2 = "True" Then
+		GUICtrlSetState($CheckboxTouche2 ,$GUI_CHECKED)
+	Else
+		GUICtrlSetState($CheckboxTouche2 ,$GUI_UNCHECKED)
+	EndIf
+	If $SpellPreBuff2 = "True" Then
+		GUICtrlSetState($CheckboxPrebuff2 ,$GUI_CHECKED)
+	Else
+		GUICtrlSetState($CheckboxPrebuff2 ,$GUI_UNCHECKED)
+	EndIf
+	GUICtrlSetData($InputPrebuffDelay2,$SpellPreBuffDelay2)
+	GUICtrlSetData($InputSpellDelay2,$SpellDelay2)
+	GUICtrlSetData($InputSpellType2,$SpellType2)
+	GUICtrlSetData($InputSpellEnergyNeeds2,$SpellEnergyNeeds2)
+	GUICtrlSetData($InputSpellLife2,$SpellLife1)
+	GUICtrlSetData($InputSpellDistance2,$SpellDistance2)
+
+	If $SpellOn3 = "True" Then
+		GUICtrlSetState($CheckboxTouche3 ,$GUI_CHECKED)
+	Else
+		GUICtrlSetState($CheckboxTouche3 ,$GUI_UNCHECKED)
+	EndIf
+	If $SpellPreBuff3 = "True" Then
+		GUICtrlSetState($CheckboxPrebuff3 ,$GUI_CHECKED)
+	Else
+		GUICtrlSetState($CheckboxPrebuff3 ,$GUI_UNCHECKED)
+	EndIf
+	GUICtrlSetData($InputPrebuffDelay3,$SpellPreBuffDelay3)
+	GUICtrlSetData($InputSpellDelay3,$SpellDelay3)
+	GUICtrlSetData($InputSpellType3,$SpellType3)
+	GUICtrlSetData($InputSpellEnergyNeeds3,$SpellEnergyNeeds3)
+	GUICtrlSetData($InputSpellLife3,$SpellLife3)
+	GUICtrlSetData($InputSpellDistance3,$SpellDistance3)
+
+	If $SpellOn4 = "True" Then
+		GUICtrlSetState($CheckboxTouche4 ,$GUI_CHECKED)
+	Else
+		GUICtrlSetState($CheckboxTouche4 ,$GUI_UNCHECKED)
+	EndIf
+	If $SpellPreBuff4 = "True" Then
+		GUICtrlSetState($CheckboxPrebuff4 ,$GUI_CHECKED)
+	Else
+		GUICtrlSetState($CheckboxPrebuff4 ,$GUI_UNCHECKED)
+	EndIf
+	GUICtrlSetData($InputPrebuffDelay4,$SpellPreBuffDelay4)
+	GUICtrlSetData($InputSpellDelay4,$SpellDelay4)
+	GUICtrlSetData($InputSpellType4,$SpellType4)
+	GUICtrlSetData($InputSpellEnergyNeeds4,$SpellEnergyNeeds4)
+	GUICtrlSetData($InputSpellLife4,$SpellLife4)
+	GUICtrlSetData($InputSpellDistance4,$SpellDistance4)
 
 ;###########################################
 ;Onglet Séquences
@@ -552,6 +603,74 @@ Func RecupDonneesSettings()
 	$SpellEnergyNeedsRight = GUICtrlRead($InputSpellEnergyNeedsRight)
 	$SpellLifeRight = GUICtrlRead($InputSpellLifeRight)
 	$SpellDistanceRight = GUICtrlRead($InputSpellDistanceRight)
+
+	If IsChecked($CheckboxTouche1) Then
+		$SpellOn1 = "True"
+	Else
+		$SpellOn1 = "False"
+	EndIf
+	If IsChecked($CheckboxPrebuff1) Then
+		$SpellPreBuff1 = "True"
+	Else
+		$SpellPreBuff1 = "False"
+	EndIf
+	$SpellPreBuffDelay1 = GUICtrlRead($InputPrebuffDelay1)
+	$SpellDelay1 = GUICtrlRead($InputSpellDelay1)
+	$SpellType1 = GUICtrlRead($InputSpellType1)
+	$SpellEnergyNeeds1 = GUICtrlRead($InputSpellEnergyNeeds1)
+	$SpellLife1 = GUICtrlRead($InputSpellLife1)
+	$SpellDistance1 = GUICtrlRead($InputSpellDistance1)
+
+	If IsChecked($CheckboxTouche2) Then
+		$SpellOn2 = "True"
+	Else
+		$SpellOn2 = "False"
+	EndIf
+	If IsChecked($CheckboxPrebuff2) Then
+		$SpellPreBuff2 = "True"
+	Else
+		$SpellPreBuff2 = "False"
+	EndIf
+	$SpellPreBuffDelay2 = GUICtrlRead($InputPrebuffDelay2)
+	$SpellDelay2 = GUICtrlRead($InputSpellDelay2)
+	$SpellType2 = GUICtrlRead($InputSpellType2)
+	$SpellEnergyNeeds2 = GUICtrlRead($InputSpellEnergyNeeds2)
+	$SpellLife2 = GUICtrlRead($InputSpellLife2)
+	$SpellDistance2 = GUICtrlRead($InputSpellDistance2)
+
+	If IsChecked($CheckboxTouche3) Then
+		$SpellOn3 = "True"
+	Else
+		$SpellOn3 = "False"
+	EndIf
+	If IsChecked($CheckboxPrebuff3) Then
+		$SpellPreBuff3 = "True"
+	Else
+		$SpellPreBuff3 = "False"
+	EndIf
+	$SpellPreBuffDelay3 = GUICtrlRead($InputPrebuffDelay3)
+	$SpellDelay3 = GUICtrlRead($InputSpellDelay3)
+	$SpellType3 = GUICtrlRead($InputSpellType3)
+	$SpellEnergyNeeds3 = GUICtrlRead($InputSpellEnergyNeeds3)
+	$SpellLife3 = GUICtrlRead($InputSpellLife3)
+	$SpellDistance3 = GUICtrlRead($InputSpellDistance3)
+
+	If IsChecked($CheckboxTouche4) Then
+		$SpellOn4 = "True"
+	Else
+		$SpellOn4 = "False"
+	EndIf
+	If IsChecked($CheckboxPrebuff4) Then
+		$SpellPreBuff4 = "True"
+	Else
+		$SpellPreBuff4 = "False"
+	EndIf
+	$SpellPreBuffDelay4 = GUICtrlRead($InputPrebuffDelay4)
+	$SpellDelay4 = GUICtrlRead($InputSpellDelay4)
+	$SpellType4 = GUICtrlRead($InputSpellType4)
+	$SpellEnergyNeeds4 = GUICtrlRead($InputSpellEnergyNeeds4)
+	$SpellLife4 = GUICtrlRead($InputSpellLife4)
+	$SpellDistance4 = GUICtrlRead($InputSpellDistance4)
 
 ;###########################################
 ;Onglet Séquences
