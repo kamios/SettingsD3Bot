@@ -629,7 +629,7 @@ Func EditSettings($ProfilSel)
 	Global $Inputrepairafterxxgames = GUICtrlCreateInput("",567,106,28,20,1,512)
 	GUISwitch($settings,_GUICtrlTab_SetCurFocus($tab,5)&GUICtrlRead ($tab, 1))
 	GUICtrlCreateGroup("Souris Gauche",18,31,696,52,-1,-1)
-	GUICtrlSetBkColor(-1,"0xF0F0F0")
+	GUICtrlSetBkColor(-1,"-2")
 	Global $CheckboxSpellOnLeft = GUICtrlCreateCheckbox("Activée",24,52,55,21,-1,-1)
 	GUICtrlCreateLabel("Délai :",90,57,35,16,-1,-1)
 	GUICtrlSetBkColor(-1,"-2")
@@ -647,7 +647,7 @@ Func EditSettings($ProfilSel)
 	GUICtrlCreateLabel("Distance :",548,57,50,15,-1,-1)
 	GUICtrlSetBkColor(-1,"-2")
 	GUICtrlCreateGroup("Souris Droite",18,86,696,52,-1,-1)
-	GUICtrlSetBkColor(-1,"0xF0F0F0")
+	GUICtrlSetBkColor(-1,"-2")
 	Global $InputSpellEnergyNeedsRight = GUICtrlCreateInput("",411,106,37,20,1,512)
 	Global $InputSpellLifeRight = GUICtrlCreateInput("",495,106,37,20,1,512)
 	Global $InputSpellDistanceRight = GUICtrlCreateInput("",609,106,37,20,1,512)
@@ -665,7 +665,7 @@ Func EditSettings($ProfilSel)
 	GUICtrlCreateLabel("Distance :",548,111,50,15,-1,-1)
 	GUICtrlSetBkColor(-1,"-2")
 	GUICtrlCreateGroup("Spells Secondaires",18,142,696,142,-1,-1)
-	GUICtrlSetBkColor(-1,"0xF0F0F0")
+	GUICtrlSetBkColor(-1,"-2")
 	Global $RadioTouche1 = GUICtrlCreateRadio("Premier Spell (1)",27,163,100,21,-1,-1)
 	Global $RadioTouche2 = GUICtrlCreateRadio("Deuxième Spell (2)",141,163,107,21,-1,-1)
 	Global $RadioTouche3 = GUICtrlCreateRadio("Troisième Spell (3)",265,163,116,21,-1,-1)
@@ -681,7 +681,7 @@ Func EditSettings($ProfilSel)
 	Global $InputSpellDelay3 = GUICtrlCreateInput("",127,192,47,19,1,512)
 	Global $InputSpellDelay4 = GUICtrlCreateInput("",127,192,47,19,1,512)
 	GUICtrlCreateGroup("Prébuff",27,222,178,53,-1,-1)
-	GUICtrlSetBkColor(-1,"0xF0F0F0")
+ 	GUICtrlSetBkColor(-1,"-2")
 	Global $CheckboxPrebuff1 = GUICtrlCreateCheckbox("Activée",38,243,55,21,-1,-1)
 	Global $CheckboxPrebuff2 = GUICtrlCreateCheckbox("Activée",38,243,55,21,-1,-1)
 	Global $CheckboxPrebuff3 = GUICtrlCreateCheckbox("Activée",38,243,55,21,-1,-1)
@@ -880,7 +880,7 @@ EtatGriser()
 
 			Case $ButtonResetSequenceTest
 
-				$SequenceFile = "act3_ADV-core_start_[1-5]|act3_ADV-tower_[1-5]|act3_ADV-field_[1-4]|[CMD]TakeWPAdv=26"
+				$SequenceFile = ""
 				GUICtrlSetData($InputSequenceTest,$SequenceFile)
 				AjoutLog("Séquence Test par défaut")
 
@@ -946,7 +946,7 @@ EtatGriser()
 
 			Case $ButtonResetSequence442
 
-				$SequenceFileAct442 = "act3_tower_[1-5]|act3_field_[1-4]|act3-Tuer_Azmodan"
+				$SequenceFileAct442 = "act4-Tuer_Diablo"
 				GUICtrlSetData($InputSequenceAct442,$SequenceFileAct442)
 				AjoutLog("Séquence Act373 par défaut")
 
