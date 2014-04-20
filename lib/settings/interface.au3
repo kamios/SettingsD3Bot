@@ -5,7 +5,7 @@
 Global $MainForm = GUICreate("Settings D3BOT",617,541,-1,-1,-1,-1)
 
 ;;On créé la Tab Options
-TabOptions()
+;TabOptions()
 GUISetIcon(@ScriptDir & "\lib\ico\icon.ico")
 
 ;;Menu
@@ -49,6 +49,7 @@ _GUICtrlListView_InsertColumn($ListviewProfils, 1, "Nom du perso", 100)
 _GUICtrlListView_InsertColumn($ListviewProfils, 2, "Build", 226)
 ;; Fin Groupe Profils
 
+
 Func TabOptions()
 	Global $tab = GUICtrlCreatetab(10,300,600,211,-1,-1)
 	GuiCtrlSetState(-1,2048)
@@ -67,8 +68,8 @@ EndFunc
 Func ChoixVersion()
 
 	Global $ChoixVersion = GUICreate("Choix de la version utilisée",326,102,-1,-1,$WS_POPUP+$WS_BORDER,$WS_EX_TOPMOST)
-	Global $RadioArreatCoreOriginal = GUICtrlCreateRadio("Arreat Core + Field",15,33,124,20,-1,-1)
-	Global $RadioArreatCoreModif = GUICtrlCreateRadio("Arreat Core + Field modifié",164,33,150,20,-1,-1)
+	Global $RadioArreatCoreOriginal = GUICtrlCreateRadio("D3 Ros Bot",15,33,82,20,-1,-1)
+	Global $RadioArreatCoreModif = GUICtrlCreateRadio("D3 Ros Bot : Version modifiée",127,33,195,20,-1,-1)
 	GUICtrlCreateLabel("Veuillez choisir la version que vous utilisé :",15,5,299,25,-1,-1)
 	GUICtrlSetFont(-1,10,700,4,"MS Sans Serif")
 	GUICtrlSetBkColor(-1,"-2")
@@ -112,10 +113,10 @@ Func Apropos()
 	GUISetIcon(@ScriptDir & "\lib\ico\icon.ico")
 	$ButtonFermerApropos = GUICtrlCreateButton("Quitter",266,140,79,20,-1,-1)
 	$ImageApropos = GUICtrlCreatePic(@ScriptDir & "\lib\images\logo.jpg",5,5,156,156,-1,-1)
-	GUICtrlCreateLabel("Settings Arreat Core",185,10,143,15,-1,-1)
+	GUICtrlCreateLabel("Settings D3BOT",195,10,117,21,-1,-1)
 	GUICtrlSetFont(-1,10,700,0,"MS Sans Serif")
 	GUICtrlSetBkColor(-1,"-2")
-	$LabelVersionApropos = GUICtrlCreateLabel("Version 1.3d",225,30,67,15,-1,-1)
+	$LabelVersionApropos = GUICtrlCreateLabel("Version " & $Version,225,32,67,15,-1,-1)
 	GUICtrlSetBkColor(-1,"-2")
 	GUICtrlCreateLabel("Pour plus d'information :",170,100,118,15,-1,-1)
 	GUICtrlSetFont(-1,8,400,4,"MS Sans Serif")
@@ -201,7 +202,7 @@ Func Grablists()
 	If $VersionUtilisee = "Originale" Then
 		GUICtrlSetData(-1,"grablist_file.txt")
 	Else
-		GUICtrlSetData(-1,"grabListTourment.txt|grabListTourmentXp.txt|grabListTourmentRecycle.txt|grablistNormal.txt|grablistDifficile.txt|grablistExpert.txt|grablistCalvaire.txt")
+		GUICtrlSetData(-1,"grabListTourment.txt|grabListTourmentXp.txt|grablistNormal.txt|grablistDifficile.txt|grablistExpert.txt|grablistCalvaire.txt|grablistXp.txt")
 	EndIf
 	GUICtrlCreateLabel("Grablists :",15,15,50,15,-1,-1)
 	GUICtrlSetFont(-1,8,400,4,"MS Sans Serif")
@@ -303,7 +304,7 @@ EndFunc;==>Stats
 
 Func EditSettings($ProfilSel)
 
-	Global $settings = GUICreate("Modification de " & $ProfilSel,731,368,-1,-1,-1,-1)
+	Global $settings = GUICreate("Modification du Profil :  " & $ProfilSel,731,368,-1,-1,-1,-1)
 	GUISetIcon(@scriptdir & "\lib\ico\icon.ico", -1)
 	Global $tab = GUICtrlCreatetab(11,10,712,313,-1,-1)
 	GuiCtrlSetState(-1,2048)
@@ -663,7 +664,7 @@ Func EditSettings($ProfilSel)
 	GUICtrlSetBkColor(-1,"-2")
 	GUICtrlCreateLabel("Distance :",548,111,50,15,-1,-1)
 	GUICtrlSetBkColor(-1,"-2")
-	GUICtrlCreateGroup("Spells Secondaires",18,142,696,153,-1,-1)
+	GUICtrlCreateGroup("Spells Secondaires",18,142,696,142,-1,-1)
 	GUICtrlSetBkColor(-1,"0xF0F0F0")
 	Global $RadioTouche1 = GUICtrlCreateRadio("Premier Spell (1)",27,163,100,21,-1,-1)
 	Global $RadioTouche2 = GUICtrlCreateRadio("Deuxième Spell (2)",141,163,107,21,-1,-1)
@@ -695,8 +696,6 @@ Func EditSettings($ProfilSel)
 	Global $CheckboxNoAdventure = GUICtrlCreateCheckbox("Pas de Prime : Séquence Aventure",22,95,201,20,-1,-1)
 	GUISwitch($settings,_GUICtrlTab_SetCurFocus($tab,4)&GUICtrlRead ($tab, 1))
 	Global $CheckboxTakeGlobeInFight = GUICtrlCreateCheckbox("Prendre les Globes en Combat",27,102,173,20,-1,-1)
-	GUISwitch($settings,_GUICtrlTab_SetCurFocus($tab,5)&GUICtrlRead ($tab, 1))
-	Global $ButtonValiderTouche = GUICtrlCreateButton("Valider",638,268,73,22,-1,-1)
 	_GUICtrlTab_SetCurFocus($tab,0)
 	GUISetState(@SW_SHOW,$settings)
 
@@ -704,12 +703,12 @@ AjoutLog("Ouverture de la fenêtre 'Edition de profil'")
 
 ;;On sélectionne le radio Premier Spell au démarrage
 GUICtrlSetState($RadioTouche1 ,$GUI_CHECKED)
+$RadioSelect = 1
+
+AdlibRegister("EnregistTouches", 500)
 
 RemplirSettings()
 EtatGriser()
-
-	;$NPerso = IniRead($DossierProfils & $ProfilSel, "Info", "NomPerso", "")
-	;GUICtrlSetData($LabelSettingsProfil,$ProfilSel & "  -- Pseudo : " & $NPerso)
 
 	While 1
 		$nMsg = GUIGetMsg()
@@ -777,28 +776,25 @@ EtatGriser()
 				RecupDonneesSettings()
 				EnregistProfil($ProfilSel)
 				GUIDelete($settings)
-				AjoutLog("Fermeture de la fenêtre 'Modification des fichiers settings.ini'")
+				AjoutLog("Fermeture de la fenêtre 'Edition de profil'")
 				MsgBox( 0, "", "Profil modifié !", 3)
 				ExitLoop
 
 			Case $RadioTouche1
 				$RadioSelect = 1
-				GestionTouches(1)
+				GestionTouches()
 
 			Case $RadioTouche2
 				$RadioSelect = 2
-				GestionTouches(2)
+				GestionTouches()
 
 			Case $RadioTouche3
 				$RadioSelect = 3
-				GestionTouches(3)
+				GestionTouches()
 
 			Case $RadioTouche4
 				$RadioSelect = 4
-				GestionTouches(4)
-
-			Case $ButtonValiderTouche
-				EnregistTouches()
+				GestionTouches()
 
 ;########################################################
 ;#Boutons Reset

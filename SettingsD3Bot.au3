@@ -69,7 +69,10 @@ WinMove($MainForm,"",Default, Default, 623,331)
 WinSetOnTop($MainForm,"",0)
 
 LectureOptions();Lecture options pour le menu
-RempliOptions();On répercute les valeurs (VersionUtilisee, Devmode et D3PrefsBot) données par la lecture
+RempliOptions();On répercute les valeurs (VersionUtilisee, Devmode et D3PrefsBot)
+
+;;on désactive le menu pour modifier la version
+GUICtrlSetState($VersionItem ,$GUI_DISABLE)
 
 While 1
 $nMsg = GUIGetMsg()

@@ -3,10 +3,10 @@
 $Apropos = GUICreate("A Propos",350,166,-1,-1,-1,$WS_EX_TOPMOST)
 $ButtonFermerApropos = GUICtrlCreateButton("Quitter",266,140,79,20,-1,-1)
 $ImageApropos = GUICtrlCreatePic(@scriptdir&"\"&"",5,5,156,156,-1,-1)
-GUICtrlCreateLabel("Settings Arreat Core",185,10,143,15,-1,-1)
+GUICtrlCreateLabel("Settings D3BOT",195,10,117,21,-1,-1)
 GUICtrlSetFont(-1,10,700,0,"MS Sans Serif")
 GUICtrlSetBkColor(-1,"-2")
-GUICtrlCreateLabel("Version 1.3d",225,30,67,15,-1,-1)
+GUICtrlCreateLabel("Version",225,32,67,15,-1,-1)
 GUICtrlSetBkColor(-1,"-2")
 GUICtrlCreateLabel("Pour plus d'information :",170,100,144,15,-1,-1)
 GUICtrlSetFont(-1,8,700,4,"MS Sans Serif")
@@ -39,8 +39,8 @@ xpos=-1
 ypos=-1
 center_gui=true
 title_textmode=normal
-[0x0123054E]
-handle=414
+[0x00031ADC]
+handle=449
 locked=0
 code=
 type=button
@@ -65,8 +65,8 @@ bgimage=
 order=0
 tabpage=-1
 textmode=text
-[0x00130620]
-handle=423
+[0x00031ACC]
+handle=450
 locked=0
 code=
 type=image
@@ -91,16 +91,16 @@ bgimage=
 order=2
 tabpage=-1
 textmode=text
-[0x0012034A]
-handle=424
+[0x00031ABC]
+handle=451
 locked=0
 code=
 type=label
-x=185
+x=195
 y=10
-width=143
-height=15
-text=Settings Arreat Core
+width=117
+height=21
+text=Settings D3BOT
 tooltip=
 state=$GUI_SHOW+$GUI_ENABLE
 style=
@@ -117,16 +117,17 @@ bgimage=
 order=3
 tabpage=-1
 textmode=text
-[0x0016065C]
-handle=425
+resize=
+[0x00031AAC]
+handle=452
 locked=0
 code=
 type=label
 x=225
-y=30
+y=32
 width=67
 height=15
-text=Version 1.3d
+text=Version       
 tooltip=
 state=$GUI_SHOW+$GUI_ENABLE
 style=
@@ -143,8 +144,9 @@ bgimage=LabelVersionApropos
 order=4
 tabpage=-1
 textmode=text
-[0x002705C0]
-handle=426
+resize=
+[0x00031A9C]
+handle=453
 locked=0
 code=
 type=label
@@ -169,8 +171,8 @@ bgimage=
 order=5
 tabpage=-1
 textmode=text
-[0x002005EC]
-handle=427
+[0x00031A8C]
+handle=454
 locked=0
 code=
 type=label
@@ -195,8 +197,8 @@ bgimage=
 order=6
 tabpage=-1
 textmode=text
-[0x001C057A]
-handle=428
+[0x00031A7C]
+handle=455
 locked=0
 code=
 type=label
@@ -221,8 +223,8 @@ bgimage=
 order=7
 tabpage=-1
 textmode=text
-[0x001913A8]
-handle=429
+[0x00031A6C]
+handle=456
 locked=0
 code=
 type=label

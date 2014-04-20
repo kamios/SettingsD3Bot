@@ -81,9 +81,9 @@ EndFunc;==>ListFichier
 
 
 ;;Fonction perttant de gérer les radio pour les touches 1 à 4
-Func GestionTouches($NumTouche)
+Func GestionTouches()
 
-	Switch $NumTouche
+	Switch $RadioSelect
 		Case 1
 			If $SpellOn1 = "True" Then
 				GUICtrlSetState($CheckboxTouche ,$GUI_CHECKED)
@@ -174,7 +174,7 @@ Func EnregistTouches()
 	$SpellLife = GuiCtrlRead($InputSpellLife)
 	$SpellDistance = GuiCtrlRead($InputSpellDistance)
 
-	Switch $NumTouche
+	Switch $RadioSelect
 		Case 1
 			$SpellOn1 = $SpellOn
 			$SpellPreBuff1 = $SpellPreBuff
