@@ -666,10 +666,14 @@ Func EditSettings($ProfilSel)
 	GUICtrlSetBkColor(-1,"-2")
 	GUICtrlCreateGroup("Spells Secondaires",18,142,696,142,-1,-1)
 	GUICtrlSetBkColor(-1,"-2")
-	Global $RadioTouche1 = GUICtrlCreateRadio("Premier Spell (1)",27,163,100,21,-1,-1)
-	Global $RadioTouche2 = GUICtrlCreateRadio("Deuxième Spell (2)",141,163,107,21,-1,-1)
-	Global $RadioTouche3 = GUICtrlCreateRadio("Troisième Spell (3)",265,163,116,21,-1,-1)
-	Global $RadioTouche4 = GUICtrlCreateRadio("Quatrième Spell (4)",391,163,109,21,-1,-1)
+	If $key1 = "&" Then
+		Global $RadioTouche1 = GUICtrlCreateRadio("Premier Spell (" & StringReplace($key1, "&", "&&") & ")",27,163,100,21,-1,-1)
+	Else
+		Global $RadioTouche1 = GUICtrlCreateRadio("Premier Spell (" & $key1 & ")",27,163,100,21,-1,-1)
+	EndIf
+	Global $RadioTouche2 = GUICtrlCreateRadio("Deuxième Spell (" & $key2 & ")",141,163,107,21,-1,-1)
+	Global $RadioTouche3 = GUICtrlCreateRadio("Troisième Spell (" & $key3 & ")",265,163,116,21,-1,-1)
+	Global $RadioTouche4 = GUICtrlCreateRadio("Quatrième Spell (" & $key4 & ")",391,163,109,21,-1,-1)
 	Global $CheckboxTouche1 = GUICtrlCreateCheckbox("Activée",27,190,55,21,-1,-1)
 	Global $CheckboxTouche2 = GUICtrlCreateCheckbox("Activée",27,190,55,21,-1,-1)
 	Global $CheckboxTouche3 = GUICtrlCreateCheckbox("Activée",27,190,55,21,-1,-1)
