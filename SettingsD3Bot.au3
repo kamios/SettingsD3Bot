@@ -88,7 +88,7 @@ $nMsg = GUIGetMsg()
 					ListerProfils($DossierProfilsModif)
 				Case "Originale"
 					ListerProfils($DossierProfilsOriginale)
-				EndSwitch
+			EndSwitch
 
 		Case $EditProfil
 

@@ -4,7 +4,6 @@ Func LoadConfigs($FichierINI)
 ;###########################################
 ;Onglet Settings
 ;###########################################
-
 	$PassD3 = IniRead($FichierINI, "Account info", "pass", "")
 
 	$CloseWindows = IniRead($FichierINI, "Key info", "CloseWindows", "")
@@ -31,6 +30,7 @@ Func LoadConfigs($FichierINI)
 	$TypeDeBot = IniRead($FichierINI, "Run info", "TypeDeBot", "")
 	$Follower = IniRead($FichierINI, "Run info", "Follower", "")
 	$difficulte = IniRead($FichierINI, "Run info", "difficulte", "")
+	$Hero = IniRead($FichierINI, "Run info", "Heros", "")
 	$PuisMonstre = IniRead($FichierINI, "Run info", "PuisMonstre", "")
 	$TypeDeGrabList = IniRead($FichierINI, "Run info", "TypeDeGrabList", "")
 
@@ -181,6 +181,236 @@ Func LoadConfigsHero($FichierINI)
 
 EndFunc;==>LoadConfigsHero
 
+Func LoadSettings($FichierINI)
+
+	$PassD3 = IniRead($FichierINI, "Account info", "pass", "")
+
+	$SequenceFile = IniRead($FichierINI, "Run info", "SequenceFile", "")
+
+	$QualiteItem = IniRead($FichierINI, "Run info", "QualiteItem", "")
+	$Salvage = IniRead($FichierINI, "Run info", "Salvage", "")
+	$SalvageQualiteItem = IniRead($FichierINI, "Run info", "SalvageQualiteItem", "")
+
+	$Master = IniRead($FichierINI, "Run info", "Master", "")
+	$Follower = IniRead($FichierINI, "Run info", "Follower", "")
+
+	$key1 = IniRead($FichierINI, "Key info", "key1", "")
+	$key2 = IniRead($FichierINI, "Key info", "key2", "")
+	$key3 = IniRead($FichierINI, "Key info", "key3", "")
+	$key4 = IniRead($FichierINI, "Key info", "key4", "")
+
+	$monsterList = IniRead($FichierINI, "Run info", "monsterList", "")
+	$specialmonsterList = IniRead($FichierINI, "Run info", "specialmonsterList", "")
+
+	$SpellOnLeft = IniRead($FichierINI, "Run info", "SpellOnLeft", "")
+	$SpellDelayLeft = IniRead($FichierINI, "Run info", "SpellDelayLeft", "")
+	$SpellTypeLeft = IniRead($FichierINI, "Run info", "SpellTypeLeft", "")
+	$SpellEnergyNeedsLeft = IniRead($FichierINI, "Run info", "SpellEnergyNeedsLeft", "")
+	$SpellLifeLeft = IniRead($FichierINI, "Run info", "SpellLifeLeft", "")
+	$SpellDistanceLeft = IniRead($FichierINI, "Run info", "SpellDistanceLeft", "")
+
+	$SpellOnRight = IniRead($FichierINI, "Run info", "SpellOnRight", "")
+	$SpellDelayRight = IniRead($FichierINI, "Run info", "SpellDelayRight", "")
+	$SpellTypeRight = IniRead($FichierINI, "Run info", "SpellTypeRight", "")
+	$SpellEnergyNeedsRight = IniRead($FichierINI, "Run info", "SpellEnergyNeedsRight", "")
+	$SpellLifeRight = IniRead($FichierINI, "Run info", "SpellLifeRight", "")
+	$SpellDistanceRight = IniRead($FichierINI, "Run info", "SpellDistanceRight", "")
+
+	$SpellOn1 = IniRead($FichierINI, "Run info", "SpellOn1", "")
+	$SpellPreBuff1 = IniRead($FichierINI, "Run info", "SpellPreBuff1", "")
+	$SpellPreBuffDelay1 = IniRead($FichierINI, "Run info", "SpellPreBuffDelay1", "")
+	$SpellDelay1 = IniRead($FichierINI, "Run info", "SpellDelay1", "")
+	$SpellType1 = IniRead($FichierINI, "Run info", "SpellType1", "")
+	$SpellEnergyNeeds1 = IniRead($FichierINI, "Run info", "SpellEnergyNeeds1", "")
+	$SpellLife1 = IniRead($FichierINI, "Run info", "SpellLife1", "")
+	$SpellDistance1 = IniRead($FichierINI, "Run info", "SpellDistance1", "")
+
+	$SpellOn2 = IniRead($FichierINI, "Run info", "SpellOn2", "")
+	$SpellPreBuff2 = IniRead($FichierINI, "Run info", "SpellPreBuff2", "")
+	$SpellPreBuffDelay2 = IniRead($FichierINI, "Run info", "SpellPreBuffDelay2", "")
+	$SpellDelay2 = IniRead($FichierINI, "Run info", "SpellDelay2", "")
+	$SpellType2 = IniRead($FichierINI, "Run info", "SpellType2", "")
+	$SpellEnergyNeeds2 = IniRead($FichierINI, "Run info", "SpellEnergyNeeds2", "")
+	$SpellLife2 = IniRead($FichierINI, "Run info", "SpellLife2", "")
+	$SpellDistance2 = IniRead($FichierINI, "Run info", "SpellDistance2", "")
+
+	$SpellOn3 = IniRead($FichierINI, "Run info", "SpellOn3", "")
+	$SpellPreBuff3 = IniRead($FichierINI, "Run info", "SpellPreBuff3", "")
+	$SpellPreBuffDelay3 = IniRead($FichierINI, "Run info", "SpellPreBuffDelay3", "")
+	$SpellDelay3 = IniRead($FichierINI, "Run info", "SpellDelay3", "")
+	$SpellType3 = IniRead($FichierINI, "Run info", "SpellType3", "")
+	$SpellEnergyNeeds3 = IniRead($FichierINI, "Run info", "SpellEnergyNeeds3", "")
+	$SpellLife3 = IniRead($FichierINI, "Run info", "SpellLife3", "")
+	$SpellDistance3 = IniRead($FichierINI, "Run info", "SpellDistance3", "")
+
+	$SpellOn4 = IniRead($FichierINI, "Run info", "SpellOn4", "")
+	$SpellPreBuff4 = IniRead($FichierINI, "Run info", "SpellPreBuff4", "")
+	$SpellPreBuffDelay4 = IniRead($FichierINI, "Run info", "SpellPreBuffDelay4", "")
+	$SpellDelay4 = IniRead($FichierINI, "Run info", "SpellDelay4", "")
+	$SpellType4 = IniRead($FichierINI, "Run info", "SpellType4", "")
+	$SpellEnergyNeeds4 = IniRead($FichierINI, "Run info", "SpellEnergyNeeds4", "")
+	$SpellLife4 = IniRead($FichierINI, "Run info", "SpellLife4", "")
+	$SpellDistance4 = IniRead($FichierINI, "Run info", "SpellDistance4", "")
+
+	$LifeForPotion = IniRead($FichierINI, "Run info", "LifeForPotion", "")
+	$PotionStock = IniRead($FichierINI, "Run info", "PotionStock", "")
+
+	$TakeShrines = IniRead($FichierINI, "Run info", "TakeShrines", "")
+	$repairafterxxgames = IniRead($FichierINI, "Run info", "repairafterxxgames", "")
+	$maxgamelength = IniRead($FichierINI, "Run info", "maxgamelength", "")
+	$attackRange = IniRead($FichierINI, "Run info", "attackRange", "")
+	$grabRange = IniRead($FichierINI, "Run info", "grabRange", "")
+
+	$MonsterTri = IniRead($FichierINI, "Run info", "MonsterTri", "")
+	$MonsterRefresh = IniRead($FichierINI, "Run info", "MonsterRefresh", "")
+	$ItemRefresh = IniRead($FichierINI, "Run info", "ItemRefresh", "")
+	$MonsterPriority = IniRead($FichierINI, "Run info", "MonsterPriority", "")
+
+	$InventoryCheck = IniRead($FichierINI, "Run info", "InventoryCheck", "")
+	$attacktimeout = IniRead($FichierINI, "Run info", "attacktimeout", "")
+	$grabtimeout = IniRead($FichierINI, "Run info", "grabtimeout", "")
+
+	$Gestionaffixe = IniRead($FichierINI, "Run info", "Gestion_affixe", "")
+	$Gestionaffixeloot = IniRead($FichierINI, "Run info", "Gestion_affixe_loot", "")
+	$BanAffixList = IniRead($FichierINI, "Run info", "BanAffixList", "")
+	$GestaffixeByClass = IniRead($FichierINI, "Run info", "Gest_affixe_ByClass", "")
+
+	$LifeArcane = IniRead($FichierINI, "Run info", "Life_Arcane", "")
+	$LifeProj = IniRead($FichierINI, "Run info", "Life_Proj", "")
+	$LifePeste = IniRead($FichierINI, "Run info", "Life_Peste", "")
+	$LifeProfa = IniRead($FichierINI, "Run info", "Life_Profa", "")
+	$LifeIce = IniRead($FichierINI, "Run info", "Life_Ice", "")
+	$LifePoison = IniRead($FichierINI, "Run info", "Life_Poison", "")
+	$LifeExplo = IniRead($FichierINI, "Run info", "Life_Explo", "")
+	$LifeLave = IniRead($FichierINI, "Run info", "Life_Lave", "")
+	$LifeMine = IniRead($FichierINI, "Run info", "Life_Mine", "")
+	$LifeArm = IniRead($FichierINI, "Run info", "Life_Arm", "")
+	$LifeSpore = IniRead($FichierINI, "Run info", "Life_Spore", "")
+	$LifeLightning = IniRead($FichierINI, "Run info", "Life_Lightning", "")
+
+	$UsePath = IniRead($FichierINI, "Run info", "UsePath", "")
+	$ResActivated = IniRead($FichierINI, "Run info", "ResActivated", "")
+	$ResLife = IniRead($FichierINI, "Run info", "ResLife", "")
+
+	AjoutLog("Chargement du fichier : " & $FichierINI)
+
+EndFunc;==>LoadSettings
+
+Func SaveSettings($FichierINI)
+
+	IniWrite($FichierINI, "Account info", "pass", $PassD3)
+
+	IniWrite($FichierINI, "Run info", "SequenceFile", $SequenceFile)
+
+	IniWrite($FichierINI, "Run info", "QualiteItem", $QualiteItem)
+	IniWrite($FichierINI, "Run info", "Salvage", $Salvage)
+	IniWrite($FichierINI, "Run info", "SalvageQualiteItem", $SalvageQualiteItem)
+
+	IniWrite($FichierINI, "Run info", "monsterList", $monsterList)
+	IniWrite($FichierINI, "Run info", "specialmonsterList", $specialmonsterList)
+
+	IniWrite($FichierINI, "Run info", "Follower", $Follower)
+	IniWrite($FichierINI, "Run info", "Master", $Master)
+
+	IniWrite($FichierINI, "Key info", "key1", $key1)
+	IniWrite($FichierINI, "Key info", "key2", $key2)
+	IniWrite($FichierINI, "Key info", "key3", $key3)
+	IniWrite($FichierINI, "Key info", "key4", $key4)
+
+	IniWrite($FichierINI, "Run info", "SpellOnLeft", $SpellOnLeft)
+	IniWrite($FichierINI, "Run info", "SpellDelayLeft", $SpellDelayLeft)
+	IniWrite($FichierINI, "Run info", "SpellTypeLeft", $SpellTypeLeft)
+	IniWrite($FichierINI, "Run info", "SpellEnergyNeedsLeft", $SpellEnergyNeedsLeft)
+	IniWrite($FichierINI, "Run info", "SpellLifeLeft", $SpellLifeLeft)
+	IniWrite($FichierINI, "Run info", "SpellDistanceLeft", $SpellDistanceLeft)
+
+	IniWrite($FichierINI, "Run info", "SpellOnRight", $SpellOnRight)
+	IniWrite($FichierINI, "Run info", "SpellDelayRight", $SpellDelayRight)
+	IniWrite($FichierINI, "Run info", "SpellTypeRight", $SpellTypeRight)
+	IniWrite($FichierINI, "Run info", "SpellEnergyNeedsRight", $SpellEnergyNeedsRight)
+	IniWrite($FichierINI, "Run info", "SpellLifeRight", $SpellLifeRight)
+	IniWrite($FichierINI, "Run info", "SpellDistanceRight", $SpellDistanceRight)
+
+	IniWrite($FichierINI, "Run info", "SpellOn1", $SpellOn1)
+	IniWrite($FichierINI, "Run info", "SpellPreBuff1", $SpellPreBuff1)
+	IniWrite($FichierINI, "Run info", "SpellPreBuffDelay1", $SpellPreBuffDelay1)
+	IniWrite($FichierINI, "Run info", "SpellDelay1", $SpellDelay1)
+	IniWrite($FichierINI, "Run info", "SpellType1", $SpellType1)
+	IniWrite($FichierINI, "Run info", "SpellEnergyNeeds1", $SpellEnergyNeeds1)
+	IniWrite($FichierINI, "Run info", "SpellLife1", $SpellLife1)
+	IniWrite($FichierINI, "Run info", "SpellDistance1", $SpellDistance1)
+
+	IniWrite($FichierINI, "Run info", "SpellOn2", $SpellOn2)
+	IniWrite($FichierINI, "Run info", "SpellPreBuff2", $SpellPreBuff2)
+	IniWrite($FichierINI, "Run info", "SpellPreBuffDelay2", $SpellPreBuffDelay2)
+	IniWrite($FichierINI, "Run info", "SpellDelay2", $SpellDelay2)
+	IniWrite($FichierINI, "Run info", "SpellType2", $SpellType2)
+	IniWrite($FichierINI, "Run info", "SpellEnergyNeeds2", $SpellEnergyNeeds2)
+	IniWrite($FichierINI, "Run info", "SpellLife2", $SpellLife2)
+	IniWrite($FichierINI, "Run info", "SpellDistance2", $SpellDistance2)
+
+	IniWrite($FichierINI, "Run info", "SpellOn3", $SpellOn3)
+	IniWrite($FichierINI, "Run info", "SpellPreBuff3", $SpellPreBuff3)
+	IniWrite($FichierINI, "Run info", "SpellPreBuffDelay3", $SpellPreBuffDelay3)
+	IniWrite($FichierINI, "Run info", "SpellDelay3", $SpellDelay3)
+	IniWrite($FichierINI, "Run info", "SpellType3", $SpellType3)
+	IniWrite($FichierINI, "Run info", "SpellEnergyNeeds3", $SpellEnergyNeeds3)
+	IniWrite($FichierINI, "Run info", "SpellLife3", $SpellLife3)
+	IniWrite($FichierINI, "Run info", "SpellDistance3", $SpellDistance3)
+
+	IniWrite($FichierINI, "Run info", "SpellOn4", $SpellOn4)
+	IniWrite($FichierINI, "Run info", "SpellPreBuff4", $SpellPreBuff4)
+	IniWrite($FichierINI, "Run info", "SpellPreBuffDelay4", $SpellPreBuffDelay4)
+	IniWrite($FichierINI, "Run info", "SpellDelay4", $SpellDelay4)
+	IniWrite($FichierINI, "Run info", "SpellType4", $SpellType4)
+	IniWrite($FichierINI, "Run info", "SpellEnergyNeeds4", $SpellEnergyNeeds4)
+	IniWrite($FichierINI, "Run info", "SpellLife4", $SpellLife4)
+	IniWrite($FichierINI, "Run info", "SpellDistance4", $SpellDistance4)
+
+	IniWrite($FichierINI, "Run info","LifeForPotion",$LifeForPotion)
+	IniWrite($FichierINI, "Run info","PotionStock",$PotionStock)
+
+	IniWrite($FichierINI, "Run info","TakeShrines",$TakeShrines)
+	IniWrite($FichierINI, "Run info","repairafterxxgames",$repairafterxxgames)
+	IniWrite($FichierINI, "Run info","maxgamelength",$maxgamelength)
+	IniWrite($FichierINI, "Run info","attackRange",$attackRange)
+	IniWrite($FichierINI, "Run info","grabRange",$grabRange)
+
+	IniWrite($FichierINI, "Run info","MonsterTri",$MonsterTri)
+	IniWrite($FichierINI, "Run info","MonsterRefresh",$MonsterRefresh)
+	IniWrite($FichierINI, "Run info","ItemRefresh",$ItemRefresh)
+	IniWrite($FichierINI, "Run info","MonsterPriority",$MonsterPriority)
+	IniWrite($FichierINI, "Run info","InventoryCheck",$InventoryCheck)
+
+	IniWrite($FichierINI, "Run info","attacktimeout",$attacktimeout)
+	IniWrite($FichierINI, "Run info","grabtimeout",$grabtimeout)
+
+	IniWrite($FichierINI, "Run info","Gestion_affixe",$Gestionaffixe)
+	IniWrite($FichierINI, "Run info","Gestion_affixe_loot",$Gestionaffixeloot)
+	IniWrite($FichierINI, "Run info","BanAffixList",$BanAffixList)
+	IniWrite($FichierINI, "Run info","Gest_affixe_ByClass",$GestaffixeByClass)
+
+    IniWrite($FichierINI, "Run info","Life_Arcane",$LifeArcane)
+    IniWrite($FichierINI, "Run info","Life_Peste",$LifePeste)
+    IniWrite($FichierINI, "Run info","Life_Profa",$LifeProfa)
+    IniWrite($FichierINI, "Run info","Life_Mine",$LifeMine)
+    IniWrite($FichierINI, "Run info","Life_Spore",$LifeSpore)
+    IniWrite($FichierINI, "Run info","Life_Arm",$LifeArm)
+    IniWrite($FichierINI, "Run info","Life_Lave",$LifeLave)
+	IniWrite($FichierINI, "Run info","Life_Proj",$LifeProj)
+    IniWrite($FichierINI, "Run info","Life_Ice",$LifeIce)
+    IniWrite($FichierINI, "Run info","Life_Poison",$LifePoison)
+    IniWrite($FichierINI, "Run info","Life_Explo",$LifeExplo)
+	IniWrite($FichierINI, "Run info","Life_Lightning",$LifeLightning)
+
+	IniWrite($FichierINI, "Run info","ResLife",$ResLife)
+	IniWrite($FichierINI, "Run info","ResActivated",$ResActivated)
+	IniWrite($FichierINI, "Run info","UsePath",$UsePath)
+
+	AjoutLog("Enregistrement des modifs du fichier : " & $FichierINI)
+
+EndFunc;==>SaveSettings
+
 ;ecriture du fichier settings.ini
 Func SaveConfigs($FichierINI)
 
@@ -210,6 +440,7 @@ Func SaveConfigs($FichierINI)
 	IniWrite($FichierINI, "Run info", "TypeDeBot", $TypeDeBot)
 	IniWrite($FichierINI, "Run info", "Follower", $Follower)
 	IniWrite($FichierINI, "Run info", "difficulte", $difficulte)
+	IniWrite($FichierINI, "Run info", "Heros", $Hero)
 	IniWrite($FichierINI, "Run info", "PuisMonstre", $PuisMonstre)
 	IniWrite($FichierINI, "Run info", "TypeDeGrabList", $TypeDeGrabList)
 

@@ -51,6 +51,14 @@ Global $TakeABreak = ""
 Global $Breakafterxxgames = ""
 Global $BreakTime = ""
 
+;;Version Origianle
+;###############################
+Global $QualiteItem = ""
+Global $Salvage = ""
+Global $SalvageQualiteItem = ""
+Global $Master = ""
+;###############################
+
 Global $QualiteItemKeep = ""
 Global $QualiteItemSalvage = ""
 Global $QualiteItemSell = ""

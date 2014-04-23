@@ -90,6 +90,33 @@ Func RemplirSettings()
 			GUICtrlSetData($ComboPM, "Tourment6")
 	EndSwitch
 
+	Switch $Hero
+		Case 1
+			GUICtrlSetData($ComboHero, "Hero1")
+		Case 2
+			GUICtrlSetData($ComboHero, "Hero2")
+		Case 3
+			GUICtrlSetData($ComboHero, "Hero3")
+		Case 4
+			GUICtrlSetData($ComboHero, "Hero4")
+		Case 5
+			GUICtrlSetData($ComboHero, "Hero5")
+		Case 6
+			GUICtrlSetData($ComboHero, "Hero6")
+		Case 7
+			GUICtrlSetData($ComboHero, "Hero7")
+		Case 8
+			GUICtrlSetData($ComboHero, "Hero8")
+		Case 9
+			GUICtrlSetData($ComboHero, "Hero9")
+		Case 10
+			GUICtrlSetData($ComboHero, "Hero10")
+		Case 11
+			GUICtrlSetData($ComboHero, "Hero11")
+		Case 12
+			GUICtrlSetData($ComboHero, "Hero12")
+	EndSwitch
+
 	Switch $TypeDeGrabList
 		Case 1
 			GUICtrlSetData($ComboGrablist, "Tourment")
@@ -487,6 +514,33 @@ Func RecupDonneesSettings()
 			$PuisMonstre = 5
 		Case "Tourment6"
 			$PuisMonstre = 6
+	EndSwitch
+	Local $ValComboHero = GUICtrlRead($ComboHero)
+	Switch $ValComboHero
+		Case "Hero1"
+			$Hero = 1
+		Case "Hero2"
+			$Hero = 2
+		Case "Hero3"
+			$Hero = 3
+		Case "Hero4"
+			$Hero = 4
+		Case "Hero5"
+			$Hero = 5
+		Case "Hero6"
+			$Hero = 6
+		Case "Hero7"
+			$Hero = 7
+		Case "Hero8"
+			$Hero = 8
+		Case "Hero9"
+			$Hero = 9
+		Case "Hero10"
+			$Hero = 10
+		Case "Hero11"
+			$Hero = 11
+		Case "Hero12"
+			$Hero = 12
 	EndSwitch
 	Local $ValComboGrab =  GUICtrlRead($ComboGrablist)
 	Switch $ValComboGrab

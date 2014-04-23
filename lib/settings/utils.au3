@@ -294,20 +294,42 @@ EndFunc;==>SupprimerProfil
 ;;Fonction permettant d'éditer un profil
 Func EditProfil($Profil)
 
-	Local $SettingsEdit = $DossierProfilsModif & "settings\settings_" & $Profil
-	Local $SettingsHeroEdit = $DossierProfilsModif & "settings\settingshero_" & $Profil
-	LoadConfigs($SettingsEdit)
-	LoadConfigsHero($SettingsHeroEdit)
-	EditSettings($Profil)
+	Switch $VersionUtilisee
+		Case "Modif"
+
+			Local $SettingsEdit = $DossierProfilsModif & "settings\settings_" & $Profil
+			Local $SettingsHeroEdit = $DossierProfilsModif & "settings\settingshero_" & $Profil
+			LoadConfigs($SettingsEdit)
+			LoadConfigsHero($SettingsHeroEdit)
+			EditSettings($Profil)
+
+		Case "Originale"
+
+			Local $SettingsEdit = $DossierProfilsOriginale & "settings\settings_" & $Profil
+			LoadSettings($SettingsEdit)
+			;EditSettingsOri($SettingsEdit) à coder
+	EndSwitch
+
+
 
 EndFunc;==>EditProfil
 
 Func EnregistProfil($Profil)
 
-	Local $SettingsLu = $DossierProfilsModif & "settings\settings_" & $Profil
-	Local $SettingsHeroLu = $DossierProfilsModif & "settings\settingshero_" & $Profil
-	SaveConfigs($SettingsLu)
-	SaveConfigsHero($SettingsHeroLu)
+	Switch $VersionUtilisee
+		Case "Modif"
+
+			Local $SettingsLu = $DossierProfilsModif & "settings\settings_" & $Profil
+			Local $SettingsHeroLu = $DossierProfilsModif & "settings\settingshero_" & $Profil
+			SaveConfigs($SettingsLu)
+			SaveConfigsHero($SettingsHeroLu)
+
+		Case "Originale"
+
+			Local $SettingsLu = $DossierProfilsOriginale & "settings\settings_" & $Profil
+			SaveSettings($SettingsLu)
+
+	EndSwitch
 
 EndFunc;==>EnregistProfil
 
@@ -318,13 +340,15 @@ Func ChargeProfil($Profil)
 		Case "Modif"
 			Local $SettingsCharger = $DossierProfilsModif & "settings\settings_" & $Profil
 			Local $SettingsHeroCharger = $DossierProfilsModif & "settings\settingshero_" & $Profil
+			$Hero = IniRead($SettingsCharger, "Run info", "Heros", "")
+			Local $HeroCharge = $DossierSettingsIni & "settingsHero" & $Hero & ".ini"
 			FileCopy($SettingsCharger, $DossierSettingsIni & "settings.ini",9)
-			FileCopy($SettingsHeroCharger, $DossierSettingsIni & "settingsHero1.ini",9)
+			FileCopy($SettingsHeroCharger, $HeroCharge,9)
 		Case "Originale"
 			Local $SettingsCharger = $DossierProfilsOriginale & "settings\settings_" & $Profil
 			FileCopy($SettingsCharger, @ScriptDir & "settings.ini",9)
 	EndSwitch
-	MsgBox( 0, "", "Profil chargé !", 3)
+	MsgBox( 0, "", "Profil " & $Profil & " chargé !", 3)
 
 EndFunc;==>ChargeProfil
 
