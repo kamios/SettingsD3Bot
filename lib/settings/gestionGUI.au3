@@ -614,6 +614,8 @@ Func RecupDonneesSettings()
 			$ChoixActRun = 442
 	EndSwitch
 
+	$BountyAct = GUICtrlRead($InputBountyAct)
+
 	If IsChecked($CheckboxNoAdventure) Then
 		$NoBountyFailbackToAdventure = "True"
 	Else
