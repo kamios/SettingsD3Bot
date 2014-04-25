@@ -26,7 +26,7 @@
 _Singleton(@ScriptName, 0)
 
 AjoutLog("----------------------------------------------------------------------------")
-AjoutLog("Démarrage de Settings Arreat Core (version " & $Version & ")")
+AjoutLog("		Démarrage de Settings D3BOT (version " & $Version & ")")
 AjoutLog("----------------------------------------------------------------------------")
 AjoutLog($VersionAutoIT)
 
@@ -42,7 +42,7 @@ If FileExists($DossierProfils) = 0 or FileExists($DossierLogs) = 0 or FileExists
 	or FileExists($DossierProfilsOriginale & "settings\") = 0 or FileExists($DossierProfilsOriginale & "settings\") = 0 Then
 	DossierAcreer()
 Else
-	AjoutLog("Dossiers builds, profils et logs : OK")
+	AjoutLog("Dossiers Profils et Logs : OK")
 EndIf
 
 ;;on lit SettingsArreatCore.ini
@@ -58,15 +58,6 @@ Switch $VersionUtilisee
 		GUISetState(@SW_SHOW, $MainForm)
 		ListerProfils($DossierProfilsModif)
 EndSwitch
-
-;;On grise le mode avancé
-GUICtrlSetState($CheckBoxModeAvance, $GUI_DISABLE)
-;;On récupère la taille et position de l'interface
-$Pos = WinGetPos($MainForm)
-;;On fixe la taille de l'interface au démarrage
-WinMove($MainForm,"",Default, Default, 623,331)
-
-WinSetOnTop($MainForm,"",0)
 
 LectureOptions();Lecture options pour le menu
 RempliOptions();On répercute les valeurs (VersionUtilisee, Devmode et D3PrefsBot)
@@ -220,18 +211,6 @@ $nMsg = GUIGetMsg()
 				ListerProfils($DossierProfilsModif)
 			EndIf
 			IniWrite($OptionsIni, "Infos", "VersionUtilisee", $VersionUtilisee)
-
-		Case $ListviewProfils
-
-		Case $CheckBoxModeAvance
-
-			If IsChecked($CheckBoxModeAvance) Then
-				WinMove($MainForm,"",Default, Default, 623,561)
-				GUICtrlSetState($tab, $GUI_SHOW)
-			Else
-				WinMove($MainForm,"",Default, Default, 623,331)
-				GUICtrlSetState($tab, $GUI_HIDE)
-			EndIf
 
 	EndSwitch
 WEnd

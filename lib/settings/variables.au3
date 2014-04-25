@@ -104,6 +104,7 @@ Global $SequenceFileAct442 = ""
 Global $SequenceFileAdventure = ""
 Global $BountyAct = ""
 Global $NoBountyFailbackToAdventure = ""
+Global $EndSequenceOnBountyCompletion = ""
 
 Global $SequenceFile = ""
 
@@ -185,6 +186,7 @@ Global $PotionStock = ""
 Global $LifeForHealth = ""
 Global $NbPotionBuy = ""
 Global $TakeGlobeInFight = ""
+Global $NoEnergyForDecor = ""
 
 Global $TakeShrines = ""
 Global $repairafterxxgames = ""

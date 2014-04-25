@@ -2,10 +2,7 @@
 
 #NoTrayIcon
 
-Global $MainForm = GUICreate("Settings D3BOT",617,541,-1,-1,-1,-1)
-
-;;On créé la Tab Options
-;TabOptions()
+Global $MainForm = GUICreate("Settings D3BOT",617,305,-1,-1,-1,-1)
 GUISetIcon(@ScriptDir & "\lib\ico\icon.ico")
 
 ;;Menu
@@ -42,28 +39,10 @@ Global $ListviewProfils = GUICtrlCreatelistview("",10,20,430,225,-1,512)
 GUICtrlSetResizing(-1,  $GUI_DOCKALL)
 Global $ImageLogo = GUICtrlCreatePic(@ScriptDir & "\lib\images\logo.jpg",455,10,156,156,-1,-1)
 GUICtrlSetResizing(-1,  $GUI_DOCKALL)
-Global $CheckBoxModeAvance = GUICtrlCreateCheckbox("Mode avancé",460,180,150,20,-1,-1)
-GUICtrlSetResizing(-1,  $GUI_DOCKALL)
 _GUICtrlListView_InsertColumn($ListviewProfils, 0, "Profil", 100)
 _GUICtrlListView_InsertColumn($ListviewProfils, 1, "Nom du perso", 100)
 _GUICtrlListView_InsertColumn($ListviewProfils, 2, "Build", 226)
 ;; Fin Groupe Profils
-
-
-Func TabOptions()
-	Global $tab = GUICtrlCreatetab(10,300,600,211,-1,-1)
-	GuiCtrlSetState(-1,2048)
-	GUICtrlCreateTabItem("Options")
-	GUICtrlCreateTabItem("")
-	GUICtrlCreateTabItem("Logs")
-	GUICtrlCreateInput("Texte",20,329,478,172,-1,512)
-	GUICtrlCreateButton("Effacer",502,471,100,22,-1,-1)
-	GUICtrlCreateButton("Exporter",502,438,100,22,-1,-1)
-	GUICtrlCreateTabItem("")
-
-	;On cache le TabItem
-	GUICtrlSetState($tab, $GUI_HIDE)
-EndFunc
 
 Func ChoixVersion()
 
@@ -458,6 +437,7 @@ Func EditSettings($ProfilSel)
 	Global $InputSpecialmonterList = GUICtrlCreateInput("",149,218,532,20,-1,512)
 	Global $InputPriorityMonsterList = GUICtrlCreateInput("",149,170,532,20,-1,512)
 	Global $InputMonsterList = GUICtrlCreateInput("",149,194,532,20,-1,512)
+	Global $ChekboxEndSequence = GUICtrlCreateCheckbox("Quitter la séquence quand la prime est validée",22,117,255,21,-1,-1)
 	GUISwitch($settings,_GUICtrlTab_SetCurFocus($tab,2)&GUICtrlRead ($tab, 1))
 	Global $InputSequenceAct2 = GUICtrlCreateInput("",129,59,552,18,-1,512)
 	Global $InputSequenceAct1 = GUICtrlCreateInput("",129,37,552,18,-1,512)
@@ -728,6 +708,7 @@ Func EditSettings($ProfilSel)
 	GUICtrlSetBkColor(-1,"-2")
 	GUICtrlCreateLabel("Distance :",548,196,50,15,-1,-1)
 	GUICtrlSetBkColor(-1,"-2")
+	Global $CheckboxNoEnergyForDecor = GUICtrlCreateCheckbox("Le bot n'utilisera pas de sort a énergie pour casser les éléments du décor",22,290,370,20,-1,-1)
 	GUISwitch($settings,_GUICtrlTab_SetCurFocus($tab,1)&GUICtrlRead ($tab, 1))
 	Global $CheckboxNoAdventure = GUICtrlCreateCheckbox("Pas de Prime : Séquence Aventure",22,95,201,20,-1,-1)
 	GUISwitch($settings,_GUICtrlTab_SetCurFocus($tab,4)&GUICtrlRead ($tab, 1))

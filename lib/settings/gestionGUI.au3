@@ -206,6 +206,11 @@ Func RemplirSettings()
 	Else
 		GUICtrlSetState($CheckboxNoAdventure ,$GUI_UNCHECKED)
 	EndIf
+	If $EndSequenceOnBountyCompletion = "True" Then
+		GUICtrlSetState($ChekboxEndSequence ,$GUI_CHECKED)
+	Else
+		GUICtrlSetState($ChekboxEndSequence ,$GUI_UNCHECKED)
+	EndIf
 
 ;###########################################
 ;Onglet Routines
@@ -219,6 +224,11 @@ Func RemplirSettings()
 		GUICtrlSetState($CheckboxTakeGlobeInFight ,$GUI_CHECKED)
 	Else
 		GUICtrlSetState($CheckboxTakeGlobeInFight ,$GUI_UNCHECKED)
+	EndIf
+	If $NoEnergyForDecor = "True" Then
+		GUICtrlSetState($CheckboxNoEnergyForDecor  ,$GUI_CHECKED)
+	Else
+		GUICtrlSetState($CheckboxNoEnergyForDecor ,$GUI_UNCHECKED)
 	EndIf
 	If $TakeShrines = "True" Then
 		GUICtrlSetState($CheckboxTakeShrines ,$GUI_CHECKED)
@@ -609,6 +619,11 @@ Func RecupDonneesSettings()
 	Else
 		$NoBountyFailbackToAdventure = "False"
 	EndIf
+	If IsChecked($ChekboxEndSequence) Then
+		$EndSequenceOnBountyCompletion = "True"
+	Else
+		$EndSequenceOnBountyCompletion = "False"
+	EndIf
 
 	If IsChecked($CheckboxSequencesAlea) Then
 		$SequenceAleatoire = "True"
@@ -765,6 +780,11 @@ Func RecupDonneesSettings()
 		$TakeGlobeInFight = "True"
 	Else
 		$TakeGlobeInFight = "False"
+	EndIf
+	If IsChecked($CheckboxNoEnergyForDecor) Then
+		$NoEnergyForDecor = "True"
+	Else
+		$NoEnergyForDecor = "False"
 	EndIf
 	If IsChecked($CheckboxTakeShrines) Then
 		$TakeShrines = "True"
