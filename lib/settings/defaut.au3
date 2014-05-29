@@ -68,6 +68,10 @@ Func ValeurDefaut()
 	$SequenceFileAdventure = "act3_ADV-core_start_[1-5]|act3_ADV-tower_[1-5]|act3_ADV-field_[1-4]|[CMD]TakeWPAdv=26"
 	$BountyAct = "1|2|3"
 	$NoBountyFailbackToAdventure = "True"
+	;Début Cracoucas
+	$PauseAfterBounty = "False"
+	$BountyAndSequence = "False"
+	;Fin Cracoucas
 
 	$SequenceFile = "act3_ADV-core_start_[1-5]|act3_ADV-tower_[1-5]|act3_ADV-field_[1-4]|[CMD]TakeWPAdv=26"
 
@@ -115,6 +119,10 @@ Func ValeurDefaut()
 	$LifeLightning = 100
 
 	$UsePath = "True"
+	;Début Cracoucas
+	$LegendaryPotion = "False"
+	$AllIndestructibleObject = "False"
+	;Fin Cracoucas
 	$ResActivated = "True"
 	$ResLife = 3
 	$HCSecurity = "False"
