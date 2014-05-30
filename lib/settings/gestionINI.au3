@@ -62,7 +62,11 @@ Func LoadConfigs($FichierINI)
 
 	$SequenceFileAdventure = IniRead($FichierINI, "Run info", "SequenceFileAdventure", "")
 	$BountyAct = IniRead($FichierINI, "Run info", "BountyAct", "")
-	$NoBountyFailbackToAdventure = IniRead($FichierINI, "Run info", " NoBountyFailbackToAdventure", "")
+	;Début Cracoucas
+	$PauseAfterBounty = IniRead($FichierINI, "Run info", "PauseAfterBounty", "")
+	$BountyAndSequence = IniRead($FichierINI, "Run info", "BountyAndSequence", "")
+	;Fin Cracoucas
+	$NoBountyFailbackToAdventure = IniRead($FichierINI, "Run info", "NoBountyFailbackToAdventure", "")
 	$SequenceFile = IniRead($FichierINI, "Run info", "SequenceFile", "")
 	$EndSequenceOnBountyCompletion = IniRead($FichierINI, "Run info", "EndSequenceOnBountyCompletion", "")
 
@@ -174,6 +178,10 @@ Func LoadConfigsHero($FichierINI)
 	$LifeLightning = IniRead($FichierINI, "Run info", "Life_Lightning", "")
 
 	$UsePath = IniRead($FichierINI, "Run info", "UsePath", "")
+	;Début Cracoucas
+	$LegendaryPotion = IniRead($FichierINI, "Run info", "LegendaryPotion", "")
+	$AllIndestructibleObject = IniRead($FichierINI, "Run info", "AllIndestructibleObject", "")
+	;Fin Cracoucas
 	$ResActivated = IniRead($FichierINI, "Run info", "ResActivated", "")
 	$ResLife = IniRead($FichierINI, "Run info", "ResLife", "")
 	$HCSecurity = IniRead($FichierINI, "Run info", "HCSecurity", "")
@@ -291,6 +299,10 @@ Func LoadSettings($FichierINI)
 	$LifeLightning = IniRead($FichierINI, "Run info", "Life_Lightning", "")
 
 	$UsePath = IniRead($FichierINI, "Run info", "UsePath", "")
+	;Début Cracoucas
+	$LegendaryPotion = IniRead($FichierINI, "Run info", "LegendaryPotion", "")
+	$AllIndestructibleObject = IniRead($FichierINI, "Run info", "AllIndestructibleObject", "")
+	;Fin Cracoucas
 	$ResActivated = IniRead($FichierINI, "Run info", "ResActivated", "")
 	$ResLife = IniRead($FichierINI, "Run info", "ResLife", "")
 
@@ -408,6 +420,11 @@ Func SaveSettings($FichierINI)
 	IniWrite($FichierINI, "Run info","ResLife",$ResLife)
 	IniWrite($FichierINI, "Run info","ResActivated",$ResActivated)
 	IniWrite($FichierINI, "Run info","UsePath",$UsePath)
+	;Début Cracoucas
+	IniWrite($FichierINI, "Run info", "LegendaryPotion", $LegendaryPotion)
+	IniWrite($FichierINI, "Run info", "AllIndestructibleObject", $AllIndestructibleObject)
+	;Fin Cracoucas
+
 
 	AjoutLog("Enregistrement des modifs du fichier : " & $FichierINI)
 
@@ -475,6 +492,11 @@ Func SaveConfigs($FichierINI)
 	IniWrite($FichierINI, "Run info", "SequenceFile", $SequenceFile)
 	IniWrite($FichierINI, "Run info", "SequenceFileAdventure", $SequenceFileAdventure)
 	IniWrite($FichierINI, "Run info", "BountyAct", $BountyAct)
+	;Début Cracoucas
+	IniWrite($FichierINI, "Run info", "PauseAfterBounty", $PauseAfterBounty)
+	IniWrite($FichierINI, "Run info", "BountyAndSequence", $BountyAndSequence)
+	;Fin Cracoucas
+
 	IniWrite($FichierINI, "Run info", "NoBountyFailbackToAdventure", $NoBountyFailbackToAdventure)
 	IniWrite($FichierINI, "Run info", "EndSequenceOnBountyCompletion", $EndSequenceOnBountyCompletion)
 
@@ -546,6 +568,9 @@ Func SaveConfigsHero($FichierINI)
 	IniWrite($FichierINI, "Run info", "SpellDistance4", $SpellDistance4)
 
 	IniWrite($FichierINI, "Run info","LifeForPotion",$LifeForPotion)
+	;Début Cracoucas
+	IniWrite($FichierINI, "Run info", "LegendaryPotion", $LegendaryPotion)
+	;Fin Cracoucas
 	IniWrite($FichierINI, "Run info","PotionStock",$PotionStock)
 	IniWrite($FichierINI, "Run info","LifeForHealth",$LifeForHealth)
 	IniWrite($FichierINI, "Run info","NbPotionBuy",$NbPotionBuy)
@@ -554,6 +579,9 @@ Func SaveConfigsHero($FichierINI)
 
 	IniWrite($FichierINI, "Run info","TakeShrines",$TakeShrines)
 	IniWrite($FichierINI, "Run info","repairafterxxgames",$repairafterxxgames)
+	;Début Cracoucas
+	IniWrite($FichierINI, "Run info", "AllIndestructibleObject", $AllIndestructibleObject)
+	;Fin Cracoucas
 	IniWrite($FichierINI, "Run info","maxgamelength",$maxgamelength)
 	IniWrite($FichierINI, "Run info","attackRange",$attackRange)
 	IniWrite($FichierINI, "Run info","grabRange",$grabRange)

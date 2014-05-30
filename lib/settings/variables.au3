@@ -104,6 +104,10 @@ Global $SequenceFileAct442 = ""
 Global $SequenceFileAdventure = ""
 Global $BountyAct = ""
 Global $NoBountyFailbackToAdventure = ""
+;Début Cracoucas
+Global $PauseAfterBounty =""
+Global $BountyAndSequence = ""
+;Fin Cracoucas
 Global $EndSequenceOnBountyCompletion = ""
 
 Global $SequenceFile = ""
@@ -222,6 +226,10 @@ Global $LifeSpore = ""
 Global $LifeLightning = ""
 
 Global $UsePath = ""
+;Début Cracoucas
+$LegendaryPotion = ""
+$AllIndestructibleObject = ""
+;Fin Cracoucas
 Global $ResActivated = ""
 Global $ResLife = ""
 Global $HCSecurity = ""

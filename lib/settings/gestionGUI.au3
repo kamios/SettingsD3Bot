@@ -205,7 +205,19 @@ Func RemplirSettings()
 		GUICtrlSetState($CheckboxNoAdventure ,$GUI_CHECKED)
 	Else
 		GUICtrlSetState($CheckboxNoAdventure ,$GUI_UNCHECKED)
-	EndIf
+    EndIf
+	;Début Cracoucas
+	If $PauseAfterBounty  = "True" Then
+		GUICtrlSetState($CheckboxPauseAfterBounty  ,$GUI_CHECKED)
+	Else
+		GUICtrlSetState($CheckboxPauseAfterBounty  ,$GUI_UNCHECKED)
+    EndIf
+	If $BountyAndSequence = "True" Then
+		GUICtrlSetState($CheckboxBountyAndSequence ,$GUI_CHECKED)
+	Else
+		GUICtrlSetState($CheckboxBountyAndSequence ,$GUI_UNCHECKED)
+    EndIf
+	;Fin Cracoucas
 	If $EndSequenceOnBountyCompletion = "True" Then
 		GUICtrlSetState($ChekboxEndSequence ,$GUI_CHECKED)
 	Else
@@ -298,7 +310,19 @@ Func RemplirSettings()
 		GUICtrlSetState($CheckboxUsePath ,$GUI_CHECKED)
 	Else
 		GUICtrlSetState($CheckboxUsePath ,$GUI_UNCHECKED)
-	EndIf
+    EndIf
+	;Début Cracoucas
+	If $LegendaryPotion = "True" Then
+		GUICtrlSetState($CheckboxLegendaryPotion ,$GUI_CHECKED)
+	Else
+		GUICtrlSetState($CheckboxLegendaryPotion ,$GUI_UNCHECKED)
+    EndIf
+	If $AllIndestructibleObject = "True" Then
+		GUICtrlSetState($CheckboxAllIndestructibleObject ,$GUI_CHECKED)
+	Else
+		GUICtrlSetState($CheckboxAllIndestructibleObject ,$GUI_UNCHECKED)
+    EndIf
+	; Fin Cracoucas
 	If $ResActivated = "True" Then
 		GUICtrlSetState($CheckboxResActivated ,$GUI_CHECKED)
 	Else
@@ -620,7 +644,20 @@ Func RecupDonneesSettings()
 		$NoBountyFailbackToAdventure = "True"
 	Else
 		$NoBountyFailbackToAdventure = "False"
-	EndIf
+    EndIf
+	;Début Cracoucas
+	If IsChecked($CheckboxBountyAndSequence) Then
+		$BountyAndSequence = "True"
+	Else
+		$BountyAndSequence = "False"
+    EndIf
+	If IsChecked($CheckboxPauseAfterBounty) Then
+		$PauseAfterBounty = "True"
+	Else
+		$PauseAfterBounty = "False"
+    EndIf
+
+    ;Fin Cracoucas
 	If IsChecked($ChekboxEndSequence) Then
 		$EndSequenceOnBountyCompletion = "True"
 	Else
@@ -862,7 +899,19 @@ Func RecupDonneesSettings()
 		$UsePath = "True"
 	Else
 		$UsePath = "False"
-	EndIf
+    EndIf
+	;Début Cracoucas
+	If IsChecked($CheckBoxLegendaryPotion) Then
+		$LegendaryPotion = "True"
+	Else
+		$LegendaryPotion = "False"
+    EndIf
+	If IsChecked($CheckBoxAllIndestructibleObject) Then
+		$AllIndestructibleObject = "True"
+	Else
+		$AllIndestructibleObject = "False"
+	 EndIf
+	 ;Fin Cracoucas
 	$ResLife = GUICtrlRead($InputResLife)
 	If IsChecked($CheckboxSecuHC) Then
 		$HCSecurity = "True"
