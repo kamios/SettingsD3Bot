@@ -10,6 +10,7 @@ Func RemplirSettings()
 	GUICtrlSetData($InputInventory,$Inventory)
 	GUICtrlSetData($InputPotions,$Potions)
 	GUICtrlSetData($InputPortal,$Portal)
+	GUICtrlSetData($InputOpenMap,$OpenMap)
 	GUICtrlSetData($Inputkey1,$key1)
 	GUICtrlSetData($Inputkey2,$key2)
 	GUICtrlSetData($Inputkey3,$key3)
@@ -115,6 +116,12 @@ Func RemplirSettings()
 			GUICtrlSetData($ComboHero, "Hero11")
 		Case 12
 			GUICtrlSetData($ComboHero, "Hero12")
+		Case 13
+			GUICtrlSetData($ComboHero, "Hero13")
+		Case 14
+			GUICtrlSetData($ComboHero, "Hero14")
+		Case 15
+			GUICtrlSetData($ComboHero, "Hero15")
 	EndSwitch
 
 	Switch $TypeDeGrabList
@@ -472,6 +479,7 @@ Func RecupDonneesSettings()
 	$Inventory = GUICtrlRead($InputInventory)
 	$Potions = GUICtrlRead($InputPotions)
 	$Portal = GUICtrlRead($InputPortal)
+	$OpenMap = GUICtrlRead($InputOpenMap)
 	$key1 = GUICtrlRead($Inputkey1)
 	$key2 = GUICtrlRead($Inputkey2)
 	$key3 = GUICtrlRead($Inputkey3)
@@ -575,6 +583,12 @@ Func RecupDonneesSettings()
 			$Hero = 11
 		Case "Hero12"
 			$Hero = 12
+		Case "Hero13"
+			$Hero = 13
+		Case "Hero14"
+			$Hero = 14
+		Case "Hero15"
+			$Hero = 15
 	EndSwitch
 	Local $ValComboGrab =  GUICtrlRead($ComboGrablist)
 	Switch $ValComboGrab

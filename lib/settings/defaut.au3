@@ -7,6 +7,7 @@ Func ValeurDefaut()
 	$Inventory = "i"
 	$Potions = "q"
 	$Portal = "t"
+	$OpenMap = "m"
 	$key1 = "&"
 	$key2 = "é"
 	$key3 = '"'
