@@ -6,16 +6,13 @@ Global $Icon = @ScriptDir & "\lib\ico\icon.ico"
 Global $VersionAutoIT = "Version d'AutoIT : " & @AutoItVersion
 
 Global $DossierProfils = @ScriptDir & "\settings\profils\"
-Global $DossierProfilsOriginale = @ScriptDir & "\settings\profils\originale\"
-Global $DossierProfilsModif = @ScriptDir & "\settings\profils\modif\"
-Global $DossierProfilsSettings = @ScriptDir & "\settings\profils\settings\"
+Global $DossierProfilsModif = @ScriptDir & "\settings\profils\"
 Global $DossierProfilsSettingsDefaut = @ScriptDir & "\lib\settings\Defaut\"
 
 Global $D3PrefsNormal = $DossierProfilsSettingsDefaut & "D3Prefs_Normal.txt"
 Global $D3PrefsD3 = @UserProfileDir & "\Documents\Diablo III\D3Prefs.txt"
 Global $D3PrefsPourBot = $DossierProfilsSettingsDefaut & "D3Prefs_Bot.txt"
 
-Global $FichierSettingsOriginaleDefaut = $DossierProfilsSettingsDefaut & "settings.ini"
 Global $FichierSettingsDefaut = $DossierProfilsSettingsDefaut & "settings_defaut.ini"
 Global $FichierSettingsHeroDefaut = $DossierProfilsSettingsDefaut & "settingshero_Defaut.ini"
 
@@ -29,9 +26,7 @@ Global $SettingsHeroIni = @ScriptDir& "\settings\settingsHero1.ini"
 
 Global $RadioSelect = ""
 Global $RadioPreced = ""
-Global $ProfilSel = ""
-Global $VersionUtilisee = ""
-Global $Version = "2.0"
+Global $Version = "2.1"
 
 ;Variables settings.ini
 Global $PassD3 = ""

@@ -5,9 +5,7 @@ Func DossierAcreer()
 
 	If FileExists($DossierProfils) = 0 then DirCreate($DossierProfils)
 	If FileExists($DossierProfilsModif) = 0 then DirCreate($DossierProfilsModif)
-	If FileExists($DossierProfilsOriginale) = 0 then DirCreate($DossierProfilsOriginale)
 	If FileExists($DossierProfilsModif & "settings\") = 0 then DirCreate($DossierProfilsModif & "settings\")
-	If FileExists($DossierProfilsOriginale & "settings\") = 0 then DirCreate($DossierProfilsOriginale & "settings\")
 	If FileExists($DossierLogs) = 0 then DirCreate($DossierLogs)
 	AjoutLog("Création des dossiers profils, builds et logs")
 
@@ -24,14 +22,8 @@ Func ListerProfils($CheminDuDossier)
 
 		If $array[1] > 0 Then
 			For $i=1 to $listeFichiers[0]
-				Switch $VersionUtilisee
-					Case "Modif"
-						$NomPerso = IniRead($DossierProfilsModif & $listeFichiers[$i], "Info", "NomPerso", "inconnu")
-						$Build = IniRead($DossierProfilsModif & $listeFichiers[$i], "Info", "Build", "inconnu")
-					Case "Originale"
-						$NomPerso = IniRead($DossierProfilsOriginale & $listeFichiers[$i], "Info", "NomPerso", "inconnu")
-						$Build = IniRead($DossierProfilsOriginale & $listeFichiers[$i], "Info", "Build", "inconnu")
-				EndSwitch
+				$NomPerso = IniRead($DossierProfilsModif & $listeFichiers[$i], "Info", "NomPerso", "inconnu")
+				$Build = IniRead($DossierProfilsModif & $listeFichiers[$i], "Info", "Build", "inconnu")
 				GUICtrlCreateListViewItem($listeFichiers[$i] & "|" & $NomPerso & "|" & $Build,$ListviewProfils)
 			Next
 			AjoutLog("Listage des profils")
@@ -273,13 +265,10 @@ Func SupprimerProfil($CheminDuDossier)
 
 		If $Confirm = 6 Then ;test la réponse du MsgBox
 				FileDelete($CheminDuDossier & $ProfilSupp)
-				Switch $VersionUtilisee
-					Case "Modif"
-						FileDelete($DossierProfilsModif & "settings\settings_" & $ProfilSupp)
-						FileDelete($DossierProfilsModif & "settings\settingshero_" & $ProfilSupp)
-					Case "Originale"
-						FileDelete($DossierProfilsOriginale & "settings\settings_" & $ProfilSupp)
-				EndSwitch
+
+				FileDelete($DossierProfilsModif & "settings\settings_" & $ProfilSupp)
+				FileDelete($DossierProfilsModif & "settings\settingshero_" & $ProfilSupp)
+
 				AjoutLog("On supprime le profil : " & $ProfilSupp)
 		Else
 				GUIDelete($confirm)
@@ -294,60 +283,33 @@ EndFunc;==>SupprimerProfil
 ;;Fonction permettant d'éditer un profil
 Func EditProfil($Profil)
 
-	Switch $VersionUtilisee
-		Case "Modif"
-
-			Local $SettingsEdit = $DossierProfilsModif & "settings\settings_" & $Profil
-			Local $SettingsHeroEdit = $DossierProfilsModif & "settings\settingshero_" & $Profil
-			LoadConfigs($SettingsEdit)
-			LoadConfigsHero($SettingsHeroEdit)
-			EditSettings($Profil)
-
-		Case "Originale"
-
-			Local $SettingsEdit = $DossierProfilsOriginale & "settings\settings_" & $Profil
-			LoadSettings($SettingsEdit)
-			;EditSettingsOri($SettingsEdit) à coder
-	EndSwitch
-
-
+	Local $SettingsEdit = $DossierProfilsModif & "settings\settings_" & $Profil
+	Local $SettingsHeroEdit = $DossierProfilsModif & "settings\settingshero_" & $Profil
+	LoadConfigs($SettingsEdit)
+	LoadConfigsHero($SettingsHeroEdit)
+	EditSettings($Profil)
 
 EndFunc;==>EditProfil
 
 Func EnregistProfil($Profil)
 
-	Switch $VersionUtilisee
-		Case "Modif"
-
-			Local $SettingsLu = $DossierProfilsModif & "settings\settings_" & $Profil
-			Local $SettingsHeroLu = $DossierProfilsModif & "settings\settingshero_" & $Profil
-			SaveConfigs($SettingsLu)
-			SaveConfigsHero($SettingsHeroLu)
-
-		Case "Originale"
-
-			Local $SettingsLu = $DossierProfilsOriginale & "settings\settings_" & $Profil
-			SaveSettings($SettingsLu)
-
-	EndSwitch
+	Local $SettingsLu = $DossierProfilsModif & "settings\settings_" & $Profil
+	Local $SettingsHeroLu = $DossierProfilsModif & "settings\settingshero_" & $Profil
+	SaveConfigs($SettingsLu)
+	SaveConfigsHero($SettingsHeroLu)
 
 EndFunc;==>EnregistProfil
 
 ;;Fonction permettant de charger un profil
 Func ChargeProfil($Profil)
 
-	Switch $VersionUtilisee
-		Case "Modif"
-			Local $SettingsCharger = $DossierProfilsModif & "settings\settings_" & $Profil
-			Local $SettingsHeroCharger = $DossierProfilsModif & "settings\settingshero_" & $Profil
-			$Hero = IniRead($SettingsCharger, "Run info", "Heros", "")
-			Local $HeroCharge = $DossierSettingsIni & "settingsHero" & $Hero & ".ini"
-			FileCopy($SettingsCharger, $DossierSettingsIni & "settings.ini",9)
-			FileCopy($SettingsHeroCharger, $HeroCharge,9)
-		Case "Originale"
-			Local $SettingsCharger = $DossierProfilsOriginale & "settings\settings_" & $Profil
-			FileCopy($SettingsCharger, @ScriptDir & "settings.ini",9)
-	EndSwitch
+	Local $SettingsCharger = $DossierProfilsModif & "settings\settings_" & $Profil
+	Local $SettingsHeroCharger = $DossierProfilsModif & "settings\settingshero_" & $Profil
+	$Hero = IniRead($SettingsCharger, "Run info", "Heros", "")
+	Local $HeroCharge = $DossierSettingsIni & "settingsHero" & $Hero & ".ini"
+	FileCopy($SettingsCharger, $DossierSettingsIni & "settings.ini",9)
+	FileCopy($SettingsHeroCharger, $HeroCharge,9)
+
 	MsgBox( 0, "", "Profil " & $Profil & " chargé !", 3)
 
 EndFunc;==>ChargeProfil
@@ -364,20 +326,16 @@ Func CreationProfil($CheminDuDossier)
 	Else
 		Local $FichierProfil = $CheminDuDossier & $NomProfil & ".ini"
 		_FileCreate($FichierProfil)
-		Switch $VersionUtilisee
-			Case "Modif"
-				Local $FichierSettingsModif = "settings_" & $NomProfil & ".ini"
-				Local $FichierSettingsHeroModif = "settingshero_" & $NomProfil & ".ini"
-				ListerProfils($DossierProfilsModif)
-				FileCopy($FichierSettingsDefaut, $DossierProfilsModif & "settings\" & $FichierSettingsModif)
-				FileCopy($FichierSettingsHeroDefaut, $DossierProfilsModif & "settings\" & $FichierSettingsHeroModif)
-			Case "Originale"
-				Local $FichierSettingsOriginale = "settings_" & $NomProfil & ".ini"
-				ListerProfils($DossierProfilsOriginale)
-				FileCopy($FichierSettingsOriginaleDefaut, $DossierProfilsOriginale & "settings\" & $FichierSettingsOriginale)
-		EndSwitch
-				IniWrite($FichierProfil, "Info", "NomPerso", $NomPerso)
-				IniWrite($FichierProfil, "Info", "Build", $Build)
+
+		Local $FichierSettingsModif = "settings_" & $NomProfil & ".ini"
+		Local $FichierSettingsHeroModif = "settingshero_" & $NomProfil & ".ini"
+		ListerProfils($DossierProfilsModif)
+		FileCopy($FichierSettingsDefaut, $DossierProfilsModif & "settings\" & $FichierSettingsModif)
+		FileCopy($FichierSettingsHeroDefaut, $DossierProfilsModif & "settings\" & $FichierSettingsHeroModif)
+
+		IniWrite($FichierProfil, "Info", "NomPerso", $NomPerso)
+		IniWrite($FichierProfil, "Info", "Build", $Build)
+
 		AjoutLog("Création d'un nouveau profil : " & $NomProfil)
 	EndIf
 
@@ -431,12 +389,7 @@ EndFunc;==>ParseFichierStats
 ;;Lecture du fichier grablist
 Func LectureGrablist()
 
-	If $VersionUtilisee = "Originale" Then
-		Local $fichier = @ScriptDir & "\" & GUICtrlRead($ComboLectureGrablist)
-	Else
-		Local $fichier = $DossierGrab & GUICtrlRead($ComboLectureGrablist)
-	EndIf
-
+	Local $fichier = $DossierGrab & GUICtrlRead($ComboLectureGrablist)
 	$nbr_lignes = _FileCountLines($fichier)
 	$fp = FileOpen($fichier, 0)
 
@@ -454,11 +407,7 @@ EndFunc;==>LectureGrablist
 ;;Modification de la grablist
 Func CreerFichier()
 
-	If $VersionUtilisee = "Originale" Then
-		Local $fichier = @ScriptDir & "\" & GUICtrlRead($ComboLectureGrablist)
-	Else
-		Local $fichier = $DossierGrab & GUICtrlRead($ComboLectureGrablist)
-	EndIf
+	Local $fichier = $DossierGrab & GUICtrlRead($ComboLectureGrablist)
 
 	Local $hFile = FileOpen($fichier, 2)
 	Local $GrabModif = GUICtrlRead($EditGrablists)

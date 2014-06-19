@@ -940,7 +940,7 @@ EndFunc;==>RecupDonneesSettings
 
 Func RempliOptions()
 
-	If $D3PrefsBot = "true" Then
+	If $D3PrefsBot = "True" Then
 		GUICtrlSetState($CpuGpuItem ,$GUI_CHECKED)
 	Else
 		GUICtrlSetState($CpuGpuItem ,$GUI_UNCHECKED)
@@ -950,16 +950,16 @@ Func RempliOptions()
 		EndIf
 	EndIf
 
-	If $Devmode = "true" Then
+	If $Devmode = "True" Then
 		GUICtrlSetState($DevmodeItem ,$GUI_CHECKED)
 	Else
 		GUICtrlSetState($DevmodeItem ,$GUI_UNCHECKED)
 	EndIf
 
-	if $VersionUtilisee = "Modif" Then
-		GUICtrlSetState($VersionItem ,$GUI_CHECKED)
+	If $Debug = "True" Then
+		GUICtrlSetState($DebugItem ,$GUI_CHECKED)
 	Else
-		GUICtrlSetState($VersionItem ,$GUI_UNCHECKED)
+		GUICtrlSetState($DebugItem ,$GUI_UNCHECKED)
 	EndIf
 
 	AjoutLog("Remplissage des options : " & $OptionsIni)

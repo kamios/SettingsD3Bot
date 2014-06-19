@@ -628,29 +628,24 @@ EndFunc;==>SaveConfigsHero
 ;;Lecture des options de Settings Arreat Core
 Func LectureOptions()
 
-	If $VersionUtilisee = "Modif" Then
-		$Devmode = IniRead($SettingsIni, "Run info", "Devmode", "")
-		$Debug = IniRead($SettingsIni, "Run info", "debug", "")
 
-		Switch $Debug
-			Case 0
-				GUICtrlSetState($DebugItem, $GUI_UNCHECKED)
-			Case 1
-				GUICtrlSetState($DebugItem, $GUI_CHECKED)
-		EndSwitch
+	$Devmode = IniRead($SettingsIni, "Run info", "Devmode", "")
+	$Debug = IniRead($SettingsIni, "Run info", "Debug", "")
+
+	If $Debug = "True" Then
+		GUICtrlSetState($DebugItem, $GUI_UNCHECKED)
 	Else
-		GUICtrlSetState($DebugItem, $GUI_DISABLE);on desactive l'item , l'option n'existe pas dans la version originale
-		$Devmode = IniRead(@ScriptDir& "\settings.ini", "Run info", "Devmode", "")
+		GUICtrlSetState($DebugItem, $GUI_CHECKED)
 	EndIf
 
-	If $Devmode = "true" Then
+	If $Devmode = "True" Then
 		GUICtrlSetState($DevmodeItem, $GUI_CHECKED)
 	Else
 		GUICtrlSetState($DevmodeItem, $GUI_UNCHECKED)
 	EndIf
 
 	$D3PrefsBot = IniRead($OptionsIni, "Optimisations", "D3PrefsBot", "")
-	If $D3PrefsBot = "true" Then
+	If $D3PrefsBot = "True" Then
 		GUICtrlSetState($CpuGpuItem, $GUI_CHECKED)
 	Else
 		GUICtrlSetState($CpuGpuItem, $GUI_UNCHECKED)

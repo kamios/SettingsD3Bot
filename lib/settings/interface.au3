@@ -11,8 +11,8 @@ $LogsItem = GUICtrlCreateMenuItem("Afficher les logs", $OutilsMenu)
 $StatsItem = GUICtrlCreateMenuItem("Afficher les stats", $OutilsMenu)
 $GrablistsItem = GUICtrlCreateMenuItem("Afficher les grablists", $OutilsMenu)
 $OptionsMenu = GUICtrlCreateMenu("Options")
-$VersionItem = GUICtrlCreateMenuItem("Version modifiée", $OptionsMenu)
-GUICtrlCreateMenuitem("", $OptionsMenu)
+;$VersionItem = GUICtrlCreateMenuItem("Version modifiée", $OptionsMenu)
+;GUICtrlCreateMenuitem("", $OptionsMenu)
 $EnreD3PrefsItem = GUICtrlCreateMenuItem("Enregistrer le D3Prefs.txt", $OptionsMenu)
 $CpuGpuItem = GUICtrlCreateMenuItem("Cpu/gpu pour Bot", $OptionsMenu)
 GUICtrlCreateMenuitem("", $OptionsMenu)
@@ -178,11 +178,7 @@ Func Grablists()
 	GUISetIcon(@ScriptDir & "\lib\ico\icon.ico")
 	Global $EditGrablists = GUICtrlCreateEdit("",5,40,659,376,-1,-1)
 	Global $ComboLectureGrablist = GUICtrlCreateCombo("",80,10,150,21,-1,-1)
-	If $VersionUtilisee = "Originale" Then
-		GUICtrlSetData(-1,"grablist_file.txt")
-	Else
-		GUICtrlSetData(-1,"grabListTourment.txt|grabListTourmentXp.txt|grablistNormal.txt|grablistDifficile.txt|grablistExpert.txt|grablistCalvaire.txt|grablistXp.txt")
-	EndIf
+	GUICtrlSetData(-1,"grabListTourment.txt|grabListTourmentXp.txt|grablistNormal.txt|grablistDifficile.txt|grablistExpert.txt|grablistCalvaire.txt|grablistXp.txt")
 	GUICtrlCreateLabel("Grablists :",15,15,50,15,-1,-1)
 	GUICtrlSetFont(-1,8,400,4,"MS Sans Serif")
 	GUICtrlSetBkColor(-1,"-2")
@@ -1009,12 +1005,8 @@ Func CreerProfil()
 				ExitLoop
 
 			Case $CreerProfil
-				Switch $VersionUtilisee
-					Case "Modif"
-						CreationProfil($DossierProfilsModif)
-					Case "Originale"
-						CreationProfil($DossierProfilsOriginale)
-				EndSwitch
+
+				CreationProfil($DossierProfilsModif)
 				GUIDelete($CreationProfil)
 				AjoutLog("Fermeture de la fenêtre 'Créer un profil'")
 				ExitLoop

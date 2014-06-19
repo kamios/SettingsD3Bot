@@ -33,37 +33,22 @@ AjoutLog($VersionAutoIT)
 If FileExists($OptionsIni) = 0 Then ;on test si le fichier de config existe
 	_FileCreate($OptionsIni) ;sinon on le créé
 	;On met les valeurs par défaut pour la création du fichier
-	iniwrite($OptionsIni, "Infos","VersionUtilisee","")
 	iniwrite($OptionsIni, "Optimisations","D3PrefsBot","false")
 EndIf
 
 ;;Test pour savoir si les dossiers profils,builds et logs existent
-If FileExists($DossierProfils) = 0 or FileExists($DossierLogs) = 0 or FileExists($DossierProfilsModif) = 0 or FileExists($DossierProfilsOriginale) = 0 _
-	or FileExists($DossierProfilsOriginale & "settings\") = 0 or FileExists($DossierProfilsOriginale & "settings\") = 0 Then
+If FileExists($DossierProfils) = 0 or FileExists($DossierLogs) = 0 or FileExists($DossierProfilsModif) = 0 _
+	or FileExists($DossierProfilsModif & "settings\") = 0 Then
 	DossierAcreer()
 Else
 	AjoutLog("Dossiers Profils et Logs : OK")
 EndIf
 
-;;on lit SettingsArreatCore.ini
-$VersionUtilisee = IniRead($OptionsIni,"Infos","VersionUtilisee","")
-
-Switch $VersionUtilisee
-	Case "" ;on lance la fenêtre de choix de la version
-		ChoixVersion()
-	Case "Originale";;on liste dans "$ListProfils" tous les profils dispos du dossier 'Originale'
-		GUISetState(@SW_SHOW, $MainForm)
-		ListerProfils($DossierProfilsOriginale)
-	Case "Modif";;on liste dans "$ListProfils" tous les profils dispos du dossier 'Modif'
-		GUISetState(@SW_SHOW, $MainForm)
-		ListerProfils($DossierProfilsModif)
-EndSwitch
+GUISetState(@SW_SHOW, $MainForm)
+ListerProfils($DossierProfilsModif)
 
 LectureOptions();Lecture options pour le menu
-RempliOptions();On répercute les valeurs (VersionUtilisee, Devmode et D3PrefsBot)
-
-;;on désactive le menu pour modifier la version
-GUICtrlSetState($VersionItem ,$GUI_DISABLE)
+RempliOptions();On répercute les valeurs (Debug, Devmode et D3PrefsBot)
 
 While 1
 $nMsg = GUIGetMsg()
@@ -74,12 +59,7 @@ $nMsg = GUIGetMsg()
 		Case $AddProfil
 
 			CreerProfil()
-			Switch $VersionUtilisee
-				Case "Modif"
-					ListerProfils($DossierProfilsModif)
-				Case "Originale"
-					ListerProfils($DossierProfilsOriginale)
-			EndSwitch
+			ListerProfils($DossierProfilsModif)
 
 		Case $EditProfil
 
@@ -99,14 +79,8 @@ $nMsg = GUIGetMsg()
 
 		Case $DeleteProfil
 
-			Switch $VersionUtilisee
-				Case "Modif"
-					SupprimerProfil($DossierProfilsModif)
-					ListerProfils($DossierProfilsModif)
-				Case "Originale"
-					SupprimerProfil($DossierProfilsOriginale)
-					ListerProfils($DossierProfilsOriginale)
-			EndSwitch
+			SupprimerProfil($DossierProfilsModif)
+			ListerProfils($DossierProfilsModif)
 
 		Case $ChargerProfil
 
@@ -122,6 +96,9 @@ $nMsg = GUIGetMsg()
 
 			ControlListView ("Settings D3BOT", "", $ListviewProfils, "DeSelect", -1) ;Annule la selection de la listview
 			$selection = "" ;On vide la variable pour le prochian chargement
+
+			LectureOptions()
+			RempliOptions()
 
 		Case $LogsItem
 
@@ -165,52 +142,28 @@ $nMsg = GUIGetMsg()
 
 			If IsChecked($DevmodeItem) Then
                 GUICtrlSetState($DevmodeItem, $GUI_UNCHECKED)
-				$Devmode = "false"
+				$Devmode = "False"
 				AjoutLog("On désactive le Devmode")
 			Else
 				GUICtrlSetState($DevmodeItem, $GUI_CHECKED)
-				$Devmode = "true"
+				$Devmode = "True"
 				AjoutLog("On active le Devmode")
 			EndIf
-
-			If $VersionUtilisee = "Modif" Then
-				IniWrite($SettingsIni, "Run info", "Devmode", $Devmode)
-			Else
-				IniWrite(@ScriptDir& "\settings.ini", "Run info", "Devmode", $Devmode)
-			EndIf
+			IniWrite($SettingsIni, "Run info", "Devmode", $Devmode)
 
 		Case $DebugItem
 
 			If IsChecked($DebugItem) Then
                 GUICtrlSetState($DebugItem, $GUI_UNCHECKED)
-				$Debug = 0
+				$Debug = "False"
 				AjoutLog("On désactive le Debug (logs)")
 			Else
 				GUICtrlSetState($DebugItem, $GUI_CHECKED)
-				$Debug = 1
+				$Debug = "True"
 				AjoutLog("On active le Debug (logs)")
 			EndIf
+			IniWrite($SettingsIni, "Run info", "debug", $Debug)
 
-			If $VersionUtilisee = "Modif" Then
-				IniWrite($SettingsIni, "Run info", "debug", $Debug)
-			EndIf
-
-		Case $VersionItem
-
-			If IsChecked($VersionItem) Then
-                GUICtrlSetState($VersionItem, $GUI_UNCHECKED)
-				$VersionUtilisee = "Originale"
-				AjoutLog("Version utilisée : Origianle")
-				GUICtrlSetState($DebugItem, $GUI_DISABLE)
-				ListerProfils($DossierProfilsOriginale)
-			Else
-				GUICtrlSetState($VersionItem, $GUI_CHECKED)
-				$VersionUtilisee = "Modif"
-				AjoutLog("Version utilisée : Modifiée")
-				GUICtrlSetState($DebugItem, $GUI_ENABLE)
-				ListerProfils($DossierProfilsModif)
-			EndIf
-			IniWrite($OptionsIni, "Infos", "VersionUtilisee", $VersionUtilisee)
 
 	EndSwitch
 WEnd
