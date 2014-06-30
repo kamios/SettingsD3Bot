@@ -27,6 +27,8 @@ Global $SettingsHeroIni = @ScriptDir& "\settings\settingsHero1.ini"
 Global $RadioSelect = ""
 Global $RadioPreced = ""
 Global $Version = "2.1"
+Global $OSArch = @OSArch
+Global $Lang = ""
 
 ;Variables settings.ini
 Global $PassD3 = ""
@@ -63,6 +65,8 @@ Global $Unidentified = ""
 
 Global $TypeDeBot = ""
 Global $Follower = ""
+Global $ListHeros = ""
+Global $NbRunChangeHeros = ""
 Global $Hero = ""
 Global $difficulte = ""
 Global $PuisMonstre = ""

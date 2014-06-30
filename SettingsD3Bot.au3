@@ -30,10 +30,14 @@ AjoutLog("		Démarrage de Settings D3BOT (version " & $Version & ")")
 AjoutLog("----------------------------------------------------------------------------")
 AjoutLog($VersionAutoIT)
 
+;On récupère la langue utilisé sur le PC
+$Lang = DetectLang()
+
 If FileExists($OptionsIni) = 0 Then ;on test si le fichier de config existe
 	_FileCreate($OptionsIni) ;sinon on le créé
 	;On met les valeurs par défaut pour la création du fichier
 	iniwrite($OptionsIni, "Optimisations","D3PrefsBot","false")
+	iniwrite($OptionsIni, "Language","Lang",$Lang)
 EndIf
 
 ;;Test pour savoir si les dossiers profils,builds et logs existent

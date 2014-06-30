@@ -28,6 +28,8 @@ Func ValeurDefaut()
 	$TypeDeBot = 2
 	$Follower = "False"
 	$Heros = 1
+	$ListHeros = 1
+	$NbRunChangeHeros = 10
 	$difficulte = 5
 	$PuisMonstre = 1
 	$TypeDeGrabList = 1

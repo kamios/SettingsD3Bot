@@ -131,6 +131,9 @@ Func RemplirSettings()
 			GUICtrlSetData($ComboGrablist, "TourmentXp")
 	EndSwitch
 
+	GUICtrlSetData($InputListHeros,$ListHeros)
+	GUICtrlSetData($InputNbRunChangeHeros,$NbRunChangeHeros)
+
 	If $WaitForLoot = "True" Then
 		GUICtrlSetState($CheckboxWaitForLoot ,$GUI_CHECKED)
 	Else
@@ -597,6 +600,9 @@ Func RecupDonneesSettings()
 		Case "TourmentXp"
 			$TypeDeGrabList = 2
 	EndSwitch
+
+	$ListHeros = GUICtrlRead($InputListHeros)
+	$NbRunChangeHeros = GUICtrlRead($InputNbRunChangeHeros)
 
 	If IsChecked($CheckboxChaseElite) Then
 		$ChaseElite = "True"

@@ -1,4 +1,17 @@
-;fonctions.au3
+;utils.au3
+
+;Detecte la langue de l'OS
+Func DetectLang()
+	$OSlang = @OSLang
+	Switch $OSlang
+		Case "0409"
+			Return "English"
+		Case "040C"
+			Return "Français"
+		Case Else
+			Return "English"
+	EndSwitch
+EndFunc
 
 ;;Création de dossiers
 Func DossierAcreer()

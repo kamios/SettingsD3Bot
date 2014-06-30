@@ -363,7 +363,7 @@ Func EditSettings($ProfilSel)
 	GUICtrlSetData(-1,"Vendre|Recycler")
 	GUICtrlCreateLabel("Trash Sac :",287,255,77,15,-1,-1)
 	GUICtrlSetBkColor(-1,"-2")
-	GUICtrlCreateGroup("Gestion Games",465,69,192,169,-1,-1)
+	GUICtrlCreateGroup("Gestion Games",465,69,192,221,-1,-1)
 	GUICtrlSetBkColor(-1,"-2")
 	Global $ComboTypeBot = GUICtrlCreateCombo("",549,83,100,21,-1,-1)
 	GUICtrlSetData(-1,"Semi-Manuel|Auto|Manuel")
@@ -381,11 +381,18 @@ Func EditSettings($ProfilSel)
 	GUICtrlSetBkColor(-1,"-2")
 	Global $ComboGrablist = GUICtrlCreateCombo("",549,158,100,21,-1,-1)
 	GUICtrlSetData(-1,"Tourment|TourmentXp")
-	Global $CheckboxFollower = GUICtrlCreateCheckbox("Follower",473,211,150,20,-1,-1)
+	Global $CheckboxFollower = GUICtrlCreateCheckbox("Follower",473,262,150,20,-1,-1)
 	Global $ComboHero = GUICtrlCreateCombo("",549,183,100,21,-1,-1)
 	GUICtrlSetData(-1,"Hero1|Hero2|Hero3|Hero4|Hero5|Hero6|Hero7|Hero8|Hero9|Hero10|Hero11|Hero12|Hero13|Hero14|Hero15")
-	GUICtrlCreateLabel("Hero :",473,187,50,15,-1,-1)
+	Global $LblHero = GUICtrlCreateLabel("Fichier Hero :",473,187,75,15,-1,-1)
 	GUICtrlSetBkColor(-1,"-2")
+	GUICtrlCreateLabel("Liste Heros :",473,212,59,13,-1,-1)
+	GUICtrlSetBkColor(-1,"-2")
+	Global $InputListHeros = GUICtrlCreateInput("",549,208,100,21,-1,512)
+	Global $InputNbRunChangeHeros = GUICtrlCreateInput("",549,233,100,21,-1,512)
+	GUICtrlCreateLabel("Nb Runs :",473,237,59,13,-1,-1)
+	GUICtrlSetBkColor(-1,"-2")
+	GUICtrlSetTip(-1,"Nombre de runs avant changement de personnage")
 	Global $CheckboxChaseElite = GUICtrlCreateCheckbox("ChaseElite",18,242,89,22,-1,-1)
 	Global $CheckboxWaitForLoot = GUICtrlCreateCheckbox("WaitForLoot",116,242,89,22,-1,-1)
 ;---------------------------
@@ -809,12 +816,25 @@ EtatGriser()
 				MsgBox( 0, "", "Valeurs par défaut chargées !", 3)
 
 			Case $ButtonEnregistrerSettings
-				RecupDonneesSettings()
-				EnregistProfil($ProfilSel)
-				GUIDelete($settings)
-				AjoutLog("Fermeture de la fenêtre 'Edition de profil'")
-				MsgBox( 0, "", "Profil modifié !", 3)
-				ExitLoop
+
+				Local $ValComboHero = GUICtrlRead($ComboHero)
+				If $ValComboHero = "" Then
+					MsgBox( 48, "", "Attention aucun fichier Hero de sélectionné !")
+					GUICtrlSetBkColor($LblHero, 0xFF0000)
+				Else
+					RecupDonneesSettings()
+					EnregistProfil($ProfilSel)
+					GUIDelete($settings)
+					AjoutLog("Fermeture de la fenêtre 'Edition de profil'")
+					MsgBox( 0, "", "Profil modifié : " & $ProfilSel & "!", 3)
+					ExitLoop
+				EndIf
+			Case $ComboHero
+
+				Local $ValComboHero = GUICtrlRead($ComboHero)
+				If $ValComboHero <> "" Then
+ 					GUICtrlSetBkColor($LblHero, -1)
+				EndIf
 
 			Case $RadioTouche1
 				GestionTouches()

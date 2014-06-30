@@ -21,12 +21,11 @@ $RECYCLE.BIN/
 stats/*.txt
 log/*.txt
 settings/*.ini
-settings/profils/modif/*.ini
-settings/profils/modif/settings/*.ini
-settings/profils/originale/*.ini
-settings/profils/originale/settings/*.ini
+settings/profils/*.ini
+settings/profils/settings/*.ini
 lib/settings/*.ini
 grablist/
 settings.ini
 grablist_file.txt
 project.isn
+/.project
